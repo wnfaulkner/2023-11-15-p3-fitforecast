@@ -43,9 +43,18 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 
 ---
 ### **User Stories**
-- [ ] AAU, I want the ability to ....
+- [ ] AAU, I want the ability to sign-up and create a new profile that includes my location.
+- [ ] AAU, I want the ability to log-in with an email and password.
+- [ ] AAU, I want the ability to log-out.
+- [ ] AAU, I want the ability to edit my location.
+- [ ] AAU, I want the application to recommend a work-out based on my location's weather.
+- [ ] AAU, I want the ability to log my work-out activity, including: date, type, and detailed notes.
+- [ ] AAU, I want the ability to rate my work-out activity.
+- [ ] AAU, I want the ability to update and delete my previously logged work-out activity.
+- [ ] AAU, I want the ability to update and delete my previously logged work-out activity.
+- [ ] AAU, I want the ability to see a community dashboard that posts the activity total for each user.
+- [ ] AAU, I want the application to be user-friendly and mobile responsive.
 
-... Need to add User Stories here...
 
 ---
 ### **MVP Goals**
