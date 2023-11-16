@@ -11,9 +11,60 @@ FITforecast is an app that suggests a work-out based off the weather in your cur
 ### **Tech Stack**
 It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, React and Node.js. Employed with HTML, CSS, and JavaScript, the weather API is also included.
 
-... Need to add API details here... 
+---
+### **API Details**
 
-
+The application will utilize the third-party [WeatherAPI](https://www.weatherapi.com/docs/) which allows 1 Million calls per month for free. The API's 'forecast' endpoint provides weather forecasts up to three days ahead of the current date, returning a slew of data including daily average temperature and total expected precipitation.
+https://api.weatherapi.com/v1/forecast.json?key=f7069e36b7664cccb16192609231611&q=70116&days=1&aqi=no&alerts=no [
+  {
+    date: '2023-11-16',
+    date_epoch: 1700092800,
+    day: {
+      maxtemp_c: 20.7,
+      maxtemp_f: 69.3,
+      mintemp_c: 15.4,
+      mintemp_f: 59.7,
+      avgtemp_c: 18.5,
+      avgtemp_f: 65.3,
+      maxwind_mph: 13.4,
+      maxwind_kph: 21.6,
+      totalprecip_mm: 0,
+      totalprecip_in: 0,
+      totalsnow_cm: 0,
+      avgvis_km: 10,
+      avgvis_miles: 6,
+      avghumidity: 86,
+      daily_will_it_rain: 0,
+      daily_chance_of_rain: 0,
+      daily_will_it_snow: 0,
+      daily_chance_of_snow: 0,
+      condition: [Object],
+      uv: 4
+    },
+    astro: {
+      sunrise: '06:26 AM',
+      sunset: '05:04 PM',
+      moonrise: '09:53 AM',
+      moonset: '07:52 PM',
+      moon_phase: 'Waxing Crescent',
+      moon_illumination: 8,
+      is_moon_up: 1,
+      is_sun_up: 0
+    },
+    hour: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ]
+  }
+]
+GET / 304 453.921 ms - -
+GET /stylesheets/style.css 304 2.777 ms - -
 
 
 ---
@@ -29,9 +80,20 @@ It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, R
 | HTTP METHOD | URL | CRUD | Response | Notes |
 | -------------------- | ------------- | ---- | -------- | ----- |
 | `full index of items`  |   |   |   |   |
-
-... Need to add Restful Routing Chart here... 
-
+| GET | `/okrs` | Read (index) | Array of OKRs `{ [ okr, okr ] }` | retrieves the index list of all OKRs |
+| GET | `/notes` | Read (index) | Array of Notes `{ [ note, note ] }` | retrieves the index list of all notes |
+| `individual items`  |   |   |   |   |
+| GET | `/okrs/:okrId` | Read (show) | OKR Details | shows a specific OKR's details |
+| `adding items to index`  |   |   |   |   |
+| GET  | `/oauth/google`  | Read (show) | oAuth Log-in  |  oAuth log-in to add a user with their Google credentials | 
+| GET  | `/oauth2callback`  | Read (show) | oAuth Failed Log-in |  existing user, but failed oAuth log-in |
+| POST | `/users` | Create | Add a User | add a user to database |
+| POST | `/okrs` | Create | Add an OKR | add an OKR to database |
+| POST | `/okrs/:okrId/notes` | Create | Add a Note | add a note to database |
+| `removing items from index`  |   |   |   |   |
+| DELETE | `/okrs/:okrId` | Destroy | Delete an OKR | remove an OKR from database |
+| `updating items in index`  |   |   |   |   |
+| PUT | `/okrs/:okrId` | Update | Update OKR | update a specific OKR's details |
 
 
 
@@ -39,7 +101,7 @@ It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, R
 ### **Wireframes of your app**
 The minimum viable product (MVP) goal is a functional OKR tool with basic CSS styling.
 
-... Need to add Wireframe images here... 
+![Wireframe](./public/images/wireframes/wireframes.png)
 
 ---
 ### **User Stories**
@@ -72,7 +134,6 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] Include ability to create a new user profile including: username, email, password, and location
 - [ ] Include a landing page with ability to log-in via email and password
 - [ ] Include ability for user to log-out
-- [ ] Include ability for user to delete their profile
 - [ ] Include ability for user to view their profile
 - [ ] Include ability for user to edit their location
 - [ ] Include functionality that allows each user to only see their own activity 
@@ -100,6 +161,7 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] Include ability to log-in via oAuth
 - [ ] Include ability for user to upload a photo and bio on their profile page
 - [ ] Include ability for user to view previous activity by week / month / activity type
+- [ ] Include ability for user to delete their profile
 - [ ] Include suggestion functionality that takes into account the time of day
 - [ ] Include future recommendations based on weather forecast (i.e. out to 'x' number of days)
 - [ ] Include current weather via shared location services from user's GPS on their device
