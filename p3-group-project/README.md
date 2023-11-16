@@ -78,6 +78,7 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] Include functionality that allows each user to only see their own activity 
 - [ ] Include functionality that allows all users to see the same dashboard to encourage "friendly competition"
 - [ ] Include a weather API that displays the current weather on 'Home' screen and 'FITforecast' screen
+- [ ] Include current weather based on user's zip code input
 - [ ] Include a "leaderboard" of all users ranked in descending order by total activity
 - [ ] Include a "suggested work-out" based on current weather
 - [ ] Include ability to log a work-out activity including: name, type, date, indoor v. outdoor, rating, and detail notes
@@ -90,12 +91,18 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 ### **Stretch Goals**
 
 ###### Style
-- [ ] Include CSS styling following Bootstrap
-- [ ] Carousel view...
-
-... Need to add Stretch Style Goals here...
+- [ ] Include CSS styling following a 'Brand Kit'
+- [ ] Include a 'Brand Kit' for future development use
+- [ ] Include visual optimization for desktop and tablet
+- [ ] Include a carousel view on FITforecast view to see 7-day forecast
 
 ###### Functionality
-- [X] Include ability to...
-
-... Need to add Stretch Functionality Goals here...
+- [ ] Include ability to log-in via oAuth
+- [ ] Include ability for user to upload a photo and bio on their profile page
+- [ ] Include ability for user to view previous activity by week / month / activity type
+- [ ] Include suggestion functionality that takes into account the time of day
+- [ ] Include future recommendations based on weather forecast (i.e. out to 'x' number of days)
+- [ ] Include current weather via shared location services from user's GPS on their device
+- [ ] Include advanced suggested work-outs based on previous performance, ratings, and weather
+- [ ] Include additional analytics on dashboard
+- [ ] Include ability for all users to add comments under "leaderboard" (like reddit / twitter feed)
