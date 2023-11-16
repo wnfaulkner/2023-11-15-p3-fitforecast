@@ -15,56 +15,7 @@ It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, R
 ### **API Details**
 
 The application will utilize the third-party [WeatherAPI](https://www.weatherapi.com/docs/) which allows 1 Million calls per month for free. The API's 'forecast' endpoint provides weather forecasts up to three days ahead of the current date, returning a slew of data including daily average temperature and total expected precipitation.
-https://api.weatherapi.com/v1/forecast.json?key=f7069e36b7664cccb16192609231611&q=70116&days=1&aqi=no&alerts=no [
-  {
-    date: '2023-11-16',
-    date_epoch: 1700092800,
-    day: {
-      maxtemp_c: 20.7,
-      maxtemp_f: 69.3,
-      mintemp_c: 15.4,
-      mintemp_f: 59.7,
-      avgtemp_c: 18.5,
-      avgtemp_f: 65.3,
-      maxwind_mph: 13.4,
-      maxwind_kph: 21.6,
-      totalprecip_mm: 0,
-      totalprecip_in: 0,
-      totalsnow_cm: 0,
-      avgvis_km: 10,
-      avgvis_miles: 6,
-      avghumidity: 86,
-      daily_will_it_rain: 0,
-      daily_chance_of_rain: 0,
-      daily_will_it_snow: 0,
-      daily_chance_of_snow: 0,
-      condition: [Object],
-      uv: 4
-    },
-    astro: {
-      sunrise: '06:26 AM',
-      sunset: '05:04 PM',
-      moonrise: '09:53 AM',
-      moonset: '07:52 PM',
-      moon_phase: 'Waxing Crescent',
-      moon_illumination: 8,
-      is_moon_up: 1,
-      is_sun_up: 0
-    },
-    hour: [
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object],
-      [Object], [Object], [Object]
-    ]
-  }
-]
-GET / 304 453.921 ms - -
-GET /stylesheets/style.css 304 2.777 ms - -
+![API Details](./public/images/pitch/apiDetails.png)
 
 
 ---
@@ -101,7 +52,7 @@ GET /stylesheets/style.css 304 2.777 ms - -
 ### **Wireframes of your app**
 The minimum viable product (MVP) goal is a functional OKR tool with basic CSS styling.
 
-![Wireframe](./public/images/wireframes/wireframes.png)
+![Wireframe](./public/images/pitch/wireframes.png)
 
 ---
 ### **User Stories**
