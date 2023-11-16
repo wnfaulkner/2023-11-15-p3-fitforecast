@@ -46,13 +46,15 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] AAU, I want the ability to sign-up and create a new profile that includes my location.
 - [ ] AAU, I want the ability to log-in with an email and password.
 - [ ] AAU, I want the ability to log-out.
+- [ ] AAU, I want the ability to delete my profile.
+- [ ] AAU, I do not want other users to see my activity data.
 - [ ] AAU, I want the ability to edit my location.
-- [ ] AAU, I want the application to recommend a work-out based on my location's weather.
+- [ ] AAU, I want the application to recommend a work-out based on my location's weather each day.
 - [ ] AAU, I want the ability to log my work-out activity, including: date, type, and detailed notes.
 - [ ] AAU, I want the ability to rate my work-out activity.
 - [ ] AAU, I want the ability to update and delete my previously logged work-out activity.
 - [ ] AAU, I want the ability to update and delete my previously logged work-out activity.
-- [ ] AAU, I want the ability to see a community dashboard that posts the activity total for each user.
+- [ ] AAU, I want the ability to see a community dashboard that posts the activity total for all users.
 - [ ] AAU, I want the application to be user-friendly and mobile responsive.
 
 
@@ -62,11 +64,19 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 ###### Style
 - [ ] Include basic CSS to successfully utilize the application
 - [ ] Include bottom navigation including 'Home' page link, 'FITforecast' page link, 'Add Activity' page link, and 'My Activity' page link
-
-... Need to add MVP Style Goals here...
+- [ ] Include top header including the FITforecast logo and a profile icon that links to a profile page
+- [ ] Include 7 individual page views, including:  'Home' screen, 'FITforecast' screen, 'Add Activity' screen, 'My Activity' screen, 'Edit Activity' screen, 'Profile' screen, and 'Edit Profile' screen
+- [ ] Include visual optimization for mobile view
 
 ###### Functionality
-- [ ] Include a landing page with ability to log-in via email and password.
+- [ ] Include ability to create a new user profile including: username, email, password, & location
+- [ ] Include a landing page with ability to log-in via email and password
+- [ ] Include ability for user to log-out
+- [ ] Include ability for user to delete their profile
+- [ ] Include functionality that allows each user to only see their own activity 
+- [ ] Include functionality that allows all users to see the same dashboard to encourage "friendly competition"
+- [ ] Include functionality that allows all users to see the same dashboard to encourage "friendly competition"
+
 
 ... Need to add MVP Functionality Goals here...
 
