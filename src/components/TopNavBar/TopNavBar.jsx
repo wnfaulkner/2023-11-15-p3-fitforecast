@@ -1,19 +1,14 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+import Logo from '../../images/Logo/Logo.png';
+import IconProfile from '../../images/icons/IconProfile/IconProfile.png';
 
 export default function TopNavBar({ user, setUser }) {
     
-    function handleLogOut() {
-        userService.logOut();
-
-        setUser(null);
-    }
-    
     return (
-        <nav>
-            <span>Welcome, {user.name} </span>
-            &nbsp;&nbsp;
-            <Link to="" onClick={ handleLogOut } >Log Out</Link>
+        <nav className="top-nav">
+            <img src={Logo} alt="Logo" />
+            <Link to="/profile"><img src={IconProfile} alt="Profile" /></Link>
         </nav>
     );
 }
