@@ -5,6 +5,7 @@ import React from 'react';
 import AuthPage from '../AuthPage/AuthPage';
 import BottomNavBar from '../../components/BottomNavBar/BottomNavBar';
 import TopNavBar from '../../components/TopNavBar/TopNavBar';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import HomePage from '../HomePage/HomePage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import AddActivityPage from '../AddActivityPage/AddActivityPage';
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/communitydashboard" element={ <DashboardPage /> } />
           <Route path="/addactivity" element={ <AddActivityPage /> } />
           <Route path="/myactivity" element={ <MyActivityPage /> } />
+          <Route path="/profile" element={ <ProfilePage /> } />
         </Routes>
         <BottomNavBar user={ user } setUser={ setUser } />
       </>

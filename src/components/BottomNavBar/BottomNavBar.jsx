@@ -5,13 +5,7 @@ import IconAdd from '../../images/icons/IconAdd/IconAdd.png';
 import IconMyActivity from '../../images/icons/IconMyActivity/IconMyActivity.png';
 // import * as userService from '../../utilities/users-service';
 
-export default function BottomNavBar({ user, setUser }) {
-    
-    // function handleLogOut() {
-    //     userService.logOut();
-
-    //     setUser(null);
-    // }
+export default function BottomNavBar() {
     
     return (
         <footer className="bottom-nav">
