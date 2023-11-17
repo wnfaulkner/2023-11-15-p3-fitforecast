@@ -16,11 +16,11 @@ export default function BottomNavBar({ user, setUser }) {
     return (
         <footer className="bottom-nav">
             <Link to="/home"><img src={IconHome} alt="Home" /></Link>
-            &nbsp; | &nbsp;
+            &nbsp;&nbsp;
             <Link to="/communitydashboard"><img src={IconCommunity} alt="Community" /></Link>
-            &nbsp; | &nbsp;
+            &nbsp;&nbsp;
             <Link to="/addactivity"><img src={IconAdd} alt="Add Activity" /></Link>
-            &nbsp; | &nbsp;
+            &nbsp;&nbsp;
             <Link to="/myactivity"><img src={IconMyActivity} alt="My Activity" /></Link>
         </footer>
     );
