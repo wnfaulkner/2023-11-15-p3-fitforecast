@@ -4,7 +4,6 @@ A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [
 FITforecast is a web application designed to enhance your well-being by providing personalized workout suggestions based on your local weather conditions. Whether it's a sunny day perfect for a run, a rainy day calling for indoor exercises, or a peaceful evening ideal for meditation, FITforecast tailors your workout recommendations for you.
 
 
-
 ---
 ### **Tech Stack**
 It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, React and Node.js. Employed with HTML, CSS, and JavaScript, a weather API is also included.
