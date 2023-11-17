@@ -6,6 +6,8 @@ const ActivityLog = require('./activityLog')
 
 const SALT_ROUNDS = 6;
 
+
+
 const userSchema = new Schema({
     name: {type: String, required: true},
     email: {
