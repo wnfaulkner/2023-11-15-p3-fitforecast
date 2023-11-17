@@ -61,7 +61,7 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] Include basic CSS to successfully utilize the application
 - [ ] Include bottom navigation including 'Home' page link, 'FITforecast' page link, 'Add Activity' page link, and 'My Activity' page link
 - [ ] Include top header including the FITforecast logo and a profile icon that links to a profile page
-- [ ] Include 7 individual page views, including:  'Home' screen, 'FITforecast' screen, 'Add Activity' screen, 'My Activity' screen, 'Edit Activity' screen, 'Profile' screen, and 'Edit Profile' screen
+- [ ] Include 8 individual page views, including:  'Home' screen, 'FITforecast' screen, 'Add Activity' screen, 'Edit Activity' screen, 'My Activity' screen, 'Edit Activity' screen, 'Profile' screen, and 'Edit Profile' screen
 - [ ] Include visual optimization for mobile view
 
 ###### Functionality
@@ -71,10 +71,8 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] Include ability for user to view their profile
 - [ ] Include ability for user to edit their location
 - [ ] Include functionality that allows each user to only see their own activity 
-- [ ] Include functionality that allows all users to see the same dashboard to encourage "friendly competition"
 - [ ] Include a weather API that displays the current weather on 'Home' screen and 'FITforecast' screen
 - [ ] Include current weather based on user's zip code input
-- [ ] Include a "leaderboard" of all users ranked in descending order by total activity
 - [ ] Include a "suggested work-out" based on current weather
 - [ ] Include ability to log a work-out activity including: name, type, date, indoor v. outdoor, rating, and detail notes
 - [ ] Include a page that displays all of a user's activity
@@ -94,6 +92,8 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 ###### Functionality
 - [ ] Include ability to log-in via oAuth
 - [ ] Include ability for user to upload a photo and bio on their profile page
+- [ ] Include a "leaderboard" of all users ranked in descending order by total activity
+- [ ] Include functionality that allows all users to see the same dashboard to encourage "friendly competition"
 - [ ] Include ability for user to view previous activity by week / month / activity type
 - [ ] Include ability for user to delete their profile
 - [ ] Include suggestion functionality that takes into account the time of day
