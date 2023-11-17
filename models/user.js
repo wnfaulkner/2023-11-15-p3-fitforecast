@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
+const ActivityLog = require('./activityLog')
+
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema({
@@ -13,6 +15,8 @@ const userSchema = new Schema({
         lowercase: true,
         required: true
     },
+    profilePic: String,                    //Set as a string for now, to use URLs. When implementing Multer this may change
+    location: {type: Number, required: true},
     password: {
         type: String,
         trim: true,
@@ -26,7 +30,11 @@ const userSchema = new Schema({
             delete ret.password;
             return ret;
         }
-    }
+    },
+    activitiesLogged: [{
+        type: Schema.Types.ObjectId,
+        ref:'ActivityLog'
+    }]
 });
 
 userSchema.pre('save', async function(next) {
