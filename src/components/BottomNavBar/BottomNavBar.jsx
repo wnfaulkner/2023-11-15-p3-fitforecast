@@ -10,7 +10,7 @@ export default function BottomNavBar({ user, setUser }) {
     // }
     
     return (
-        <footer>
+        <footer className="bottom-nav">
             <Link to="/home">Home</Link>
             &nbsp; | &nbsp;
             <Link to="/communitydashboard">Community Dash</Link>

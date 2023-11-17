@@ -18,14 +18,14 @@ export default function App() {
     <main className="App">
     { user ?
       <>
-        <TopNavBar user={ user } setUser={ setUser } className="top-nav"/>
-        <Routes className="page-content">
+        <TopNavBar user={ user } setUser={ setUser } />
+        <Routes >
           <Route path="/home" element={ <HomePage /> } />
           <Route path="/communitydashboard" element={ <DashboardPage /> } />
           <Route path="/addactivity" element={ <AddActivityPage /> } />
           <Route path="/myactivity" element={ <MyActivityPage /> } />
         </Routes>
-        <BottomNavBar user={ user } setUser={ setUser } className="bottom-nav"/>
+        <BottomNavBar user={ user } setUser={ setUser } />
       </>
       :
       <AuthPage setUser={ setUser } />

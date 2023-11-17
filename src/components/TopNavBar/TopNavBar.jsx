@@ -10,7 +10,7 @@ export default function TopNavBar({ user, setUser }) {
     }
     
     return (
-        <nav>
+        <nav className="top-nav">
             <span>Welcome, {user.name} </span>
             &nbsp;&nbsp;
             <Link to="" onClick={ handleLogOut } >Log Out</Link>

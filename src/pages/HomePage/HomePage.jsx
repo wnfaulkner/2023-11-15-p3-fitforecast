@@ -9,9 +9,9 @@ export default function HomePage() {
     }
 
     return (
-        <>
+        <div className="page-content">
             <h1>Home Page</h1>
             <button onClick={ handleCheckToken }>Check When My Login Expires</button>
-        </>
+        </div>
     );
 }

@@ -1,5 +1,7 @@
 export default function MyActivityPage() {
     return (
-        <h1>My Activity  Page</h1>
+        <div className="page-content">
+            <h1>My Activity Page</h1>
+        </div>
     );
 }
