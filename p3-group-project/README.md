@@ -1,10 +1,7 @@
 # **Project Idea and Description**
 A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), Nathan Holliday, & [Leah Livingston](https://github.com/lvlivingston).
 
-FITforecast is an app that suggests a work-out based off the weather in your current area.
-
-... Need to add more description here... 
-
+FITforecast is a web application designed to enhance your well-being by providing personalized workout suggestions based on your local weather conditions. Whether it's a sunny day perfect for a run, a rainy day calling for indoor exercises, or a peaceful evening ideal for meditation, FITforecast tailors your workout recommendations for you.
 
 
 ---
@@ -69,16 +66,22 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] Include visual optimization for mobile view
 
 ###### Functionality
-- [ ] Include ability to create a new user profile including: username, email, password, & location
+- [ ] Include ability to create a new user profile including: username, email, password, and location
 - [ ] Include a landing page with ability to log-in via email and password
 - [ ] Include ability for user to log-out
 - [ ] Include ability for user to delete their profile
+- [ ] Include ability for user to view their profile
+- [ ] Include ability for user to edit their location
 - [ ] Include functionality that allows each user to only see their own activity 
 - [ ] Include functionality that allows all users to see the same dashboard to encourage "friendly competition"
-- [ ] Include functionality that allows all users to see the same dashboard to encourage "friendly competition"
+- [ ] Include a weather API that displays the current weather on 'Home' screen and 'FITforecast' screen
+- [ ] Include a "leaderboard" of all users ranked in descending order by total activity
+- [ ] Include a "suggested work-out" based on current weather
+- [ ] Include ability to log a work-out activity including: name, type, date, indoor v. outdoor, rating, and detail notes
+- [ ] Include a page that displays all of a user's activity
+- [ ] Include ability to update a previously logged activity
+- [ ] Include ability to delete a previously logged activity
 
-
-... Need to add MVP Functionality Goals here...
 
 ---
 ### **Stretch Goals**
