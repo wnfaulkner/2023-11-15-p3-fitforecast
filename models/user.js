@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
-const ActivityLog = require('./activityLog')
-
 const SALT_ROUNDS = 6;
 
 const activityLogSchema = new Schema({
