@@ -45,7 +45,7 @@ export default function App() {
         <TopNavBar user={ user } setUser={ setUser } />
         <Routes >
           <Route path="/home" element={ <HomePage /> } />
-          <Route path="/communitydashboard" element={ <DashboardPage /> } />
+          <Route path="/communitydashboard" element={ <DashboardPage weatherData={ weatherData }/> } />
           <Route path="/addactivity" element={ <AddActivityPage /> } />
           <Route path="/myactivity" element={ <MyActivityPage /> } />
           <Route path="/profile" element={ <ProfilePage /> } />
