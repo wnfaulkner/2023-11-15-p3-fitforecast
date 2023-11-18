@@ -11,10 +11,10 @@ export default function ProfilePage({ user, setUser }) {
     return (
         <div className="page-content">
             <h1> Profile Page</h1>
-            {user.profilePic}
-            {user.name}
+            {/* {user.profilePic} */}
+            {/* {user.name}
             {user.email}
-            {user.location}
+            {user.location} */}
             <Link to="" onClick={ handleLogOut } >Log Out</Link>
         </div>
     );
