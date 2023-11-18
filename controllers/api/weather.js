@@ -15,7 +15,7 @@ module.exports = {
 async function index(req, res, next) {
   //console.log("INDEX FUNCTION CALLED")
   try{
-    const endpointUrl = `${ROOT_URL}${endpoint}.json?key=${weatherApiKey}&q=83353&days=3&aqi=no&alerts=no`
+    const endpointUrl = `${ROOT_URL}${endpoint}.json?key=${weatherApiKey}&q=&days=3&aqi=no&alerts=no`
     const endpointData = await axios.get(
         endpointUrl, 
         { headers: { 'Content-Type': 'application/json' }}
