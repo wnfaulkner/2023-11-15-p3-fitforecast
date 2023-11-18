@@ -8,9 +8,11 @@ import axios from 'axios';
 import AuthPage from '../AuthPage/AuthPage';
 import BottomNavBar from '../../components/BottomNavBar/BottomNavBar';
 import TopNavBar from '../../components/TopNavBar/TopNavBar';
-import DashboardPage from '../DashboardPage/DashboardPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import HomePage from '../HomePage/HomePage';
-
+import DashboardPage from '../DashboardPage/DashboardPage';
+import AddActivityPage from '../AddActivityPage/AddActivityPage';
+import MyActivityPage from '../MyActivityPage/MyActivityPage';
 import './App.css';
 
 export default function App() {
@@ -40,12 +42,15 @@ export default function App() {
     <main className="App">
     { user ?
       <>
-        <TopNavBar user={ user } setUser={ setUser }/>
-        <Routes>
+        <TopNavBar user={ user } setUser={ setUser } />
+        <Routes >
           <Route path="/home" element={ <HomePage /> } />
           <Route path="/communitydashboard" element={ <DashboardPage /> } />
+          <Route path="/addactivity" element={ <AddActivityPage /> } />
+          <Route path="/myactivity" element={ <MyActivityPage /> } />
+          <Route path="/profile" element={ <ProfilePage /> } />
         </Routes>
-        <BottomNavBar user={ user } setUser={ setUser }/>
+        <BottomNavBar user={ user } setUser={ setUser } />
       </>
       :
       <AuthPage setUser={ setUser } />
