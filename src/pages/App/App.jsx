@@ -18,11 +18,11 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [weatherData, setWeatherData] = useState(null);
-
+  console.log(user)
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('/api/weather/fetch-weather-data');
+        const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
         console.log(response.data)
         setWeatherData(response.data);
         
