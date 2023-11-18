@@ -4,8 +4,10 @@ import { signUp } from '../../utilities/users-service';
 export default class SignUpForm extends Component {
     
     state = {
+        profilePic: '',
         name: '',
         email: '',
+        location: '',
         password: '',
         confirm: '',
         error: ''
@@ -48,14 +50,18 @@ export default class SignUpForm extends Component {
           <div>
             <div className="form-container">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
-                <label>Userame</label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+                <label>Profile Picture</label>
+                <input type="text" name="profilePic" value={this.state.profilePic} onChange={this.handleChange} placeholder='Paste your image URL here' />
+                <label>Username</label>
+                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder='Choose a username (i.e. johndoe)' required />
                 <label>Email</label>
-                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder='Write your email (i.e. johndoe@email.com)' required />
+                <label>Zip Code</label>
+                <input type="number" name="location" value={this.state.location} onChange={this.handleChange} placeholder='Type your zip code (i.e. 12345)' required />
                 <label>Password</label>
-                <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+                <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder='Choose a password (i.e. P@ssword1!)' required />
                 <label>Confirm</label>
-                <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+                <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} placeholder='Type your password again' required />
                 <button type="submit" disabled={disable}>SIGN UP</button>
               </form>
             </div>
