@@ -19,7 +19,8 @@ const activityLogSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    description: String
 });
 
 const userSchema = new Schema({
@@ -39,7 +40,8 @@ const userSchema = new Schema({
         trim: true,
         minLength: 3,
         required: true
-    }
+    },
+    activitiesLogged: [ activityLogSchema ]
 }, {
     timestamps: true,
     toJSON: {
@@ -48,7 +50,6 @@ const userSchema = new Schema({
             return ret;
         }
     },
-    activitiesLogged: [ activityLogSchema ]
 });
 
 userSchema.pre('save', async function(next) {
