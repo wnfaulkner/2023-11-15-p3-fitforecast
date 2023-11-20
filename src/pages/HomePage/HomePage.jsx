@@ -7,7 +7,6 @@ export default function HomePage({ weatherData, activityList }) {
     
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
-
 	const todayforecast = weatherData.forecast.forecastday[0].day
 	const todayAvgTemp = todayforecast.avgtemp_f
 	const todayTotalPrecip = todayforecast.totalprecip_in
