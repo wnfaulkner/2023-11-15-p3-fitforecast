@@ -19,24 +19,25 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [weatherData, setWeatherData] = useState(null);
   console.log(user)
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
-        console.log(response.data)
-        setWeatherData(response.data);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
+  //       console.log(response.data)
+  //       setWeatherData(response.data);
         
-      } catch (error) {
-        console.error('Error fetching data from the server:', error);
-      }
-    }
+  //     } catch (error) {
+  //       console.error('Error fetching data from the server:', error);
+  //     }
+  //   }
 
-    if (user) {
-      // User is logged in, fetch the weather data
-      fetchData();
-      //console.log(weatherData)
-    }
-  }, [user]);
+  //   if (user) {
+  //     // User is logged in, fetch the weather data
+  //     fetchData();
+  //     //console.log(weatherData)
+  //   }
+  // }, []);
+  // }, [user]);
   
   return (
     <main className="App">
@@ -46,7 +47,7 @@ export default function App() {
         <Routes >
           <Route path="/home" element={ <HomePage /> } />
           <Route path="/communitydashboard" element={ <DashboardPage weatherData={ weatherData }/> } />
-          <Route path="/addactivity" element={ <AddActivityPage /> } />
+          <Route path="/addactivity" element={ <AddActivityPage user={user} /> } />
           <Route path="/myactivity" element={ <MyActivityPage /> } />
           <Route path="/profile" element={ <ProfilePage /> } />
         </Routes>
