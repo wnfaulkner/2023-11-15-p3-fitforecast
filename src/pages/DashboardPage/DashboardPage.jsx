@@ -8,30 +8,28 @@ export default function DashboardPage({ weatherData }) {
     }
 
     const locationName = weatherData.location.name;
-    const weatherIcon = weatherData.forecast.forecastday.day.condition.icon[0];
-    const weatherDescription = weatherData.forecast.forecastday.day.condition.text[0];
-    const avgTemp = weatherData.forecast.forecastday.day.avgtemp_f[0];
-    const chanceOfRain = weatherData.forecast.forecastday.day.daily_chance_of_rain[0];
-    const humidity = weatherData.forecast.forecastday.day.avghumidity[0];
-  
-    const { day, astro } = weatherData;
+    const todayAvgConditionIcon = weatherData.forecast.forecastday[0].day.condition.icon
+    const todayAvgConditionText = weatherData.forecast.forecastday[0].day.condition.text;
+    const todayAvgTemp = weatherData.forecast.forecastday[0].day.avgtemp_f;
+    const todayUv = weatherData.forecast.forecastday[0].day.uv;
+    const chanceOfRain = weatherData.forecast.forecastday[0].day.daily_chance_of_rain;
+    const humidity = weatherData.forecast.forecastday[0].day.avghumidity;
+    const wind = weatherData.forecast.forecastday[0].day.maxwind_mph;
+    const sunrise = weatherData.forecast.forecastday[0].astro.sunrise;
+    const sunset = weatherData.forecast.forecastday[0].astro.sunset;
   
     return (
       <div className="page-content">
         <h1>{locationName}'s Forecast</h1>
-        <div>{weatherIcon}</div>
-        <div>{weatherDescription}</div>
-        <p>Temperature (Average): {avgTemp}°F</p>
+        <img src={todayAvgConditionIcon} />
+        <div>{todayAvgConditionText}</div>
+        <p>Temperature (Avg.): {todayAvgTemp}°F</p>
+        <p>UV Index: {todayAvgTemp}°F</p>
         <p>Chance of rain: {chanceOfRain}%</p>
-        <p>Humidity: {day && day.avghumidity}%</p>
-
-        <h6>Last Updated:</h6>
-          <p>Sunrise: {astro && astro.sunrise}</p>
-          
-          <p>Temperature (Low): {day && day.mintemp_f}°F</p>
-          <p>Temperature (High): {day && day.maxtemp_f}°F</p>
-          
-          <p>Sunset: {astro && astro.sunset}</p>
+        <p>Humidity: {humidity}%</p>
+        <p>Wind (Max): {wind}mph</p>
+        <p>Sunrise: {sunrise}</p>
+        <p>Sunset: {sunset}</p>
           <Link to="/home">See my FITforecast</Link>
       </div>
     );
