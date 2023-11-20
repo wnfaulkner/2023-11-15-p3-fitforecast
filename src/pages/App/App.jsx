@@ -61,7 +61,7 @@ export default function App() {
           <Route path="/home" element={ <HomePage weatherData={ weatherData } activityList={ activityList } /> } />
           <Route path="/communitydashboard" element={ <DashboardPage weatherData={ weatherData }/> } />
           <Route path="/addactivity" element={ <AddActivityPage user={ user } /> } />
-          <Route path="/myactivity" element={ <MyActivityPage /> } />
+          <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
         </Routes>
         <BottomNavBar user={ user } setUser={ setUser } />
