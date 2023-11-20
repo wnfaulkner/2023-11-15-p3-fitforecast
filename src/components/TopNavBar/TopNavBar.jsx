@@ -7,8 +7,8 @@ export default function TopNavBar({ user, setUser }) {
     
     return (
         <nav className="top-nav">
-            <img src={Logo} alt="Logo" />
-            <Link to="/profile"><img src={IconProfile} alt="Profile" /></Link>
+            <img src={Logo} alt="Logo" className="icon-style"/>
+            <Link to="/profile"><img src={IconProfile} alt="Profile" className="icon-style"/></Link>
         </nav>
     );
 }

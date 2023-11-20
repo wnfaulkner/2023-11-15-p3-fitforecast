@@ -67,5 +67,29 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  padding: 1vh;
+}
+
+.icon-style {
+  height: 5vh;
+}
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 10%;
+}
+
+.weather-text {
   padding: 2vh;
+  font-weight: bold;
+}
+
+.weather-details {
+  color: darkgrey;
+  font-style: italic;
 }
