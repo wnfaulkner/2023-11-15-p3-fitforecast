@@ -25,7 +25,7 @@ export default function AddActivityPage({ user }) {
                     'Content-Type': 'application/json',
                 }, body: JSON.stringify(newActivity)
             });
-            navigate('myactivity')
+            navigate('/myactivity')
         }catch (error) {
             console.error('Form Submission Error', error)
         }

@@ -25,7 +25,7 @@ async function index(req, res, next) {
     res.json(endpointData.data)
     console.log(endpointData.data)
 
-    res.json(endpointData.data.forecast.forecastday)
+    // res.json(endpointData.data.forecast.forecastday)
     console.log(endpointData.data.forecast.forecastday)
     //res.redirect('/')
   } catch (error) {
