@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AddActivityPage({ user }) {
+    console.log(`User data is: ${user}`)
     const navigate = useNavigate();
     const [newActivity, setNewActivity] = useState({
         name: '',

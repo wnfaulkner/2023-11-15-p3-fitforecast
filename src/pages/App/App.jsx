@@ -18,7 +18,10 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [weatherData, setWeatherData] = useState(null);
-  console.log(user)
+  console.log(`User from app: ${user}`)
+  // const checkUser = user.populate('activitiesLogged')
+  // console.log(`checkUser from app: ${checkUser}`)
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -58,6 +61,7 @@ export default function App() {
       :
       <AuthPage setUser={ setUser } />
     }
+    {/* {user.activitiesLogged ? <>Has Activities</> : <>No activitiesLogged</>} */}
     </main>
   );
 }
