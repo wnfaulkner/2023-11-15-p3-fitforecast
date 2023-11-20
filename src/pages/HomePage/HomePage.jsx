@@ -28,7 +28,9 @@ export default function HomePage({ weatherData, activityList }) {
 			return (
 				//activity.weather.includes(currentWeather) &&
 				todayAvgTemp >= activity.minTemp &&
-				todayAvgTemp <= activity.maxTemp
+				todayAvgTemp <= activity.maxTemp &&
+				todayTotalPrecip >= activity.minPrecip &&
+				todayTotalPrecip <= activity.maxPrecip
 			);
 		});
 
