@@ -44,21 +44,4 @@ const activityList = [
     // New activities here
 ];
 
-function getRandomActivity(currentWeather, temp) {
-    // Filtering activities based on weather and temp criteria
-    const filteredActivities = activityList.filter(activity => {
-        return (
-            activity.weather.includes(currentWeather) &&
-            activity.minTemp <= temp &&
-            temp <= activity.maxTemp
-        );
-    });
 
-    // Randomly selecting an activity from the filtered list
-    if (filteredActivities.length > 0) {
-        const randomIndex = Math.floor(Math.random() * filteredActivities.length);
-        return filteredActivities[randomIndex].name;
-    } else {
-        return "No suitable activities found.";
-    }
-}
