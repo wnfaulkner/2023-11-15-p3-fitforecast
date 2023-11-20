@@ -19,6 +19,8 @@ export default function ProfilePage({ user, setUser }) {
             <p>{username}</p>
             <p>{email}</p>
             <p>{location}</p>
+            <button type="submit">Edit Location</button>
+            <br/>
             <Link to="" onClick={ handleLogOut } >Log Out</Link>
         </div>
     );
