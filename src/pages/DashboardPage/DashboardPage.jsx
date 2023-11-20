@@ -15,22 +15,29 @@ export default function DashboardPage({ weatherData }) {
     const chanceOfRain = weatherData.forecast.forecastday[0].day.daily_chance_of_rain;
     const humidity = weatherData.forecast.forecastday[0].day.avghumidity;
     const wind = weatherData.forecast.forecastday[0].day.maxwind_mph;
+    const moonPhase = weatherData.forecast.forecastday[0].astro.moon_phase;
     const sunrise = weatherData.forecast.forecastday[0].astro.sunrise;
     const sunset = weatherData.forecast.forecastday[0].astro.sunset;
   
     return (
-      <div className="page-content">
+      <div className="page-content dashboard-layout">
         <h1>{locationName}'s Forecast</h1>
-        <img src={todayAvgConditionIcon} />
-        <div>{todayAvgConditionText}</div>
-        <p>Temperature (Avg.): {todayAvgTemp}°F</p>
-        <p>UV Index: {todayAvgTemp}°F</p>
-        <p>Chance of rain: {chanceOfRain}%</p>
-        <p>Humidity: {humidity}%</p>
-        <p>Wind (Max): {wind}mph</p>
-        <p>Sunrise: {sunrise}</p>
-        <p>Sunset: {sunset}</p>
-          <Link to="/home">See my FITforecast</Link>
+        <img src={todayAvgConditionIcon} className="weather-icon"/>
+        <div className="weather-text">{todayAvgConditionText}</div>
+        <div className="weather-details">
+          <p>Temperature (Avg.): {todayAvgTemp}°F</p>
+          <p>UV Index: Level {todayUv}</p>
+          <p>Chance of Rain: {chanceOfRain}%</p>
+          <p>Humidity: {humidity}%</p>
+          <p>Wind (Max): {wind}mph</p>
+          <br/>
+          <p>Sunrise: {sunrise}</p>
+          <p>Sunset: {sunset}</p>
+          <p>Moon Phase: {moonPhase}</p>
+          <br/>
+        </div>
+          <Link to="/home" className="button">See my FITforecast</Link>
+          <p></p>
       </div>
     );
 }
