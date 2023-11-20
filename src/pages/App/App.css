@@ -93,3 +93,18 @@
   color: darkgrey;
   font-style: italic;
 }
+
+.log-out-button {
+  margin: 10vh;
+  padding: 1vmin;
+  color: #FFFFFF;
+  background-color: red;
+  font-size: 2vmin;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: .1vmin solid var(--tan-2);
+  border-radius: .5vmin;
+  outline: none;
+  cursor: pointer;
+}

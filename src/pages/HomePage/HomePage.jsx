@@ -7,7 +7,6 @@ export default function HomePage({ weatherData, activityList }) {
     
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
-
 	const todayforecast = weatherData.forecast.forecastday[0].day
 	const todayAvgTemp = todayforecast.avgtemp_f
 	const todayTotalPrecip = todayforecast.totalprecip_in
@@ -54,13 +53,13 @@ export default function HomePage({ weatherData, activityList }) {
 				<p>Today's Average Temp: {todayAvgTemp}&deg;F</p>
 				<img src={todayAvgConditionIcon} />
 				<p>{todayAvgConditionText}</p>
-				<Link to="/addactivity">Log this Work-Out</Link>
 			</div>
 			<div id="today-recommended-activity">
 				<h1>Recommended Activity</h1>
 				<h3>{recommendedActivity.name}</h3>
 				<p>{recommendedActivity.recommendation}</p>
 			</div>
+				<Link to="/addactivity" className="button">Log this Work-Out</Link>
 		</div>
 	);
 }
