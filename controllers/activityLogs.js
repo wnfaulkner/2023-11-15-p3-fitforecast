@@ -23,6 +23,7 @@ async function create (req, res) {
         const user = await User.findByIdAndUpdate(req.body.user._id, {
             $push: {activitiesLogged: newActivity}
         }, {new: true});
+        // await user.save();
         console.log('ACTIVITY LOGGED!!')
         res.status(200)
     } catch (err) {

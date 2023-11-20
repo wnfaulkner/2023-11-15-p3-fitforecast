@@ -1,6 +1,7 @@
 import MyLoggedItems from "../MyLoggedItems/MyLoggedItems";
 
 export default function MyActivityPage({ user }) {
+    console.log(`user is: ${user.activitiesLogged}`)
     const activitiesLogged = user.activitiesLogged
     const loggedActivity = activitiesLogged.map((activity, idx) => (
         <MyLoggedItems activity={activity} key={idx} />
