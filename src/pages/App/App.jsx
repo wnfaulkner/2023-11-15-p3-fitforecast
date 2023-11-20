@@ -23,7 +23,7 @@ export default function App() {
     async function fetchData() {
       try {
         const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
-        console.log(response.data)
+        //console.log(response.data)
         setWeatherData(response.data);
         
       } catch (error) {
@@ -36,16 +36,18 @@ export default function App() {
       fetchData();
       //console.log(weatherData)
     }
-  // }, []);
+  ///}, []);
   }, [user]);
   
+  //console.log(weatherData.current.condition.text)
+
   return (
     <main className="App">
     { user ?
       <>
         <TopNavBar user={ user } setUser={ setUser } />
         <Routes >
-          <Route path="/home" element={ <HomePage /> } />
+          <Route path="/home" element={ <HomePage weatherData={ weatherData } /> } />
           <Route path="/communitydashboard" element={ <DashboardPage weatherData={ weatherData }/> } />
           <Route path="/addactivity" element={ <AddActivityPage user={user} /> } />
           <Route path="/myactivity" element={ <MyActivityPage /> } />
