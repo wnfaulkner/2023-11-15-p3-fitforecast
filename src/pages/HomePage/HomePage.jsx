@@ -1,8 +1,13 @@
+// HOME PAGE
+
 import { Link } from 'react-router-dom';
 import { checkToken } from "../../utilities/users-service";
-export default function HomePage() {
-    
 
+export default function HomePage({ weatherData }) {
+    
+    const locationName = weatherData.location.name
+    
+    console.log(locationName);
 
     async function handleCheckToken() {
         const expDate = await checkToken()
@@ -11,7 +16,8 @@ export default function HomePage() {
 
     return (
         <div className="page-content">
-            <h1>Home Page</h1>
+            <h1>Today's Weather</h1>
+            <p>{locationName}</p>
             <Link to="/addactivity">Log this Work-Out</Link>
         </div>
     );
