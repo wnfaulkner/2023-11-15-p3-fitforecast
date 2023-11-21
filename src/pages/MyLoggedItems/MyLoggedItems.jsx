@@ -17,7 +17,7 @@ export default function MyLoggedItems({ activity }) {
     const date = activity.date
     console.log('date:',date)
     return (
-            <Link>
+            <Link to="/myactivity/edit">
                 {date && <li>{date}</li>}
                 {activityName && <li>{activityName}</li>}
                 {activityType && <li>{activityType}</li>}
