@@ -10,17 +10,30 @@ const activityLogSchema = new Schema({
     name: String,
     activityType: {
         type: String,
-        enum: ['Run', 'Hike', 'Yoga', 'Walk', 'Weights', 'Meditation']
+        enum: ['Run', 'Hike', 'Yoga', 'Walk', 'Weights', 'Meditation'],
+        default: 'Run'
     },
-    inOut: {enum:['Indoor', 'Outdoor']},
-    rating: {enum:['1', '2', '3', '4', '5']},
+    inOut: {
+        type: String,
+        enum:['Indoor', 'Outdoor'],
+        default: 'Indoor'
+    },
+    rating: {
+        type: String,
+        enum:['1', '2', '3', '4', '5'],
+        default: '1'
+    },
     details: String,
-    duration: {enum:['30mins', '30m-1hr', '1hr-2hr', '2hr+']},
+    duration: {
+        type: String,
+        enum:['30mins', '30m-1hr', '1hr-2hr', '2hr+'],
+        default: '30mins'
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    description: String
+    date: Date
 });
 
 const userSchema = new Schema({

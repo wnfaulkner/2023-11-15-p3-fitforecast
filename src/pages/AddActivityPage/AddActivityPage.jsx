@@ -12,8 +12,8 @@ export default function AddActivityPage({ user, setUser }) {
         rating: '',
         details: '',
         duration: '',
-        description: '',
-        user: user
+        user: user,
+        date: ''
     });
     const handleInputChange = (evt) => {
         setNewActivity({...newActivity, [evt.target.name]: evt.target.value})
@@ -95,7 +95,8 @@ export default function AddActivityPage({ user, setUser }) {
                     </select>
                 </label>
                 <input 
-                type="text" 
+                type="text"
+                name="details"
                 placeholder="Description"
                 // value={newActivity.description}
                 onChange={handleInputChange}
