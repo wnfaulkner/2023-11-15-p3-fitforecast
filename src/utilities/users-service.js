@@ -5,6 +5,8 @@ export function getUser() {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
+
+
 export async function logIn(credentials) {
   try {
     const token = await usersAPI.logIn(credentials);
@@ -49,4 +51,11 @@ export function checkToken() {
     // checkToken returns a string, but let's 
     // make it a Date object for more flexibility
     .then(dateStr => new Date(dateStr));
+}
+
+export async function updateUserState() {
+    const token = await usersAPI.updateToken();
+    console.log(`token is: ${token}`)
+    localStorage.setItem('token', token);
+    return getUser();
 }
