@@ -9,6 +9,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import BottomNavBar from '../../components/BottomNavBar/BottomNavBar';
 import TopNavBar from '../../components/TopNavBar/TopNavBar';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import HomePage from '../HomePage/HomePage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import AddActivityPage from '../AddActivityPage/AddActivityPage';
@@ -18,7 +19,7 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [weatherData, setWeatherData] = useState(null);
-  //console.log(user)
+  console.log(user)
 
   //Define activities & weather criteria for each (if desire CRUD functionality later, will need to refactor to be a model with router & controller) 
   const activityList = [
@@ -60,9 +61,10 @@ export default function App() {
         <Routes >
           <Route path="/home" element={ <HomePage weatherData={ weatherData } activityList={ activityList } /> } />
           <Route path="/communitydashboard" element={ <DashboardPage weatherData={ weatherData }/> } />
-          <Route path="/addactivity" element={ <AddActivityPage user={ user } /> } />
+          <Route path="/addactivity" element={ <AddActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
+          <Route path="/profile/edit" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
         </Routes>
         <BottomNavBar user={ user } setUser={ setUser } />
       </>
