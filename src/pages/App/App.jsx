@@ -14,6 +14,7 @@ import HomePage from '../HomePage/HomePage';
 import DashboardPage from '../DashboardPage/DashboardPage';
 import AddActivityPage from '../AddActivityPage/AddActivityPage';
 import MyActivityPage from '../MyActivityPage/MyActivityPage';
+import EditActivityPage from '../EditActivityPage/EditActivityPage';
 import './App.css';
 
 export default function App() {
@@ -82,6 +83,7 @@ export default function App() {
           <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
           <Route path="/profile/edit" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
+          <Route path="/myactivity/edit" element={ <EditActivityPage user={ user } setUser={ setUser } /> } />
         </Routes>
         <BottomNavBar user={ user } setUser={ setUser } />
       </>
