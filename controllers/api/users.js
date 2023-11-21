@@ -1,3 +1,5 @@
+// USERS CONTROLLER
+
 const jwt = require('jsonwebtoken');
 const User = require('../../models/user');
 const bcrypt = require('bcrypt');
@@ -56,7 +58,9 @@ async function edit(req, res) {
   try {
     const user = await User.findById(req.body.userId);
     user.location = String(req.body.updatedUserLocation)
+    // console.log("USER CONTROLLER CALLED")
     await user.save()
+    res.redirect('/')
 
     //console.log(user);
     // const token = createJWT(user);

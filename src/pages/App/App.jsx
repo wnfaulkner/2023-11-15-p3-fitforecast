@@ -28,7 +28,7 @@ export default function App() {
     {name: 'HIIT', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 0, recommendation: 'Keep your heart rate up with a high-intensity interval training workout including jumping jacks, burpees & mountain climbers.'},
     {name: 'Indoor Cycling', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 0, recommendation: 'Stay in shape indoors with a cardiovascular workout using a stationary bike or by attending a spin class.'},
     {name: 'Cross-Training Circuit', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 0, recommendation: 'Create an at home circuit workout with bodyweight exercises including squats, lunges, push-ups, & planks.'},
-    {name: 'Indoor Dance', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 0, recommendation: 'Embrace the rain and have fun. Put on some lively music and dance in your backyard or at a covered outdoor space'},
+    {name: 'Indoor Dance', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 0, recommendation: 'Embrace the indoors and have fun! Put on some lively music and dance!'},
     {name: 'Indoor Rock Climbing', maxTemp: 80, minTemp: 40, maxPrecip: 0.5, minPrecip: 0, recommendation: 'Chalk up some routes at your local indoor climbing gym or boulder lounge.'},
     {name: 'Indoor Ice Skating', maxTemp: 50, minTemp: -100, maxPrecip: 100, minPrecip: 0.0001, recommendation: 'Head to an indoor ice skating rink and enjoy gliding on the ice. The cold atmosphere will make for a refreshing and enjoyable skating session.'},
     {name: 'Indoor Ice Hockey', maxTemp: 50, minTemp: -100, maxPrecip: 100, minPrecip: 0.0001, recommendation: 'Head to your local frozen puddle under a roof and play ice hockey with your buddies.'},
@@ -66,7 +66,7 @@ export default function App() {
       fetchData();
       //console.log(weatherData)
     }
-  }, []);
+  }, [user]);
   
   //console.log(weatherData.current.condition.text)
 

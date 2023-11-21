@@ -1,3 +1,5 @@
+// USERS API MODULE
+
 import sendRequest from './send-request';
 const BASE_URL = '/api/users';
 
@@ -18,5 +20,6 @@ export function updateToken() {
 }
 
 export function editUser(updatedUserData) {
+  
   return sendRequest(`${BASE_URL}/edit-user`, 'PATCH', updatedUserData);
 }

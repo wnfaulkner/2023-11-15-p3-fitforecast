@@ -21,7 +21,7 @@ export default function DashboardPage({ weatherData }) {
   
     return (
       <div className="page-content dashboard-layout">
-        <h1>{locationName}'s Forecast</h1>
+        <h1>Today's Forecast for {locationName}</h1>
         <img src={todayAvgConditionIcon} className="weather-icon"/>
         <div className="weather-text">{todayAvgConditionText}</div>
         <div className="weather-details">

@@ -1,10 +1,27 @@
-import './EditUserForm.css'
-import { Component } from 'react'
-import { editUser } from '../../utilities/users-service';
+//EDIT USER FORM COMPONENT
 
-export default class EditUserForm extends Component {
+import { Component } from 'react'
+import { Navigate, useNavigate } from "react-router-dom";
+import './EditUserForm.css'
+import { getUser, editUser } from '../../utilities/users-service';
+
+class EditUserForm extends Component {
   state = {
    location: ''
+  };
+
+  handleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      const formData = { ...this.state };
+      delete formData.error;
+      const updatedUserData = { userId: this.props.user._id, ...formData };
+      const user = getUser();
+      console.log(user);
+      this.props.history.push('/profile'); // Manually navigate using history
+    } catch {
+      this.setState({ error: 'Failed to Edit User - Try Again' });
+    }
   };
 
   handleSubmit = async (evt) => {
@@ -14,14 +31,14 @@ export default class EditUserForm extends Component {
       const formData = {...this.state};
       // console.log(formData)
       delete formData.error;
-      // delete formData.confirm;
+      //delete formData.confirm;
       const updatedUserData = {userId: this.props.user._id, ...formData}
-      const user = await editUser(updatedUserData);
-      // const updatedUser = this.props.user
-      //updatedUser.location = formData.updatedUserLocation*1
+      //const user = await editUser(updatedUserData);
+      // const user = getUser()
+      //await this.props.setUser(user)
       // console.log(user)
-      // this.props.setUser(updatedUser)
-      //console.log(this.props.user)
+      // useNavigate('/profile')
+      this.props.history.push('/profile');
     } catch {
       this.setState({ error: 'Failed to Edit User - Try Again' });
     }
@@ -57,3 +74,5 @@ export default class EditUserForm extends Component {
     );
   }
 }
+
+export default withRouter(EditUserForm);

@@ -1,3 +1,5 @@
+// USERS SERVICE MODULE
+
 import * as usersAPI from './users-api';
 
 export function getUser() {
@@ -59,6 +61,6 @@ export async function updateUserState() {
 }
 
 export async function editUser(updatedUserData) {
-  usersAPI.editUser(updatedUserData)
+  await usersAPI.editUser(updatedUserData)
   return getUser()
 }
