@@ -3,7 +3,8 @@
 const User = require('../models/user')
 
 module.exports = {
-    create
+    create,
+    show
 }
 
 async function create(req, res) {
@@ -36,6 +37,18 @@ async function create(req, res) {
         res.status(200).json(foundUser);
     } catch (err) {
         console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+async function show(req, res) {
+    try {
+        const activityId = req.params.activityId;
+        const foundUser = await User.findOne({'activitiesLogged._id': activityId})
+        const activity = foundUser.activitiesLogged.find((act) => act._id.toString() === activityId);
+        res.status(200).json(activity)
+    } catch (err) {
+        console.log(err);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }

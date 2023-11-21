@@ -83,7 +83,7 @@ export default function App() {
           <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
           <Route path="/profile/edit" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
-          <Route path="/myactivity/edit" element={ <EditActivityPage user={ user } setUser={ setUser } /> } />
+          <Route path="/myactivity/edit/:activityId" element={ <EditActivityPage user={ user } setUser={ setUser } /> } />
         </Routes>
         <BottomNavBar user={ user } setUser={ setUser } />
       </>
