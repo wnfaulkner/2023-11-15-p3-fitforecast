@@ -42,7 +42,7 @@ export default function App() {
     {name: 'Hiking', maxTemp: 80, minTemp: 40, maxPrecip: 1, minPrecip: 0, recommendation: 'Science says walking makes you live longer. Why not give your future self a gift by choosing a scenic trail to enjoy some natural beauty?'},
     {name: 'Skiing & Snowboarding', maxTemp: 32, minTemp: 0, maxPrecip: 12, minPrecip: 0, recommendation: 'Enjoy the freezing temperatures and sunny weather and hit the slopes!'},
     {name: 'Outdoor Ice Skating', maxTemp: 20, minTemp: -100, maxPrecip: 0, minPrecip: 0, recommendation: 'Harness your inner Dutchperson and go gliding on your local lake or river. Always remember to check local ice conditions & thickness!'},
-    {name: 'Ice Fishing', maxTemp: 25, minTemp: -100, maxPrecip: 0, minPrecip: 0, recommendation: 'The water is hard and the brews are frosty. Time to grab your drill and get to jigging! Just make sure to stay on TOP of the ice - in this sport, those under the ice are called \'morons.\''},
+    {name: 'Ice Fishing', maxTemp: 25, minTemp: -100, maxPrecip: 0, minPrecip: 0, recommendation: 'The water is hard and the brews are frosty. Time to grab your drill and get to jigging! Just make sure to stay on TOP of the ice - in this sport, those attempting to fish from under the ice are called \'morons.\''},
     {name: 'Water Biking', maxTemp: 200, minTemp: 85, maxPrecip: 24, minPrecip: 3, recommendation: 'Take advantage of the flash flood puddles and grab your bike. Speed through for laughs and a work-out!'},
   ]
   //console.log(activityList)
