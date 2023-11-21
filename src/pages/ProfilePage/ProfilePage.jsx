@@ -4,14 +4,14 @@ import * as userService from '../../utilities/users-service';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 
 export default function ProfilePage({ user, setUser }) {
+    
     const profilePic = user.profilePic;
     const username = user.name;
     const email = user.email;
     const location = user.location;
-    const [editMode, setEditMode] = useState(false);
-    const changeToFalse = () => {
-        setEditMode(false)
-    }
+    const activitiesLogged = user.activitiesLogged;
+    //console.log(activitiesLogged);
+    
     function handleLogOut() {
         userService.logOut();
         setUser(null);
@@ -23,7 +23,9 @@ export default function ProfilePage({ user, setUser }) {
             <p>{username}</p>
             <p>{email}</p>
             <p>{location}</p>
-            <Link to="" onClick={ handleLogOut } >Log Out</Link>
+            <p>{activitiesLogged}</p>
+            <Link to="/profile/edit">Edit Location</Link>
+            <Link to="" onClick={ handleLogOut } className="log-out-button">Log Out</Link>
         </div>
     );
 }
