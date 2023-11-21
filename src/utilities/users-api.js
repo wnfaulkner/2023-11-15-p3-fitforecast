@@ -16,3 +16,7 @@ export function checkToken() {
 export function updateToken() {
   return sendRequest(`${BASE_URL}/update-token`);
 }
+
+export function editUser() {
+  return sendRequest(`${BASE_URL}/edit-user`);
+}

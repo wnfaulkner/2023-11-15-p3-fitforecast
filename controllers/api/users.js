@@ -6,7 +6,8 @@ module.exports = {
     create,
     login,
     checkToken,
-    updateToken
+    updateToken,
+    edit,
 };
 
 async function updateToken(req, res) {
@@ -48,6 +49,19 @@ function checkToken(req, res) {
   // req.user will always be there for you when a token is sent
   console.log('req.user', req.user);
   res.json(req.exp);
+}
+
+async function edit(req, res) {
+  try {
+    const user = await User.create(req.body);
+
+    const token = createJWT(user);
+    console.log(token);
+    res.json(token);
+  } catch (err) {
+    res.status(400).json(err);
+    console.log(err)
+  }
 }
 
 // Helper functions

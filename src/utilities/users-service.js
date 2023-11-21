@@ -57,3 +57,8 @@ export async function updateUserState() {
     localStorage.setItem('token', token);
     return getUser();
 }
+
+export async function editUser(updatedUserData) {
+  usersAPI.editUser(updatedUserData)
+  return getUser()
+}

@@ -53,7 +53,7 @@ export default function App() {
     async function fetchData() {
       try {
         const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
-        //console.log(response.data)
+        //console.log("WEATHER DATA PULLED FROM API!")
         setWeatherData(response.data);
         
       } catch (error) {
@@ -66,7 +66,7 @@ export default function App() {
       fetchData();
       //console.log(weatherData)
     }
-  }, [user]);
+  }, []);
   
   //console.log(weatherData.current.condition.text)
 
