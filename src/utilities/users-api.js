@@ -17,6 +17,6 @@ export function updateToken() {
   return sendRequest(`${BASE_URL}/update-token`);
 }
 
-export function editUser() {
-  return sendRequest(`${BASE_URL}/edit-user`);
+export function editUser(updatedUserData) {
+  return sendRequest(`${BASE_URL}/edit-user`, 'PATCH', updatedUserData);
 }

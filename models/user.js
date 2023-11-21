@@ -34,7 +34,7 @@ const userSchema = new Schema({
     },
     profilePic: String,                    
     //Set as a string for now, to use URLs. When implementing Multer this may change
-    location: {type: Number, required: true},
+    location: {type: String, required: true},
     password: {
         type: String,
         trim: true,

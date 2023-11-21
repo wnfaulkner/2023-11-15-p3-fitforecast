@@ -52,12 +52,15 @@ function checkToken(req, res) {
 }
 
 async function edit(req, res) {
+  // console.log(req.body.updatedUserLocation)
   try {
-    const user = await User.create(req.body);
+    const user = await User.findById(req.body.userId);
+    user.location = String(req.body.updatedUserLocation)
+    await user.save()
 
-    const token = createJWT(user);
-    console.log(token);
-    res.json(token);
+    //console.log(user);
+    // const token = createJWT(user);
+    // res.json(token);
   } catch (err) {
     res.status(400).json(err);
     console.log(err)

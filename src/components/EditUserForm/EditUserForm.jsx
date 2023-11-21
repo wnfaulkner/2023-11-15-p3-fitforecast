@@ -12,14 +12,15 @@ export default class EditUserForm extends Component {
     try {
       
       const formData = {...this.state};
-      //console.log(formData)
-      // delete formData.error;
+      // console.log(formData)
+      delete formData.error;
       // delete formData.confirm;
-      const user = await editUser(formData);
-      const updatedUser = this.props.user
+      const updatedUserData = {userId: this.props.user._id, ...formData}
+      const user = await editUser(updatedUserData);
+      // const updatedUser = this.props.user
       //updatedUser.location = formData.updatedUserLocation*1
-      //console.log(updatedUser)
-      this.props.setUser(updatedUser)
+      // console.log(user)
+      // this.props.setUser(updatedUser)
       //console.log(this.props.user)
     } catch {
       this.setState({ error: 'Failed to Edit User - Try Again' });

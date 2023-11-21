@@ -18,6 +18,6 @@ router.post('/login', usersCtrl.login);
 router.get('/update-token', usersCtrl.updateToken)
 
 // POST /api/edit-user
-router.post('/edit-user', usersCtrl.edit);
+router.patch('/edit-user', usersCtrl.edit);
 
 module.exports = router;
