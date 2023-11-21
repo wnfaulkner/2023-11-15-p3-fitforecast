@@ -19,7 +19,8 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [weatherData, setWeatherData] = useState(null);
-  console.log(user)
+  //console.log('User in APP :', user)
+  //console.log(user)
 
   //Define activities & weather criteria for each (if desire CRUD functionality later, will need to refactor to be a model with router & controller) 
   const activityList = [
@@ -45,6 +46,8 @@ export default function App() {
     {name: 'Water Biking', maxTemp: 200, minTemp: 85, maxPrecip: 24, minPrecip: 3, recommendation: 'Take advantage of the flash flood puddles and grab your bike. Speed through for laughs and a work-out!'},
   ]
   //console.log(activityList)
+
+
 
   useEffect(() => {
     async function fetchData() {
@@ -85,6 +88,7 @@ export default function App() {
       :
       <AuthPage setUser={ setUser } />
     }
+    {/* {user.activitiesLogged ? <>Has Activities</> : <>No activitiesLogged</>} */}
     </main>
   );
 }
