@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 export default function DashboardPage({ weatherData }) {
-    console.log(weatherData);  
+    // console.log(weatherData);  
     if (!weatherData) {
       // If weatherData is not available yet, you can show a loading message or return null.
       return <p>Loading weather forecast...</p>;
