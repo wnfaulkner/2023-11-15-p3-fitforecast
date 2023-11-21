@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
 import * as userService from '../../utilities/users-service';
+import EditProfilePage from '../EditProfilePage/EditProfilePage';
 
 export default function ProfilePage({ user, setUser }) {
+    
     const profilePic = user.profilePic;
     const username = user.name;
     const email = user.email;
     const location = user.location;
     const activitiesLogged = user.activitiesLogged;
-    console.log(activitiesLogged);
-
+    //console.log(activitiesLogged);
+    
     function handleLogOut() {
         userService.logOut();
         setUser(null);
     }
-    
     return (
         <div className="page-content">
             <h1> Profile Page</h1>
@@ -22,10 +24,8 @@ export default function ProfilePage({ user, setUser }) {
             <p>{email}</p>
             <p>{location}</p>
             <p>{activitiesLogged}</p>
-            <Link to="/profile/edit" className="button">Edit Location</Link>
-            <p>
+            <Link to="/profile/edit">Edit Location</Link>
             <Link to="" onClick={ handleLogOut } className="log-out-button">Log Out</Link>
-            </p>
         </div>
     );
 }
