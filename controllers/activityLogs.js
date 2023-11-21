@@ -6,31 +6,6 @@ module.exports = {
     create
 }
 
-// async function create (req, res) {
-//     try {
-
-//         const newActivity = {
-//             name: req.body.name,
-//             activityType: req.body.activityType,
-//             inOut: req.body.inOut,
-//             rating: req.body.rating,
-//             details: req.body.details,
-//             duration: req.body.duration,
-//             description: req.body.description,
-//             user: req.body.user._id
-//         }
-//         console.log(newActivity)
-//         const foundUser = await User.findByIdAndUpdate(req.body.user._id, {
-//             $push: {activitiesLogged: newActivity}
-//         }, {new: true});
-//         // await user.save();
-//         console.log('ACTIVITY LOGGED!!', foundUser)
-//         res.status(200).json(foundUser);
-//     } catch (err) {
-//         console.error(err)
-//     }
-// }
-
 async function create(req, res) {
     try {
         const newActivity = {
