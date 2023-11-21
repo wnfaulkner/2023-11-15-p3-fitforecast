@@ -6,6 +6,8 @@ export default function ProfilePage({ user, setUser }) {
     const username = user.name;
     const email = user.email;
     const location = user.location;
+    const activitiesLogged = user.activitiesLogged;
+    console.log(activitiesLogged);
 
     function handleLogOut() {
         userService.logOut();
@@ -19,7 +21,8 @@ export default function ProfilePage({ user, setUser }) {
             <p>{username}</p>
             <p>{email}</p>
             <p>{location}</p>
-            <button type="submit">Edit Location</button>
+            <p>{activitiesLogged}</p>
+            <Link to="/profile/edit" className="button">Edit Location</Link>
             <p>
             <Link to="" onClick={ handleLogOut } className="log-out-button">Log Out</Link>
             </p>

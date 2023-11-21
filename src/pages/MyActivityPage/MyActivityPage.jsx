@@ -1,21 +1,3 @@
-// import MyLoggedItems from "../MyLoggedItems/MyLoggedItems";
-
-// export default function MyActivityPage({ user }) {
-//     console.log(`user is: ${user.activitiesLogged}`)
-//     const activitiesLogged = user.activitiesLogged
-//     const loggedActivity = activitiesLogged.map((activity, idx) => (
-//         <MyLoggedItems activity={activity} key={idx} />
-//     ))
-//     return (
-//         <div className="page-content">
-//             <h1>My Activity Page</h1>
-//             <ul>
-//                 {loggedActivity}
-//             </ul>
-//         </div>
-//     );
-// }
-
 import React, { useEffect } from 'react';
 import MyLoggedItems from '../MyLoggedItems/MyLoggedItems';
 import { getUser } from '../../utilities/users-service';
@@ -34,13 +16,7 @@ export default function MyActivityPage({ user, setUser }) {
     <MyLoggedItems activity={activity} key={idx} />
   ));
 
-//   const handleUpdateUser = (updatedActivities) => {
-//     // Use setUser with a callback to ensure the latest state is used
-//     setUser(prevUser => ({ ...prevUser, activitiesLogged: updatedActivities }));
-//   };
-
   // Pass handleUpdateUser as a prop to child components where you need to update user state
-
   return (
     <div className="page-content">
       <h1>My Activity Page</h1>
@@ -48,4 +24,3 @@ export default function MyActivityPage({ user, setUser }) {
     </div>
   );
 }
-
