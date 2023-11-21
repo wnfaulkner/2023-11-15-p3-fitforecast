@@ -59,7 +59,7 @@ export default function AddActivityPage({ user, setUser }) {
                         <option value="Meditation">Meditation</option>
                     </select>
                 </label>
-                <input type="date" placeholder="Date"/><br/>
+                <input type="date" placeholder="Date" name="date"/><br/>
                 <label htmlFor="">Indoor/Outdoor
                     <select 
                         name="inOut"
