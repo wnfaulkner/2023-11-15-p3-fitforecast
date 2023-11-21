@@ -2,16 +2,28 @@ import React from "react";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
+
 export default function EditProfilePage({ user, setUser }) {
+    
     const [formData, setFormData] = useState("");
-    function handleUpdate(evt) {
+
+    async function editUser(evt) {
         evt.preventDefault();
-        setUser({ location: formData.updatedUserLocation });
+        try {
+            //setUser({ location: formData.updatedUserLocation });
+            const formData = {...this.state};
+            delete formData.error;
+            delete formData.confirm;
+
+            const user = await signUp(formData);
+             this.props.setUser(user)
+
+        } catch (error) {
+
+        }
+        
     }
-    function handleLogOut() {
-        userService.logOut();
-        setUser(null);
-    }
+
     return (
         <div className="page-content">
             <form onSubmit={handleUpdate}>
