@@ -12,4 +12,6 @@ router.post('/', usersCtrl.create);
 // GET /api/users
 router.post('/login', usersCtrl.login);
 
+router.get('/update-token', usersCtrl.updateToken)
+
 module.exports = router;

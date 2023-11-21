@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { updateUserState } from "../../utilities/users-service";
 
-export default function AddActivityPage({ user }) {
+export default function AddActivityPage({ user, setUser }) {
+    console.log(`User data is: ${user}`)
     const navigate = useNavigate();
     const [newActivity, setNewActivity] = useState({
         name: '',
@@ -18,6 +20,7 @@ export default function AddActivityPage({ user }) {
     };
     async function handleSubmit (evt) {
         evt.preventDefault();
+        console.log(`here is newActivity: ${newActivity}`)
         try {
             await fetch('/addactivity', {
                 method: 'POST',
@@ -25,6 +28,7 @@ export default function AddActivityPage({ user }) {
                     'Content-Type': 'application/json',
                 }, body: JSON.stringify(newActivity)
             });
+            await updateUserState();
             navigate('/myactivity')
         }catch (error) {
             console.error('Form Submission Error', error)
