@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { getAct, getActs, updateAct, deleteAct } from '../../utilities/activity-service';
+import { updateUserState } from '../../utilities/users-service';
 
 export default function EditActivityPage() {
   const navigate = useNavigate();
@@ -33,15 +34,13 @@ export default function EditActivityPage() {
     }
     async function handleDelete() {
         try {
-          await deleteAct(activityId);
-          // Update the state or re-fetch the activities after deletion
-          const updatedActivities = await getActs(); // Assuming you have a getActs function
-          setActivities(updatedActivities); // Set the state variable
-          navigate('/myactivity');
+            await deleteAct(currentActivity._id); // Assuming you have a deleteAct function
+            await updateUserState(); // Assuming you have this function to update user state
+            navigate('/myactivity');
         } catch (err) {
-          console.error('Error deleting activity', err);
+            console.log('Error deleting activity:', err);
         }
-      }
+    }
     if (!currentActivity) { return <h1>Loading....</h1>}
     return (
         <div className="page-content">
