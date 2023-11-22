@@ -12,7 +12,7 @@ async function update (req, res) {
     try {
         const updatedField = req.body;
         const foundUser = await User.findOneAndUpdate(
-            {'activitiesLogged._id': activityId },
+            {'activitiesLogged._id': updatedField._id },
             { $set: { 'activitiesLogged.$': updatedField}},
             {new: true}
         );
@@ -58,10 +58,12 @@ async function create(req, res) {
 
 //displays the specific logged activity we clicked on
 async function show(req, res) {
+    console.log('SHOW ROUTE')
     try {
         const activityId = req.params.activityId;
         const foundUser = await User.findOne({'activitiesLogged._id': activityId})
         const activity = foundUser.activitiesLogged.find((act) => act._id.toString() === activityId);
+        console.log('activity in controller', activity)
         res.status(200).json(activity)
     } catch (err) {
         console.log(err);

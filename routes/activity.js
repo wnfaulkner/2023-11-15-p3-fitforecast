@@ -9,6 +9,6 @@ router.post('/addactivity', activityCtrlr.create)
 router.get('/myactivity/:activityId', activityCtrlr.show)
 
 // clicking 'Update Activity'
-router.patch('/:activityId', activityCtrlr.update)
+router.patch('/myactivity/:activityId', activityCtrlr.update)
 
 module.exports = router;

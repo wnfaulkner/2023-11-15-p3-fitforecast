@@ -1,27 +1,43 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import { updateUserState } from "../../utilities/users-service";
-import { act } from 'react-dom/test-utils';
+import { getAct, updateAct } from '../../utilities/activity-service';
 
 
-export default function EditActivityPage({currentActivity}) {
+export default function EditActivityPage() {
+    const navigate = useNavigate();
     const { activityId } = useParams();
+    const [currentActivity, setCurrentActivity] = useState(null)
     console.log(`the current activity is: ${currentActivity}`)
     console.log(`the current activityID is: ${activityId}`)
-    function handleInputChange(){
-
+    useEffect(() =>{
+        async function settingAct (){
+            const setAct = await getAct(activityId);
+            console.log('setAct:',setAct)
+            setCurrentActivity(setAct);
+        }
+        settingAct();
+    }, [activityId])
+    function handleInputChange (evt) {
+        setCurrentActivity((oldActivity) => ({...oldActivity,[evt.target.name]:evt.target.value}));
     }
-    function handleSubmit(){
-
+    async function handleSubmit (evt) {
+        evt.preventDefault();
+        try {
+            await updateAct(currentActivity);
+            navigate('/myactivity')
+        } catch (err) {
+            console.log('Error submitting new activity details', err);
+        }
     }
+    if (!currentActivity) { return <h1>Loading....</h1>}
     return (
         <div className="page-content">
             <h1>Edit Activity Page</h1>
-            <form >
+            <form onSubmit={handleSubmit}>
             <input 
                     type="text" 
-                    placeholder="Enter Activity Name"
+                    placeholder={currentActivity.name}
                     name="name"
                     value={currentActivity.name}
                     onChange={handleInputChange}
@@ -40,7 +56,13 @@ export default function EditActivityPage({currentActivity}) {
                         <option value="Meditation">Meditation</option>
                     </select>
                 </label>
-                <input type="date" placeholder="Date" name="date"/><br/>
+                {/* <input 
+                type="date" 
+                placeholder={new Intl.DateTimeFormat('en-US').format(currentActivity.date)}
+                placeholder='2023-11-22'
+                value={currentActivity.date}
+                onChange={handleInputChange}
+                name="date"/><br/> */}
                 <label htmlFor="">Indoor/Outdoor
                     <select 
                         name="inOut"
@@ -82,12 +104,13 @@ export default function EditActivityPage({currentActivity}) {
                 value={currentActivity.description}
                 onChange={handleInputChange}
                 /><br/>
-                <button type="submit" onSubmit={handleSubmit}>Update Activity</button>
-                <button type="" >Delete Activity</button>
+                <button type="submit" >Update Activity</button>
             </form>
+                <button type="" >Delete Activity</button>
         </div>
     );
 }
+
 // export default function EditActivityPage() {
 //     const navigate = useNavigate();
 //     const { activityId } = useParams();

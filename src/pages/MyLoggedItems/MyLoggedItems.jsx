@@ -3,7 +3,7 @@ import EditActivityPage from "../EditActivityPage/EditActivityPage";
 
 export default function MyLoggedItems({ activity }) {
     const activityId = activity._id;
-    // <EditActivityPage currentActivity={activity._id} />
+    <EditActivityPage currentActivity={activity._id} />
     // console.log('the activity info is:', activity)
     const activityName = activity.name;
     // console.log(activityName)
