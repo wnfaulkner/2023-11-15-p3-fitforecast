@@ -3,7 +3,23 @@
 const User = require('../models/user')
 
 module.exports = {
-    create
+    create,
+    show,
+    update
+}
+
+async function update (req, res) {
+    try {
+        const updatedField = req.body;
+        const foundUser = await User.findOneAndUpdate(
+            {'activitiesLogged._id': updatedField._id },
+            { $set: { 'activitiesLogged.$': updatedField}},
+            {new: true}
+        );
+        res.status(200).json(foundUser)
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 async function create(req, res) {
@@ -36,6 +52,21 @@ async function create(req, res) {
         res.status(200).json(foundUser);
     } catch (err) {
         console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+//displays the specific logged activity we clicked on
+async function show(req, res) {
+    console.log('SHOW ROUTE')
+    try {
+        const activityId = req.params.activityId;
+        const foundUser = await User.findOne({'activitiesLogged._id': activityId})
+        const activity = foundUser.activitiesLogged.find((act) => act._id.toString() === activityId);
+        console.log('activity in controller', activity)
+        res.status(200).json(activity)
+    } catch (err) {
+        console.log(err);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }

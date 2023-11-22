@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import MyLoggedItems from '../MyLoggedItems/MyLoggedItems';
 import { getUser } from '../../utilities/users-service';
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
 
 export default function MyActivityPage({ user, setUser }) {
     const navigate = useNavigate();
