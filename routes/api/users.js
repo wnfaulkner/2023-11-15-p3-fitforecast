@@ -13,7 +13,11 @@ router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 
 router.get('/update-token', usersCtrl.updateToken)
+<<<<<<< HEAD
 // PUT 'Update Profile' button on Edit Profile Page
+=======
+// PATCH 'Update Profile' button on Edit Profile Page
+>>>>>>> a59c40c59279078228a0cbdadc0f7f41cfb1e370
 router.put('/profile/edit', usersCtrl.updateLocation)
 
 

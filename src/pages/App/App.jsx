@@ -82,7 +82,7 @@ export default function App() {
           <Route path="/addactivity" element={ <AddActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
-          <Route path="/profile/edit" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
+          <Route path="/profile/edit/" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
           <Route path="/myactivity/edit" element={ <EditActivityPage user={ user } setUser={ setUser } /> } />
         </Routes>
         <BottomNavBar user={ user } setUser={ setUser } />
@@ -90,7 +90,6 @@ export default function App() {
       :
       <AuthPage setUser={ setUser } />
     }
-    {/* {user.activitiesLogged ? <>Has Activities</> : <>No activitiesLogged</>} */}
     </main>
   );
 }

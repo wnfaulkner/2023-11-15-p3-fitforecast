@@ -36,7 +36,7 @@ export default function AddActivityPage({ user, setUser }) {
     }
     return (
         <div className="page-content">
-                <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <h1>Add Activity Page</h1>
                 <input 
                     type="text" 
