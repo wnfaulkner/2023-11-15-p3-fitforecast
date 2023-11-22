@@ -4,7 +4,22 @@ const User = require('../models/user')
 
 module.exports = {
     create,
-    show
+    show,
+    update
+}
+
+async function update (req, res) {
+    try {
+        const updatedField = req.body;
+        const foundUser = await User.findOneAndUpdate(
+            {'activitiesLogged._id': activityId },
+            { $set: { 'activitiesLogged.$': updatedField}},
+            {new: true}
+        );
+        res.status(200).json(foundUser)
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 async function create(req, res) {
@@ -41,6 +56,7 @@ async function create(req, res) {
     }
 }
 
+//displays the specific logged activity we clicked on
 async function show(req, res) {
     try {
         const activityId = req.params.activityId;
