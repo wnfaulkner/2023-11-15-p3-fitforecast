@@ -2,13 +2,16 @@ const express = require('express')
 const router = express.Router();
 const activityCtrlr = require('../controllers/activityLogs')
 
-// 'Save Activity' button on AddActivityPage
+// Clicking the 'Save Activity' button on AddActivityPage
 router.post('/addactivity', activityCtrlr.create)
 
-//clicking on activity to go to editactivity page
+// Clicking on activity to go to editactivity page
 router.get('/myactivity/:activityId', activityCtrlr.show)
 
-// clicking 'Update Activity'
+// Clicking the 'Update Activity' button
 router.patch('/myactivity/:activityId', activityCtrlr.update)
+
+// Clicking the 'Delete Activity' button
+router.delete('/myactivity/:activityId', activityCtrlr.delete);
 
 module.exports = router;

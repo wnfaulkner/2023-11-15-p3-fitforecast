@@ -11,6 +11,17 @@ export async function getAct(act) {
     }
 }
 
+export async function getActs() {
+    try {
+      // Fetch the list of activities from the server
+      const activities = await activityAPI.getActivity();
+      console.log('activities:', activities);
+      return activities;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
 export async function updateAct(currentActivity) {
     try {
         // send data from react to server
@@ -20,5 +31,17 @@ export async function updateAct(currentActivity) {
         await usersService.updateUserState();
     } catch (err) {
         console.log(err)
+    }
+}
+
+export async function deleteAct(activityId) {
+    try {
+        // send request to delete activity by ID
+        await activityAPI.deleteActivity(activityId);
+        // server updates in db
+        // make sure myactivities has updated data
+        await usersService.updateUserState();
+    } catch (err) {
+        console.log(err);
     }
 }
