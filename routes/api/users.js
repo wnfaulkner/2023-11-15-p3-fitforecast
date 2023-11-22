@@ -13,5 +13,8 @@ router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 
 router.get('/update-token', usersCtrl.updateToken)
+// PUT 'Update Profile' button on Edit Profile Page
+router.put('/profile/edit', usersCtrl.updateLocation)
+
 
 module.exports = router;

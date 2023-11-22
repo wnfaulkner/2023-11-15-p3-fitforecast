@@ -6,7 +6,8 @@ module.exports = {
     create,
     login,
     checkToken,
-    updateToken
+    updateToken,
+    updateLocation
 };
 
 async function updateToken(req, res) {
@@ -57,4 +58,18 @@ function createJWT(user) {
     process.env.SECRET,
     { expiresIn: '24h' }
   );
+}
+
+async function updateLocation(req, res) {
+  try {
+      const updateProfile = req.body.location;
+      const foundUser = await User.findByIdAndUpdate(
+        req.body.user._id,
+        { location: updateProfile },
+        );
+      res.status(200).json(foundUser);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
 }
