@@ -1,12 +1,16 @@
 // Add the following import
 import { getToken } from './users-service';
 
+//this function simplifies the process of making http requests
+//provides a default value for HTTP req = GET
+// you invoke the function, specify the url you want to make the request from, the type of request, any data you want to add
 export default async function sendRequest(url, method = 'GET', payload = null) {
-    // Fetch accepts an options object as the 2nd argument
-    // used to include a data payload, set headers, etc. 
-    const options = { method };
-    if (payload) {
-      options.headers = { 'Content-Type': 'application/json' };
+  // Fetch accepts an options object as the 2nd argument
+  const options = { method };
+  if (payload) {
+    //sets the content-type of the data's header = app/json
+    options.headers = { 'Content-Type': 'application/json' };
+    //converts the data's payload to a json string
       options.body = JSON.stringify(payload);
     }
 
