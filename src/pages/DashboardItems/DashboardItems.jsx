@@ -15,7 +15,7 @@ export default function DashboardItems ({ user }) {
         <table>
             <thead>
                 <tr>
-                    <th>User's Name |</th>
+                    <th>User |</th>
                     <th>Location |</th>
                     <th>Number of Activities Logged</th>
                 </tr>

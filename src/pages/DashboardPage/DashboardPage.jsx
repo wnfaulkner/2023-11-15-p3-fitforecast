@@ -7,13 +7,15 @@ export default function DashboardPage({ weatherData }) {
   useEffect(() => {
     fetch('/api/users')
     .then(response => response.json())
-    .then(users => setAllUsers(users))
+    .then(users => {
+      users.sort((a, b) => b.activitiesLogged.length - a.activitiesLogged.length);
+      setAllUsers(users);
+    })
     .catch( error => console.error('Error fetching all users', error))
   }, [])
-  // in a variable, map thru users and drill down into next component
-  console.log(`allUsers: ${allUsers}`)
+  // console.log(`allUsers: ${allUsers}`)
   const users = allUsers.map((user, idx) => <DashboardItems user={user} key={idx} />);
-  console.log(`users from dashboard page: ${users}`)
+  // console.log(`users from dashboard page: ${users}`)
     // console.log(weatherData);  
     if (!weatherData) {
       // If weatherData is not available yet, you can show a loading message or return null.
