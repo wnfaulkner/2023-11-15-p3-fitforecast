@@ -16,5 +16,7 @@ router.get('/update-token', usersCtrl.updateToken)
 // PUT 'Update Profile' button on Edit Profile Page
 router.put('/profile/edit', usersCtrl.updateLocation)
 
+// get all users for community dashboard
+router.get('/', usersCtrl.index)
 
 module.exports = router;

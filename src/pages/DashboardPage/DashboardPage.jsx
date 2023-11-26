@@ -1,6 +1,15 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function DashboardPage({ weatherData }) {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch('/api/users')
+    .then(response => response.json())
+    .then(users => setUsers(users))
+    .catch( error => console.error('Error fetching all users', error))
+  })
+  // in a variable, map thru users and drill down into next component
     // console.log(weatherData);  
     if (!weatherData) {
       // If weatherData is not available yet, you can show a loading message or return null.
