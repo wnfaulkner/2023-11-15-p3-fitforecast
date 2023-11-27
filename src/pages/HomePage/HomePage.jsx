@@ -1,11 +1,13 @@
 // HOME PAGE
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { checkToken } from "../../utilities/users-service";
 
-export default function HomePage({ user, weatherData, activityList }) {
+export default function HomePage({ user, weatherData, recommendedActivity }) {
   
+	console.log(recommendedActivity)
+
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
 	const todayforecast = weatherData.forecast.forecastday[0].day
@@ -13,50 +15,11 @@ export default function HomePage({ user, weatherData, activityList }) {
 	const todayTotalPrecip = todayforecast.totalprecip_in
 	const todayAvgConditionIcon = todayforecast.condition.icon
 	const todayAvgConditionText = todayforecast.condition.text
-	
-	const [recommendedActivity, setRecommendedActivity] = useState('')
-	const [notFirstRender, setNotFirstRender] = useState(null)
 
 	async function handleCheckToken() {
 		const expDate = await checkToken()
 		//console.log(expDate)
 	}
-
-	function getRecommendedActivity(activityList) {
-	
-		// Filtering activities based on weather and temp criteria
-		const filteredActivities = activityList.filter(activity => {
-			return (
-				todayAvgTemp >= activity.minTemp &&
-				todayAvgTemp <= activity.maxTemp &&
-				todayTotalPrecip >= activity.minPrecip &&
-				todayTotalPrecip <= activity.maxPrecip
-			);
-		});
-
-		// console.log(filteredActivities)
-
-		// Selecting final recommended activity 
-		if (filteredActivities.length > 0) {
-			const randomIndex = Math.floor(Math.random() * filteredActivities.length);
-			//console.log(randomIndex, filteredActivities)
-			return {name: filteredActivities[randomIndex].name, recommendation: filteredActivities[randomIndex].recommendation};
-			
-		} else {
-			return {name: "No suitable activities found.", recommendation: 'Pack your bindle and catch the next freight train out of Dodge. Nothin\' doin\' here.'};
-		};
-		
-	}
-
-	useEffect(() => {
-    if (!notFirstRender) {
-      setRecommendedActivity(getRecommendedActivity(activityList));
-			setNotFirstRender(true)
-      console.log('RECOMMENDED ACTIVITY STATE UPDATED', notFirstRender);
-    }
-	}, []) //do this only once when the page first loads
-	
-	//console.log(recommendedActivity, todayforecast)
 
 	return (
 		<div className="page-content">
