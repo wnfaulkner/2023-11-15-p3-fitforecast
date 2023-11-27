@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { updateUserState } from "../../utilities/users-service";
 
 export default function AddActivityPage({ user, setUser }) {
-    console.log(`User data is: ${user}`)
+    //console.log(`User data is: ${user}`)
     const navigate = useNavigate();
     const [newActivity, setNewActivity] = useState({
         name: '',

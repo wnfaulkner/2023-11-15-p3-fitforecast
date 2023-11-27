@@ -1,25 +1,17 @@
 // HOME PAGE
 
-import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { checkToken } from "../../utilities/users-service";
 
-export default function HomePage({ user, weatherData, recommendedActivity }) {
+export default function HomePage({  weatherData, recommendedActivity }) {
   
-	console.log(recommendedActivity)
+	//console.log(recommendedActivity)
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
 	const todayforecast = weatherData.forecast.forecastday[0].day
 	const todayAvgTemp = todayforecast.avgtemp_f
-	const todayTotalPrecip = todayforecast.totalprecip_in
 	const todayAvgConditionIcon = todayforecast.condition.icon
 	const todayAvgConditionText = todayforecast.condition.text
-
-	async function handleCheckToken() {
-		const expDate = await checkToken()
-		//console.log(expDate)
-	}
 
 	return (
 		<div className="page-content">

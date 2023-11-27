@@ -89,34 +89,19 @@ export default function App() {
       };
     }
 
-    // async function updateRecommendedActivity(weatherData){
-    //   try {
-    //     const updatedActivity = await getRecommendedActivity(weatherData);
-    //     console.log(updatedActivity);
-    //   } catch (error) {
-    //     console.error('Error updating recommended activity:', error);
-    //   }
-    // }
-
     if (user) {
+      // console.log(user)
       // User is logged in, fetch the weather data
       fetchData()
-      .then((weatherData) => {
+      .then((weatherData) => {   // With weather data now in hand, select the recommended activity (this is done at the App level because when using react-router-dom, every time you navigate to a new route, the App re-mounts all of its route components, so any useEffect inside the components gets re-run)
         const updatedActivity = getRecommendedActivity(weatherData) 
         setRecommendedActivity(updatedActivity);
-        //console.log(updatedActivity)
       })
       .catch((error) => {
         console.error('Error updating recommended activity:', error);
       });
-      //console.log(weatherData)
-
-      // With weather data now in hand, select the recommended activity (this is done at the App level because when using react-router-dom, every time you navigate to a new route, the App re-mounts all of its route components, so any useEffect inside the components gets re-run)
-      // console.log(getRecommendedActivity(activityList, weatherData))
     }
-  }, [user]);
-  
-  //console.log(weatherData.current.condition.text)
+  }, [user.name]);
 
   return (
     <main className="App">
