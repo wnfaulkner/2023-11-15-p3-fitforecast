@@ -4,7 +4,7 @@ import * as usersService from './users-service'
 export async function getAct(act) {
     try { 
     const activity = await activityAPI.getActivity(act);
-    console.log('activity:', activity)
+    console.log('activity from activity-service:', activity)
     return activity 
     } catch (err) {
         console.log(err)

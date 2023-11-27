@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateUserState } from "../../utilities/users-service";
+import moment from "moment";
 
 export default function AddActivityPage({ user, setUser }) {
-    //console.log(`User data is: ${user}`)
+    // console.log(`User data is: ${user}`)
     const navigate = useNavigate();
     const [newActivity, setNewActivity] = useState({
         name: '',
@@ -13,15 +14,23 @@ export default function AddActivityPage({ user, setUser }) {
         details: '',
         duration: '',
         user: user,
-        date: ''
+        date: moment().format('YYYY-MM-DD')
     });
+    // const handleInputChange = (evt) => {
+    //     setNewActivity({...newActivity, [evt.target.name]: evt.target.value})
+    // };
     const handleInputChange = (evt) => {
-        setNewActivity({...newActivity, [evt.target.name]: evt.target.value})
+        // const dateStr = moment(new Date(evt.target.value)).format("YYYY-MM-DD")
+        // console.log(dateStr, evt.target.value)
+        setNewActivity({...newActivity,[evt.target.name]: evt.target.value});
     };
+    console.log(`newactivity: ${newActivity.date}`)
     async function handleSubmit (evt) {
         evt.preventDefault();
-        console.log(`here is newActivity: ${newActivity}`)
+        // console.log(`here is newActivity: ${newActivity}`)
         try {
+            // const formattedDate = moment(newActivity.date).format('YYYY-MM-DD');
+            // setNewActivity({...newActivity,date: formattedDate});
             await fetch('/addactivity', {
                 method: 'POST',
                 headers: {
@@ -29,6 +38,7 @@ export default function AddActivityPage({ user, setUser }) {
                 }, body: JSON.stringify(newActivity)
             });
             await updateUserState();
+            // console.log(`newactivity after submit: ${newActivity.date}`)
             navigate('/myactivity')
         }catch (error) {
             console.error('Form Submission Error', error)
@@ -91,7 +101,14 @@ export default function AddActivityPage({ user, setUser }) {
                         <option value="Yoga">Yoga</option>
                     </select>
                 </label>
-                <input type="date" placeholder="Date"/><br/>
+                <input
+                    type="date"
+                    placeholder="Date"
+                    // value={new Date(newActivity.date).toLocaleDateString().split('T')[0]}
+                    value={newActivity.date}
+                    onChange={handleInputChange}
+                    name="date"
+                /><br/>
                 <label htmlFor="">Indoor/Outdoor
                     <select 
                         name="inOut"

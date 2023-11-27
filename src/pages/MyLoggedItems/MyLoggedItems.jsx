@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import EditActivityPage from "../EditActivityPage/EditActivityPage";
+import moment from "moment";
 
 export default function MyLoggedItems({ activity }) {
     const activityId = activity._id;
@@ -17,7 +18,8 @@ export default function MyLoggedItems({ activity }) {
     // console.log('details:',details)
     const rating = activity.rating;
     // console.log('rating:',rating)
-    const date = activity.date
+    const date = moment.utc(new Date(activity.date)).format('YYYY-MM-DD')
+    console.log(new Date(activity.date).toISOString())
     // console.log('date:',date)
     return (
             <Link to={`/myactivity/edit/${activityId}`}>
