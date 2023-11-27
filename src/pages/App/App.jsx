@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { getUser } from '../../utilities/users-service';
+import { getUser, getToken } from '../../utilities/users-service';
 import React from 'react';
 import axios from 'axios';
 import AuthPage from '../AuthPage/AuthPage';
@@ -59,7 +59,12 @@ export default function App() {
   ]
   //console.log(activityList)
 
+  const sessionToken = getToken()
+
   useEffect(() => {
+
+    console.log(sessionToken)
+
     async function fetchData() {
       try {
         const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
@@ -112,7 +117,8 @@ export default function App() {
         console.error('Error updating recommended activity:', error);
       });
     }
-  }, [user.name]);
+
+  }, [sessionToken]);
 
   return (
     <main className="App">
