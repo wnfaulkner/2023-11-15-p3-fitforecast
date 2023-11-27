@@ -1,23 +1,28 @@
 import React, { useEffect } from 'react';
 import MyLoggedItems from '../MyLoggedItems/MyLoggedItems';
 import { getUser } from '../../utilities/users-service';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 export default function MyActivityPage({ user, setUser }) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // You can log the user state here to check if it reflects the updated state
-    setUser(getUser());
-    console.log('User in MyActivityPage:', user);
-//   }); // This effect will run whenever the user state changes
-  }, [navigate]); // This effect will run whenever the user state changes
+    const fetchUser = async () => {
+      // Fetch the latest user data
+      const updatedUser = getUser();
+      // Update the state with the latest user data
+      setUser(updatedUser);
+      console.log('Updated user in MyActivityPage:', updatedUser);
+    };
+
+    fetchUser();
+  }, [navigate]); // This effect will run whenever the navigation changes
 
   const activitiesLogged = user.activitiesLogged;
   const loggedActivity = activitiesLogged.map((activity, idx) => (
     <MyLoggedItems activity={activity} key={idx} />
   ));
 
-  // Pass handleUpdateUser as a prop to child components where you need to update user state
   return (
     <div className="page-content">
       <h1>My Activity Page</h1>

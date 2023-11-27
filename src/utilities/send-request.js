@@ -14,6 +14,7 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
       options.body = JSON.stringify(payload);
     }
 
+    
     const token = getToken();
     if (token) {
       // Ensure the headers object exists

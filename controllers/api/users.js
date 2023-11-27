@@ -7,8 +7,20 @@ module.exports = {
     login,
     checkToken,
     updateToken,
-    updateLocation
+    updateLocation,
+    index
 };
+
+async function index (req, res) {
+  // console.log('Index function is being hit')
+  try {
+  const users = await User.find();
+  // console.log(`users from controller: ${users}`)
+  res.json(users)
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 async function updateToken(req, res) {
   try {
