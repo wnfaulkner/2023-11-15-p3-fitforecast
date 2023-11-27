@@ -20,7 +20,7 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [weatherData, setWeatherData] = useState(null);
-  //console.log('User in APP :', user)
+  const [recommendedActivity, setRecommendedActivity] = useState('NO RECOMMENDED ACTIVITY YET')
   //console.log(user)
 
   //Define activities & weather criteria for each (if desire CRUD functionality later, will need to refactor to be a model with router & controller) 
@@ -59,28 +59,60 @@ export default function App() {
   ]
   //console.log(activityList)
 
-
-
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
-        //console.log(response.data)
         setWeatherData(response.data);
-        
+        return response.data; // Return the weather data
       } catch (error) {
         console.error('Error fetching data from the server:', error);
+        throw error; // Re-throw the error to be caught in the next .catch block
       }
+    }
+    
+    function getRecommendedActivity(weatherData) {
+      //console.log(weatherData.forecast)
+      const todayForecast = weatherData.forecast.forecastday[0].day
+      const todayAvgTemp = todayForecast.avgtemp_f
+      const todayTotalPrecip = todayForecast.totalprecip_in
+	
+
+      // Filtering activities based on weather and temp criteria
+      const filteredActivities = activityList.filter(activity => {
+        return (
+          todayAvgTemp >= activity.minTemp &&
+          todayAvgTemp <= activity.maxTemp &&
+          todayTotalPrecip >= activity.minPrecip &&
+          todayTotalPrecip <= activity.maxPrecip
+        );
+      });
+      // console.log(filteredActivities)
+
+      // Selecting final recommended activity 
+      if (filteredActivities.length > 0) {
+        const randomIndex = Math.floor(Math.random() * filteredActivities.length);
+        //console.log(randomIndex, filteredActivities)
+        return {name: filteredActivities[randomIndex].name, recommendation: filteredActivities[randomIndex].recommendation};
+        
+      } else {
+        return {name: "No suitable activities found.", recommendation: 'Pack your bindle and catch the next freight train outta Dodge. Nothin\' doin\' here.'};
+      };
     }
 
     if (user) {
+      // console.log(user)
       // User is logged in, fetch the weather data
-      fetchData();
-      //console.log(weatherData)
+      fetchData()
+      .then((weatherData) => {   // With weather data now in hand, select the recommended activity (this is done at the App level because when using react-router-dom, every time you navigate to a new route, the App re-mounts all of its route components, so any useEffect inside the components gets re-run)
+        const updatedActivity = getRecommendedActivity(weatherData) 
+        setRecommendedActivity(updatedActivity);
+      })
+      .catch((error) => {
+        console.error('Error updating recommended activity:', error);
+      });
     }
-  }, [user]);
-  
-  //console.log(weatherData.current.condition.text)
+  }, [user.name]);
 
   return (
     <main className="App">
@@ -88,7 +120,7 @@ export default function App() {
       <>
         <TopNavBar user={ user } setUser={ setUser } />
         <Routes >
-          <Route path="/home" element={ <HomePage user={ user } weatherData={ weatherData } activityList={ activityList } /> } />
+          <Route path="/home" element={ <HomePage user={ user } weatherData={ weatherData } recommendedActivity={ recommendedActivity } /> } />
           <Route path="/communitydashboard" element={ <DashboardPage weatherData={ weatherData }/> } />
           <Route path="/addactivity" element={ <AddActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
