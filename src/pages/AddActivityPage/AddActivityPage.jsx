@@ -51,12 +51,44 @@ export default function AddActivityPage({ user, setUser }) {
                         // value={newActivity.activityType}
                         onChange={handleInputChange}
                         >
-                        <option value="Run">Run</option>
+                        <option value="Circuit">Circuit</option>
+                        <option value="Cold Plunge">Cold Plunge</option>
+                        <option value="Cross-Fit">Cross-Fit</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Dancing">Dancing</option>
+                        <option value="Fishing">Fishing</option>
+                        <option value="Golfing">Golfing</option>
+                        <option value="HIIT">HIIT</option>
                         <option value="Hike">Hike</option>
-                        <option value="Yoga">Yoga</option>
-                        <option value="Walk">Walk</option>
-                        <option value="Weights">Weights</option>
+                        <option value="Hot Tub">Hot Tub</option>
+                        <option value="Ice Fishing">Ice Fishing</option>
+                        <option value="Ice Hockey">Ice Hockey</option>
+                        <option value="Ice Skating">Ice Skating</option>
+                        <option value="Jog">Jog</option>
+                        <option value="Kayaking">Kayaking</option>
+                        <option value="Massage">Massage</option>
                         <option value="Meditation">Meditation</option>
+                        <option value="Mini Golf">Mini Golf</option>
+                        <option value="Pickleball">Pickleball</option>
+                        <option value="Pilates">Pilates</option>
+                        <option value="Puzzle">Puzzle</option>
+                        <option value="Racketball">Racketball</option>
+                        <option value="Rock Climbing">Rock Climbing</option>
+                        <option value="Roller Skating">Roller Skating</option>
+                        <option value="Run">Run</option>
+                        <option value="Sauna">Sauna</option>
+                        <option value="Skiing">Skiing</option>
+                        <option value="Sledding">Sledding</option>
+                        <option value="Snowboarding">Snowboarding</option>
+                        <option value="Steam Room">Steam Room</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Tobbagan">Tobaggen</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Trampoline">Trampoline</option>
+                        <option value="Walk" selected>Walk</option>
+                        <option value="Weights">Weights</option>
+                        <option value="Yardwork">Yardwork</option>
+                        <option value="Yoga">Yoga</option>
                     </select>
                 </label>
                 <input type="date" placeholder="Date"/><br/>
