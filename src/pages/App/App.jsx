@@ -45,6 +45,17 @@ export default function App() {
     {name: 'Outdoor Ice Skating', maxTemp: 20, minTemp: -100, maxPrecip: 0, minPrecip: 0, recommendation: 'Harness your inner Dutchperson and go gliding on your local lake or river. Always remember to check local ice conditions & thickness!'},
     {name: 'Ice Fishing', maxTemp: 25, minTemp: -100, maxPrecip: 0, minPrecip: 0, recommendation: 'The water is hard and the brews are frosty. Time to grab your drill and get to jigging! Just make sure to stay on TOP of the ice - in this sport, those attempting to fish from under the ice are called \'morons.\''},
     {name: 'Water Biking', maxTemp: 200, minTemp: 85, maxPrecip: 24, minPrecip: 3, recommendation: 'Take advantage of the flash flood puddles and grab your bike. Speed through for laughs and a work-out!'},
+
+    {name: 'Winter Nature Walk', maxTemp: 32, minTemp: 10, maxPrecip: 1, minPrecip: 0, recommendation: 'Bundle up in warm layers and take a serene walk through a snowy landscape. The crisp winter air and snow-covered scenery provide a refreshing and peaceful experience.'},
+    {name: 'Indoor Trampoline Jumping', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 0, recommendation: 'Have a bouncing good time at an indoor trampoline park. Jumping on trampolines is a fun and energetic way to stay active, regardless of the weather outside.'},
+    {name: 'Snowshoeing Adventure', maxTemp: 32, minTemp: 10, maxPrecip: 1, minPrecip: 0, recommendation: "Explore snowy trails with a pair of snowshoes. It's a fantastic way to enjoy the winter wonderland while getting a great workout."},
+    {name: 'Pilates', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 0, recommendation: "Strengthen your core and improve flexibility with an indoor Pilates session. It's a low-impact exercise that can be tailored to various skill levels."},
+    {name: 'Urban Photography Stroll', maxTemp: 85, minTemp: 50, maxPrecip: 0, minPrecip: 0, recommendation: "Take advantage of pleasant weather by going on a photography stroll in your city or a nearby picturesque area. Capture the beauty of your surroundings."},
+    {name: 'Cooking Class', maxTemp: 200, minTemp: -100, maxPrecip: 24, minPrecip: 1, recommendation: "Embrace the indoors by attending a cooking class. Learn new recipes, enjoy the delicious results, and indulge in some self-care"},
+    {name: 'Snowman Building Challenge', maxTemp: 32, minTemp: 10, maxPrecip: 1, minPrecip: 0, recommendation: "Gather friends or family for a friendly competition of building the best snowman. It's a classic winter activity that brings joy and creativity."},
+    {name: 'Indoor Mini Golf', maxTemp: 200, minTemp: 70, maxPrecip: 24, minPrecip: 0, recommendation: "Bring the sunshine indoors by playing mini golf with a tropical theme. It's a lighthearted and entertaining way to spend time with friends."},
+    {name: 'Sledding / Toboggan', maxTemp: 32, minTemp: 10, maxPrecip: 1, minPrecip: 0, recommendation: "Find a local hill and enjoy the thrill of sledding down the slopes. It's a classic winter activity that's sure to bring laughter and excitement."},
+    {name: 'Do a Puzzle', maxTemp: 85, minTemp: 50, maxPrecip: 12, minPrecip: 0.0001, recommendation: "Stay cozy indoors with a puzzle. Gather friends or family for hours of friendly competition and entertainment."},
   ]
   //console.log(activityList)
 
