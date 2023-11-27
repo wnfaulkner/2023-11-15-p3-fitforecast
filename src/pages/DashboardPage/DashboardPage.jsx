@@ -1,6 +1,21 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import DashboardItems from '../DashboardItems/DashboardItems';
 
 export default function DashboardPage({ weatherData }) {
+  const [allUsers, setAllUsers] = useState([]);
+  useEffect(() => {
+    fetch('/api/users')
+    .then(response => response.json())
+    .then(users => {
+      users.sort((a, b) => b.activitiesLogged.length - a.activitiesLogged.length);
+      setAllUsers(users);
+    })
+    .catch( error => console.error('Error fetching all users', error))
+  }, [])
+  // console.log(`allUsers: ${allUsers}`)
+  const users = allUsers.map((user, idx) => <DashboardItems user={user} key={idx} />);
+  // console.log(`users from dashboard page: ${users}`)
     // console.log(weatherData);  
     if (!weatherData) {
       // If weatherData is not available yet, you can show a loading message or return null.
@@ -22,7 +37,7 @@ export default function DashboardPage({ weatherData }) {
     return (
       <div className="page-content dashboard-layout">
         <h1>{locationName}'s Forecast</h1>
-        <img src={todayAvgConditionIcon} className="weather-icon"/>
+        <img src={todayAvgConditionIcon} className="weather-icon" alt=''/>
         <div className="weather-text">{todayAvgConditionText}</div>
         <div className="weather-details">
           <p>Temperature (Avg.): {todayAvgTemp}°F</p>
@@ -37,7 +52,8 @@ export default function DashboardPage({ weatherData }) {
           <br/>
         </div>
           <Link to="/home" className="button">See my FITforecast</Link>
-          <p></p>
+          <h1>Community Leaderboard</h1>
+          <div>{users}</div>
       </div>
     );
 }

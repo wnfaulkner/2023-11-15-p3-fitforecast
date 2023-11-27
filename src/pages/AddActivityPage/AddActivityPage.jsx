@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateUserState } from "../../utilities/users-service";
+import moment from "moment";
 
 export default function AddActivityPage({ user, setUser }) {
-    console.log(`User data is: ${user}`)
+    // console.log(`User data is: ${user}`)
     const navigate = useNavigate();
     const [newActivity, setNewActivity] = useState({
         name: '',
@@ -13,15 +14,23 @@ export default function AddActivityPage({ user, setUser }) {
         details: '',
         duration: '',
         user: user,
-        date: ''
+        date: moment().format('YYYY-MM-DD')
     });
+    // const handleInputChange = (evt) => {
+    //     setNewActivity({...newActivity, [evt.target.name]: evt.target.value})
+    // };
     const handleInputChange = (evt) => {
-        setNewActivity({...newActivity, [evt.target.name]: evt.target.value})
+        // const dateStr = moment(new Date(evt.target.value)).format("YYYY-MM-DD")
+        // console.log(dateStr, evt.target.value)
+        setNewActivity({...newActivity,[evt.target.name]: evt.target.value});
     };
+    console.log(`newactivity: ${newActivity.date}`)
     async function handleSubmit (evt) {
         evt.preventDefault();
-        console.log(`here is newActivity: ${newActivity}`)
+        // console.log(`here is newActivity: ${newActivity}`)
         try {
+            // const formattedDate = moment(newActivity.date).format('YYYY-MM-DD');
+            // setNewActivity({...newActivity,date: formattedDate});
             await fetch('/addactivity', {
                 method: 'POST',
                 headers: {
@@ -29,6 +38,7 @@ export default function AddActivityPage({ user, setUser }) {
                 }, body: JSON.stringify(newActivity)
             });
             await updateUserState();
+            // console.log(`newactivity after submit: ${newActivity.date}`)
             navigate('/myactivity')
         }catch (error) {
             console.error('Form Submission Error', error)
@@ -36,7 +46,7 @@ export default function AddActivityPage({ user, setUser }) {
     }
     return (
         <div className="page-content">
-                <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <h1>Add Activity Page</h1>
                 <input 
                     type="text" 
@@ -51,15 +61,54 @@ export default function AddActivityPage({ user, setUser }) {
                         // value={newActivity.activityType}
                         onChange={handleInputChange}
                         >
-                        <option value="Run">Run</option>
+                        <option value="Circuit">Circuit</option>
+                        <option value="Cold Plunge">Cold Plunge</option>
+                        <option value="Cross-Fit">Cross-Fit</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Dancing">Dancing</option>
+                        <option value="Fishing">Fishing</option>
+                        <option value="Golfing">Golfing</option>
+                        <option value="HIIT">HIIT</option>
                         <option value="Hike">Hike</option>
-                        <option value="Yoga">Yoga</option>
-                        <option value="Walk">Walk</option>
-                        <option value="Weights">Weights</option>
+                        <option value="Hot Tub">Hot Tub</option>
+                        <option value="Ice Fishing">Ice Fishing</option>
+                        <option value="Ice Hockey">Ice Hockey</option>
+                        <option value="Ice Skating">Ice Skating</option>
+                        <option value="Jog">Jog</option>
+                        <option value="Kayaking">Kayaking</option>
+                        <option value="Massage">Massage</option>
                         <option value="Meditation">Meditation</option>
+                        <option value="Mini Golf">Mini Golf</option>
+                        <option value="Pickleball">Pickleball</option>
+                        <option value="Pilates">Pilates</option>
+                        <option value="Puzzle">Puzzle</option>
+                        <option value="Racketball">Racketball</option>
+                        <option value="Rock Climbing">Rock Climbing</option>
+                        <option value="Roller Skating">Roller Skating</option>
+                        <option value="Run">Run</option>
+                        <option value="Sauna">Sauna</option>
+                        <option value="Skiing">Skiing</option>
+                        <option value="Sledding">Sledding</option>
+                        <option value="Snowboarding">Snowboarding</option>
+                        <option value="Steam Room">Steam Room</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Tobbagan">Tobaggen</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Trampoline">Trampoline</option>
+                        <option value="Walk" selected>Walk</option>
+                        <option value="Weights">Weights</option>
+                        <option value="Yardwork">Yardwork</option>
+                        <option value="Yoga">Yoga</option>
                     </select>
                 </label>
-                <input type="date" placeholder="Date"/><br/>
+                <input
+                    type="date"
+                    placeholder="Date"
+                    // value={new Date(newActivity.date).toLocaleDateString().split('T')[0]}
+                    value={newActivity.date}
+                    onChange={handleInputChange}
+                    name="date"
+                /><br/>
                 <label htmlFor="">Indoor/Outdoor
                     <select 
                         name="inOut"

@@ -33,7 +33,10 @@ const activityLogSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    date: Date
+    date: {
+        type: Date,
+        default: new Date(Date.now())
+    }
 });
 
 const userSchema = new Schema({
