@@ -3,14 +3,15 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { getAct, getActs, updateAct, deleteAct } from '../../utilities/activity-service';
 import { updateUserState } from '../../utilities/users-service';
+import moment from 'moment';
 
 export default function EditActivityPage() {
-  const navigate = useNavigate();
-  const { activityId } = useParams();
-  const [currentActivity, setCurrentActivity] = useState(null);
-  const [activities, setActivities] = useState(null); // Declare the state variable
-  console.log(`the current activity is: ${currentActivity}`);
-  console.log(`the current activityID is: ${activityId}`);
+    const navigate = useNavigate();
+    const { activityId } = useParams();
+    const [currentActivity, setCurrentActivity] = useState(null);
+    const [activities, setActivities] = useState(null); // Declare the state variable
+    console.log(`the current activity is: ${currentActivity}`);
+    console.log(`the current activityID is: ${activityId}`);
   
   useEffect(() => {
     async function settingAct() {
@@ -20,12 +21,26 @@ export default function EditActivityPage() {
     }
     settingAct();
     }, [activityId]);
-    function handleInputChange (evt) {
-        setCurrentActivity((oldActivity) => ({...oldActivity,[evt.target.name]:evt.target.value}));
+    // function handleInputChange (evt) {
+    //     setCurrentActivity((oldActivity) => ({...oldActivity,[evt.target.name]:evt.target.value}));
+    // }
+    function handleInputChange(evt) {
+        setCurrentActivity((oldActivity) => ({
+            ...oldActivity,
+            [evt.target.name]:
+                evt.target.name === 'date'
+                    ? new Date(evt.target.value).toISOString().split('T')[0]
+                    : evt.target.value,
+        }));
     }
     async function handleSubmit (evt) {
         evt.preventDefault();
         try {
+            const formattedDate = new Date(currentActivity.date).toISOString();
+            setCurrentActivity((oldActivity) => ({
+            ...oldActivity,
+            date: formattedDate,
+        }));
             await updateAct(currentActivity);
             navigate('/myactivity')
         } catch (err) {
@@ -67,13 +82,13 @@ export default function EditActivityPage() {
                         <option value="Meditation">Meditation</option>
                     </select>
                 </label>
-                {/* <input 
-                type="date" 
-                placeholder={new Intl.DateTimeFormat('en-US').format(currentActivity.date)}
-                placeholder='2023-11-22'
-                value={currentActivity.date}
-                onChange={handleInputChange}
-                name="date"/><br/> */}
+                <input
+                    type="date"
+                    // value={new Date(currentActivity.date).toLocaleDateString().split('T')[0]}
+                    value={moment.utc(currentActivity.date).format('YYYY-MM-DD')}
+                    onChange={handleInputChange}
+                    name="date"
+                /><br/>
                 <label htmlFor="">Indoor/Outdoor
                     <select 
                         name="inOut"

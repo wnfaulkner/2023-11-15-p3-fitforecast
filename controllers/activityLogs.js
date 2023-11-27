@@ -24,6 +24,7 @@ async function update (req, res) {
 }
 
 async function create(req, res) {
+    console.log(req.body)
     try {
         const newActivity = {
             name: req.body.name,
@@ -33,7 +34,8 @@ async function create(req, res) {
             details: req.body.details,
             duration: req.body.duration,
             description: req.body.description,
-            user: req.body.user._id
+            user: req.body.user._id,
+            date: req.body.date
         };
 
         // console.log('New Activity:', newActivity);
