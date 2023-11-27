@@ -4,7 +4,6 @@ import { updateUserState } from "../../utilities/users-service";
 import moment from "moment";
 
 export default function AddActivityPage({ user, setUser }) {
-    
     // console.log(`User data is: ${user}`)
     const navigate = useNavigate();
     const [newActivity, setNewActivity] = useState({
