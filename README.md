@@ -1,4 +1,82 @@
-# **Project Idea and Description**
+# ![Title Banner](INSERT RELATIVE LINK TO IMAGE HERE)
+A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), [Nathan Holliday](https://github.com/nholliday314), & [Leah Livingston](https://github.com/lvlivingston).
+
+
+[Click Here to Check out the App Now](INSERT APP LINK HERE)
+
+---
+### **Project Idea and Description**
+
+FITforecast is a web application designed to enhance your well-being by providing personalized workout suggestions based on your local weather conditions. Whether it's a sunny day perfect for a run, a rainy day calling for indoor exercises, or a peaceful evening ideal for meditation, FITforecast tailors your workout recommendations for you.
+
+
+[Click Here to Check out the App Now](INSERT APP LINK HERE)
+
+
+
+---
+### **Tech Stack**
+It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, React and Node.js. Employed with HTML, CSS, and JavaScript, a weather API is also included.
+
+##### **API Details**
+The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com/docs/) (allowing one million calls per month for free). The API's 'forecast' endpoint provides weather forecasts up to three days ahead of the current date, returning much data including: daily average temperature and total expected precipitation.
+
+![API Details](./public/images/pitch/apiDetails.png)
+
+
+---
+## ERDs
+![ERD](./public/images/pitch/erd.png)
+
+
+---
+### **Restful Routing Chart**
+![Restful Routing Chart](./public/images/pitch/restfulRoutingChart.png)
+
+
+---
+### **Screenshots of the App**
+
+###### Landing Page
+![Wireframe](./public/images/pitch/wireframes.png)
+
+
+
+---
+### **Credit**
+
+A big thank you to the team, including our instructors Weston Bailey, Rondell Charles, April Gonzalez & Tom Kolsrud. 
+
+---
+### **Next Steps**
+
+###### Style
+- [ ] Include CSS styling following a 'Brand Kit'
+- [ ] Include a 'Brand Kit' for future development use
+- [ ] Include visual optimization for desktop and tablet
+- [ ] Include a carousel view on FITforecast view to see 7-day forecast
+
+
+###### Functionality
+- [ ] Include ability to log-in via oAuth
+- [ ] Include ability for user to upload a photo and bio on their profile page
+- [ ] Include ability for user to view previous activity by week / month / activity type
+- [ ] Include ability for user to delete their profile
+- [ ] Include suggestion functionality that takes into account the time of day
+- [ ] Include future recommendations based on weather forecast (i.e. out to 'x' number of days)
+- [ ] Include current weather via shared location services from user's GPS on their device
+- [ ] Include advanced suggested work-outs based on previous performance, ratings, and weather
+- [ ] Include additional analytics on dashboard
+- [ ] Include ability for all users to add comments under "leaderboard" (like reddit / twitter feed)
+
+
+
+
+
+---
+# Planning Materials & Original Pitch below
+
+### **Project Idea and Description**
 A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), [Nathan Holliday](https://github.com/nholliday314), & [Leah Livingston](https://github.com/lvlivingston).
 
 FITforecast is a web application designed to enhance your well-being by providing personalized workout suggestions based on your local weather conditions. Whether it's a sunny day perfect for a run, a rainy day calling for indoor exercises, or a peaceful evening ideal for meditation, FITforecast tailors your workout recommendations for you.
