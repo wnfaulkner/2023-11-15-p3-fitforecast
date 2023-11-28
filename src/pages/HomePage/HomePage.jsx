@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function HomePage({  weatherData, recommendedActivity }) {
   
-	//console.log(recommendedActivity)
+	//console.log(weatherData)
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
@@ -28,7 +28,7 @@ export default function HomePage({  weatherData, recommendedActivity }) {
 				<h3>{recommendedActivity.name}</h3>
 				<p>{recommendedActivity.recommendation}</p>
 			</div>
-				<Link to="/addactivity" className="button">Log this Work-Out</Link>
+				<Link to="/addactivitylog" className="button">Log this Work-Out</Link>
 		</div>
 	);
 }

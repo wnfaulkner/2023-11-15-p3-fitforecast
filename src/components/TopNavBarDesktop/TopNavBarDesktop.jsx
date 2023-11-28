@@ -13,9 +13,9 @@ export default function TopNavBarDesktop({ user, setUser }) {
             &nbsp;&nbsp;
             <Link to="/communitydashboard">FITforecast</Link>
             &nbsp;&nbsp;
-            <Link to="/addactivity">LOG AN ACTIVITY</Link>
+            <Link to="/addactivitylog">LOG AN ACTIVITY</Link>
             &nbsp;&nbsp;
-            <Link to="/myactivity">MY ACTIVITIES</Link>
+            <Link to="/myactivitylogs">MY ACTIVITY LOGS</Link>
             <Link to="/profile"><img src={IconProfile} alt="Profile" className="icon-style"/></Link>
         </nav>
     );

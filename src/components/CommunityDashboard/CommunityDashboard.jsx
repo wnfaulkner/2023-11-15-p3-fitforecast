@@ -3,7 +3,7 @@
 import CommunityDashboardUserCard from "./CommunityDashboardUserCard"
 
 export default function CommunityDashboard ({ allUsers, weatherData }) {
-    console.log(weatherData)
+    //console.log(weatherData)
     return (
         <div id='community-leader-dashboard'>
             <h1>Community Leaderboard</h1>

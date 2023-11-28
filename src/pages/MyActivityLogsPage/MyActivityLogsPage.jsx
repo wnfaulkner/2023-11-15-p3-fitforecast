@@ -1,9 +1,11 @@
+// MY ACTIVITY LOGS PAGE
+
 import React, { useEffect } from 'react';
-import MyLoggedItems from '../MyLoggedItems/MyLoggedItems';
+import MyLoggedItems from '../../components/MyActivityLogs/MyActivityLogs';
 import { getUser } from '../../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
 
-export default function MyActivityPage({ user, setUser }) {
+export default function MyActivityLogsPage({ user, setUser }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +24,8 @@ export default function MyActivityPage({ user, setUser }) {
   const loggedActivity = activitiesLogged.map((activity, idx) => (
     <MyLoggedItems activity={activity} key={idx} />
   ));
-console.log(`loggedactivity: ${loggedActivity}`)
+  //console.log(`loggedactivity: ${loggedActivity}`)
+  
   return (
     <div className="page-content">
       <h1>My Activity Page</h1>
