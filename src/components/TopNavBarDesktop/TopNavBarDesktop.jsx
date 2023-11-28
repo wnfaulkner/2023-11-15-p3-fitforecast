@@ -18,12 +18,12 @@ export default function TopNavBarDesktop({ user, setUser }) {
                 FITforecast
             </Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/addactivity" className="desktop">
+            <Link to="/addactivitylog" className="desktop">
                 LOG AN ACTIVITY
             </Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/myactivity" className="desktop">
-                MY ACTIVITIES
+            <Link to="/myactivitylogs" className="desktop">
+                MY ACTIVITY LOGS
             </Link>
         </div>
         <Link to="/profile">

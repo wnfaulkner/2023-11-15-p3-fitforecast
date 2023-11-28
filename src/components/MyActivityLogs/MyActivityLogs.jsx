@@ -1,11 +1,12 @@
+// MY ACTIVITY LOGS
+
 import { Link } from "react-router-dom";
-import EditActivityPage from "../EditActivityPage/EditActivityPage";
 import moment from "moment";
 import './MyLoggedItems.css';
 
-export default function MyLoggedItems({ activity }) {
+export default function MyActivityLogs({ activity }) {
     const activityId = activity._id;
-    <EditActivityPage currentActivity={activity._id} />
+    // <EditActivityLogPage currentActivity={activity._id} />
     // console.log('the activity info is:', activity)
     const activityName = activity.name;
     // console.log(activityName)

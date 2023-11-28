@@ -1,9 +1,11 @@
+// ADD ACTIVITY LOG PAGE
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateUserState } from "../../utilities/users-service";
 import moment from "moment";
 
-export default function AddActivityPage({ user, setUser }) {
+export default function LogActivityPage({ user, setUser }) {
     // console.log(`User data is: ${user}`)
     const navigate = useNavigate();
     const [newActivity, setNewActivity] = useState({
@@ -24,7 +26,8 @@ export default function AddActivityPage({ user, setUser }) {
         // console.log(dateStr, evt.target.value)
         setNewActivity({...newActivity,[evt.target.name]: evt.target.value});
     };
-    console.log(`newactivity: ${newActivity.date}`)
+    //console.log(`newactivity: ${newActivity.date}`)
+
     async function handleSubmit (evt) {
         evt.preventDefault();
         // console.log(`here is newActivity: ${newActivity}`)
@@ -46,7 +49,7 @@ export default function AddActivityPage({ user, setUser }) {
     }
     return (
         <div className="page-content">
-            <h1>Add Activity Page</h1>
+            <h1>Log an Activity</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <input 
