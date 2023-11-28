@@ -36,7 +36,7 @@ export default function App() {
   useEffect(() => {
     // console.log(sessionToken)
     // console.log('The TopNavBar component was rendered from the useEffect');
-    async function fetchData() {
+    async function fetchWeatherData() {
       try {
         const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
         setWeatherData(response.data);
@@ -74,15 +74,10 @@ export default function App() {
       };
     }
 
-    const handleResize = () => {
-      // console.log('Resizing...', window.innerWidth);
-      setShowBigTopNavBar(window.innerWidth >= 768);
-    };
-
     if (user) {
       // console.log(user)
       // User is logged in, fetch the weather data
-      fetchData()
+      fetchWeatherData()
       .then((weatherData) => {   // With weather data now in hand, select the recommended activity (this is done at the App level because when using react-router-dom, every time you navigate to a new route, the App re-mounts all of its route components, so any useEffect inside the components gets re-run)
         const updatedActivity = getRecommendedActivity(weatherData) 
         setRecommendedActivity(updatedActivity);
@@ -91,17 +86,7 @@ export default function App() {
         console.error('Error updating recommended activity:', error);
       });
     }
-    // Set the initial showBigTopNavBar state
-    setShowBigTopNavBar(window.innerWidth >= 768);
-
-    // Add event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [sessionToken, user]);
+  }, [sessionToken]);
 
   return (
     <main className="App">
@@ -117,9 +102,9 @@ export default function App() {
             <Route path="/communitydashboard" element={ <CommunityDashboardPage user={user} weatherData={ weatherData } /> } />
             <Route path="/addactivitylog" element={ <LogActivityPage user={ user } setUser={ setUser } /> } />
             <Route path="/myactivitylogs" element={ <MyActivityLogsPage user={ user } setUser={ setUser } /> } />
+            <Route path="/myactivitylogs/edit/:activityId" element={ <EditActivityLogPage user={ user } setUser={ setUser } /> } />
             <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
             <Route path="/profile/edit/" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
-            <Route path="/myactivitylogs/edit/:activityId" element={ <EditActivityLogPage user={ user } setUser={ setUser } /> } />
           </Routes>
           {window.innerWidth < 768 && <BottomNavBar user={ user } setUser={ setUser } />}
         </>
