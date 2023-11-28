@@ -11,7 +11,7 @@ import TopNavBar from '../../components/TopNavBar/TopNavBar';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import HomePage from '../HomePage/HomePage';
-import DashboardPage from '../DashboardPage/DashboardPage';
+import CommunityDashboardPage from '../CommunityDashboardPage/CommunityDashboardPage';
 import AddActivityPage from '../AddActivityPage/AddActivityPage';
 import MyActivityPage from '../MyActivityPage/MyActivityPage';
 import EditActivityPage from '../EditActivityPage/EditActivityPage';
@@ -131,7 +131,7 @@ export default function App() {
         <TopNavBar user={ user } setUser={ setUser } />
         <Routes >
           <Route path="/home" element={ <HomePage user={ user } weatherData={ weatherData } recommendedActivity={ recommendedActivity } /> } />
-          <Route path="/communitydashboard" element={ <DashboardPage weatherData={ weatherData }/> } />
+          <Route path="/communitydashboard" element={ <CommunityDashboardPage user={user} weatherData={ weatherData } /> } />
           <Route path="/addactivity" element={ <AddActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
           <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
