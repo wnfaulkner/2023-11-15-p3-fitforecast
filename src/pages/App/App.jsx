@@ -20,7 +20,10 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [weatherData, setWeatherData] = useState(null);
-  const [recommendedActivity, setRecommendedActivity] = useState('NO RECOMMENDED ACTIVITY YET')
+  const [recommendedActivity, setRecommendedActivity] = useState('NO RECOMMENDED ACTIVITY YET');
+  const [showBigTopNavBar, setShowBigTopNavBar] = useState(false);
+  // const [showBottomNavBar, setShowBottomNavBar] = useState(false);
+
   //console.log(user)
 
   //Define activities & weather criteria for each (if desire CRUD functionality later, will need to refactor to be a model with router & controller) 
@@ -117,7 +120,8 @@ export default function App() {
         console.error('Error updating recommended activity:', error);
       });
     }
-
+    // setShowBottomNavBar(window.innerWidth < 768);
+    setShowBigTopNavBar(window.innerWidth >= 768); 
   }, [sessionToken]);
 
   return (
