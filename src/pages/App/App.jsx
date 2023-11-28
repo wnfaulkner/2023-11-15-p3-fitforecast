@@ -86,6 +86,12 @@ export default function App() {
         console.error('Error updating recommended activity:', error);
       });
     }
+
+    const handleResize = () => {
+      // console.log('Resizing...', window.innerWidth);
+      setShowBigTopNavBar(window.innerWidth >= 768);
+    };
+
     // Set the initial showBigTopNavBar state
     setShowBigTopNavBar(window.innerWidth >= 768);
 
