@@ -5,8 +5,6 @@ export function getUser() {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
-
-
 export async function logIn(credentials) {
   try {
     const token = await usersAPI.logIn(credentials);

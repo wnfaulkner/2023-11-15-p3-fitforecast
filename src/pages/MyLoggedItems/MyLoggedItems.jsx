@@ -1,23 +1,28 @@
 import { Link } from "react-router-dom";
+import EditActivityPage from "../EditActivityPage/EditActivityPage";
+import moment from "moment";
 
 export default function MyLoggedItems({ activity }) {
-    console.log('the activity info is:', activity)
+    const activityId = activity._id;
+    <EditActivityPage currentActivity={activity._id} />
+    // console.log('the activity info is:', activity)
     const activityName = activity.name;
-    console.log(activityName)
+    // console.log(activityName)
     const activityType = activity.activityType;
-    console.log('type:',activityType)
+    // console.log('type:',activityType)
     const inOut = activity.inOut;
-    console.log('inOut:', inOut)
+    // console.log('inOut:', inOut)
     const duration = activity.duration;
-    console.log('duration:',duration)
+    // console.log('duration:',duration)
     const details = activity.details;
-    console.log('details:',details)
+    // console.log('details:',details)
     const rating = activity.rating;
-    console.log('rating:',rating)
-    const date = activity.date
-    console.log('date:',date)
+    // console.log('rating:',rating)
+    const date = moment.utc(new Date(activity.date)).format('YYYY-MM-DD')
+    console.log(new Date(activity.date).toISOString())
+    // console.log('date:',date)
     return (
-            <Link>
+            <Link to={`/myactivity/edit/${activityId}`}>
                 {date && <li>{date}</li>}
                 {activityName && <li>{activityName}</li>}
                 {activityType && <li>{activityType}</li>}
@@ -28,10 +33,3 @@ export default function MyLoggedItems({ activity }) {
             </Link>
       );
     }
-
-// export default function MyLoggedItems({ activity }) {
-//     const activityName = activity.name;
-//     return (
-//             <li>{activityName}</li>
-//     )
-// }

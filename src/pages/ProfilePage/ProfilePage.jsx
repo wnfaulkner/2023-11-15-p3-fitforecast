@@ -1,16 +1,20 @@
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import React, {useState} from 'react';
 import * as userService from '../../utilities/users-service';
-import EditProfilePage from '../EditProfilePage/EditProfilePage';
+import { getUser } from '../../utilities/users-service';
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage({ user, setUser }) {
+    const navigate = useNavigate();
     
     const profilePic = user.profilePic;
     const username = user.name;
     const email = user.email;
     const location = user.location;
-    const activitiesLogged = user.activitiesLogged;
-    //console.log(activitiesLogged);
+
+    useEffect(() => {
+        setUser(getUser());
+      }, [navigate]);
     
     function handleLogOut() {
         userService.logOut();
@@ -23,7 +27,6 @@ export default function ProfilePage({ user, setUser }) {
             <p>{username}</p>
             <p>{email}</p>
             <p>{location}</p>
-            <p>{activitiesLogged}</p>
             <Link to="/profile/edit">Edit Location</Link>
             <Link to="" onClick={ handleLogOut } className="log-out-button">Log Out</Link>
         </div>

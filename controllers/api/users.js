@@ -6,8 +6,21 @@ module.exports = {
     create,
     login,
     checkToken,
-    updateToken
+    updateToken,
+    updateLocation,
+    index
 };
+
+async function index (req, res) {
+  // console.log('Index function is being hit')
+  try {
+  const users = await User.find();
+  // console.log(`users from controller: ${users}`)
+  res.json(users)
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 async function updateToken(req, res) {
   try {
@@ -57,4 +70,18 @@ function createJWT(user) {
     process.env.SECRET,
     { expiresIn: '24h' }
   );
+}
+
+async function updateLocation(req, res) {
+  try {
+      const updateProfile = req.body.location;
+      const foundUser = await User.findByIdAndUpdate(
+        req.body.user._id,
+        { location: updateProfile },
+        );
+      res.status(200).json(foundUser);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
 }
