@@ -1,0 +1,39 @@
+.activity {
+    list-style-type: none; 
+    background-color: #FACC2E;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px; 
+    margin-right: 40px;
+    margin-top: 40px;
+  }
+
+.activity:hover {
+    list-style-type: none; 
+    background-color:white;
+    text-decoration: none;
+    border: 2px solid #FACC2E;
+    color: #FACC2E;
+}
+
+.activity-link {
+    text-decoration: none;
+    color: white;
+}
+
+.activity-link:hover {
+    background-color: white;
+    color: #FACC2E;
+    font-weight: bold;
+}
+
+.activity-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.activity-name {
+    font-weight: bold;
+}

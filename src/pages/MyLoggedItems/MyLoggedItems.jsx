@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import EditActivityPage from "../EditActivityPage/EditActivityPage";
 import moment from "moment";
+import './MyLoggedItems.css';
 
 export default function MyLoggedItems({ activity }) {
     const activityId = activity._id;
@@ -22,14 +23,22 @@ export default function MyLoggedItems({ activity }) {
     console.log(new Date(activity.date).toISOString())
     // console.log('date:',date)
     return (
-            <Link to={`/myactivity/edit/${activityId}`}>
+        <div className="activity">
+            <Link to={`/myactivity/edit/${activityId}`} className="activity-link">
+            <div className="activity-row">
                 {date && <li>{date}</li>}
-                {activityName && <li>{activityName}</li>}
                 {activityType && <li>{activityType}</li>}
                 {inOut && <li>{inOut}</li>}
                 {duration && <li>{duration}</li>}
-                {details && <li>{details}</li>}
                 {rating && <li>{rating}</li>}
+            </div>
+            <div className="activity-row activity-name">                
+                {activityName && <li>{activityName}</li>}
+            </div>
+            <div className="activity-row"> 
+                {details && <li>{details}</li>}
+            </div>
             </Link>
+        </div>
       );
     }
