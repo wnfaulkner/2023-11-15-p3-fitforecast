@@ -13,6 +13,7 @@ export default function HomePage({  weatherData, recommendedActivity }) {
 	const todayAvgConditionIcon = todayforecast.condition.icon
 	const todayAvgConditionText = todayforecast.condition.text
 
+	if (!weatherData) { return <h1>Loading...</h1>}
 	return (
 		<div className="page-content">
 			<div id="today-avg-forecast">
