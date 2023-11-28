@@ -134,7 +134,7 @@ export default function App() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [sessionToken, user]);
+  }, [sessionToken]);
   // }, []);
 
   return (
