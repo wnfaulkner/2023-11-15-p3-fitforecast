@@ -8,6 +8,7 @@ import axios from 'axios';
 import AuthPage from '../AuthPage/AuthPage';
 import BottomNavBar from '../../components/BottomNavBar/BottomNavBar';
 import TopNavBar from '../../components/TopNavBar/TopNavBar';
+import TopNavBarDesktop from '../../components/TopNavBarDesktop/TopNavBarDesktop';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import HomePage from '../HomePage/HomePage';
@@ -22,9 +23,10 @@ export default function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [recommendedActivity, setRecommendedActivity] = useState('NO RECOMMENDED ACTIVITY YET');
   const [showBigTopNavBar, setShowBigTopNavBar] = useState(false);
-  // const [showBottomNavBar, setShowBottomNavBar] = useState(false);
-
-  //console.log(user)
+  const [showSmallTopNavBar, setShowSmallTopNavBar] = useState(true);
+  // console.log('showBigTopNavBar:', showBigTopNavBar);
+  // console.log('Window Width:', window.innerWidth);
+  // console.log(user)
 
   //Define activities & weather criteria for each (if desire CRUD functionality later, will need to refactor to be a model with router & controller) 
   const activityList = [
@@ -65,9 +67,8 @@ export default function App() {
   const sessionToken = getToken()
 
   useEffect(() => {
-
-    console.log(sessionToken)
-
+    // console.log(sessionToken)
+    // console.log('The TopNavBar component was rendered from the useEffect');
     async function fetchData() {
       try {
         const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
@@ -85,7 +86,6 @@ export default function App() {
       const todayAvgTemp = todayForecast.avgtemp_f
       const todayTotalPrecip = todayForecast.totalprecip_in
 	
-
       // Filtering activities based on weather and temp criteria
       const filteredActivities = activityList.filter(activity => {
         return (
@@ -102,11 +102,15 @@ export default function App() {
         const randomIndex = Math.floor(Math.random() * filteredActivities.length);
         //console.log(randomIndex, filteredActivities)
         return {name: filteredActivities[randomIndex].name, recommendation: filteredActivities[randomIndex].recommendation};
-        
       } else {
         return {name: "No suitable activities found.", recommendation: 'Pack your bindle and catch the next freight train outta Dodge. Nothin\' doin\' here.'};
       };
     }
+
+    const handleResize = () => {
+      // console.log('Resizing...', window.innerWidth);
+      setShowBigTopNavBar(window.innerWidth >= 768);
+    };
 
     if (user) {
       // console.log(user)
@@ -120,29 +124,42 @@ export default function App() {
         console.error('Error updating recommended activity:', error);
       });
     }
-    // setShowBottomNavBar(window.innerWidth < 768);
-    setShowBigTopNavBar(window.innerWidth >= 768); 
-  }, [sessionToken]);
+    // Set the initial showBigTopNavBar state
+    setShowBigTopNavBar(window.innerWidth >= 768);
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [sessionToken, user]);
+  // }, []);
 
   return (
     <main className="App">
-    { user ?
-      <>
-        <TopNavBar user={ user } setUser={ setUser } />
-        <Routes >
-          <Route path="/home" element={ <HomePage user={ user } weatherData={ weatherData } recommendedActivity={ recommendedActivity } /> } />
-          <Route path="/communitydashboard" element={ <CommunityDashboardPage user={user} weatherData={ weatherData } /> } />
-          <Route path="/addactivity" element={ <AddActivityPage user={ user } setUser={ setUser } /> } />
-          <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
-          <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
-          <Route path="/profile/edit/" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
-          <Route path="/myactivity/edit/:activityId" element={ <EditActivityPage user={ user } setUser={ setUser } /> } />
-        </Routes>
-        <BottomNavBar user={ user } setUser={ setUser } />
-      </>
-      :
-      <AuthPage setUser={ setUser } />
-    }
+      { user ?
+        <>
+          {window.innerWidth < 768 ? (
+            <TopNavBar user={user} setUser={setUser} />
+          ) : (
+            <TopNavBarDesktop user={user} setUser={setUser} />
+          )}
+          <Routes >
+            <Route path="/home" element={ <HomePage user={ user } weatherData={ weatherData } recommendedActivity={ recommendedActivity } /> } />
+            <Route path="/communitydashboard" element={ <CommunityDashboardPage user={user} weatherData={ weatherData } /> } />
+            <Route path="/addactivity" element={ <AddActivityPage user={ user } setUser={ setUser } /> } />
+            <Route path="/myactivity" element={ <MyActivityPage user={ user } setUser={ setUser } /> } />
+            <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
+            <Route path="/profile/edit/" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
+            <Route path="/myactivity/edit/:activityId" element={ <EditActivityPage user={ user } setUser={ setUser } /> } />
+          </Routes>
+          {window.innerWidth < 768 && <BottomNavBar user={ user } setUser={ setUser } />}
+        </>
+        :
+        <AuthPage setUser={ setUser } />
+      }
     </main>
   );
 }
