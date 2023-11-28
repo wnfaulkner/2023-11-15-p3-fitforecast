@@ -86,6 +86,16 @@ export default function App() {
         console.error('Error updating recommended activity:', error);
       });
     }
+    // Set the initial showBigTopNavBar state
+    setShowBigTopNavBar(window.innerWidth >= 768);
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [sessionToken]);
 
   return (

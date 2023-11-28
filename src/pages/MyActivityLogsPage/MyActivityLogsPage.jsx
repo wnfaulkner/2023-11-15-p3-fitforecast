@@ -16,11 +16,11 @@ export default function MyActivityLogsPage({ user, setUser }) {
       setUser(updatedUser);
       console.log('Updated user in MyActivityPage:', updatedUser);
     };
-
     fetchUser();
-  }, [navigate]); // This effect will run whenever the navigation changes
+  }, [navigate]);
 
   const activitiesLogged = user.activitiesLogged ?? [];
+  
   const loggedActivity = activitiesLogged.map((activity, idx) => (
     <MyLoggedItems activity={activity} key={idx} />
   ));
