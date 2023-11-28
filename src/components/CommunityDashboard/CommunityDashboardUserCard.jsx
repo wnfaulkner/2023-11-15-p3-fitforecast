@@ -9,7 +9,7 @@ export default function CommunityDashboardUserCard ({ user, weatherData }) {
   return(
     <li className="community-dashboard-user-card">
       <div>{user.name}</div>
-      <div>{weatherData.location.name}, {weatherData.location.region}</div>
+      <div>{user.location}</div>
       <div>{numActivitiesLogged}</div>
     </li>
   )
