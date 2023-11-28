@@ -18,15 +18,15 @@ export default function MyActivityPage({ user, setUser }) {
     fetchUser();
   }, [navigate]); // This effect will run whenever the navigation changes
 
-  const activitiesLogged = user.activitiesLogged;
+  const activitiesLogged = user.activitiesLogged ?? [];
   const loggedActivity = activitiesLogged.map((activity, idx) => (
     <MyLoggedItems activity={activity} key={idx} />
   ));
-
+console.log(`loggedactivity: ${loggedActivity}`)
   return (
     <div className="page-content">
       <h1>My Activity Page</h1>
-      {loggedActivity && <ul>{loggedActivity}</ul>}
+      {loggedActivity.length ? <ul>{loggedActivity}</ul> : <h4>No Activities Yet. Stop being a bum!</h4>}
     </div>
   );
 }
