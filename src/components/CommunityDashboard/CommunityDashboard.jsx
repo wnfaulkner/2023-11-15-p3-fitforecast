@@ -1,17 +1,9 @@
-export default function CommunityDashboard ({ user, allUsers, weatherData }) {
-    //const userName = user.name;
-    //const userLocation = weatherData.location
+// COMMUNITY DASHBOARD COMPONENT
 
-    // function getNumofLoggedActivities(u) {
-    //     // count the length of the array user.activitiesLogged
-    //     return u.activitiesLogged.length
-    // };
-    // const numLoggedActivities = getNumofLoggedActivities(user)
-    // console.log(`numLoggedActivities: ${numLoggedActivities}`)
-    
-    // console.log(`allUsers: ${allUsers}`)
-    //const communityDashboardRow = );
+import CommunityDashboardUserCard from "./CommunityDashboardUserCard"
 
+export default function CommunityDashboard ({ allUsers, weatherData }) {
+    console.log(weatherData)
     return (
         <div id='community-leader-dashboard'>
             <h1>Community Leaderboard</h1>
@@ -20,20 +12,13 @@ export default function CommunityDashboard ({ user, allUsers, weatherData }) {
                 <div>Location</div>
                 <div>Number of Activities Logged</div>
             </div>
-            <div id='community-dashboard-table-contents'>
+            <ul id='community-dashboard-contents'>
                 {allUsers.map(
-                    (user, idx) => (
-                    <CommunityDashboardUserCard user={user} key={idx} weatherData={ weatherData } />
+                    (u, idx) => (
+                    <CommunityDashboardUserCard user={u} key={idx} weatherData={weatherData} />
                     )
                 )}
-            </div>
-            {/* 
-          </div>
-          
-        <div class='community-dashboard-user-row'>
-            <div>{userName}</div>
-            <div>{userLocation.name}, {userLocation.country}</div>
-            <div>{numLoggedActivities}</div> */}
+            </ul>
         </div>
     )
 }

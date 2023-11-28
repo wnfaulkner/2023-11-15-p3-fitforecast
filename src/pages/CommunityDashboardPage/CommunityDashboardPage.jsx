@@ -1,3 +1,5 @@
+// COMMUNITY DASHBOARD PAGE
+
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CommunityDashboard from '../../components/CommunityDashboard/CommunityDashboard';
@@ -10,6 +12,7 @@ export default function CommunityDashboardPage({ user, weatherData }) {
     .then(users => {
       users.sort((a, b) => b.activitiesLogged.length - a.activitiesLogged.length);
       setAllUsers(users);
+      // console.log(allUsers)
     })
     .catch( error => console.error('Error fetching all users', error))
   }, [])
@@ -50,7 +53,7 @@ export default function CommunityDashboardPage({ user, weatherData }) {
       </div>
       <Link to="/home" className="button">See my FITforecast</Link>
       <div>
-        <CommunityDashboard user={user} weatherData={weatherData} allUsers={allUsers} />
+        <CommunityDashboard weatherData={weatherData} allUsers={allUsers} />
       </div>
     </div>
   );
