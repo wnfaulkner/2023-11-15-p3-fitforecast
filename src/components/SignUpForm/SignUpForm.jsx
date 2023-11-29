@@ -63,11 +63,10 @@ export default function SignUpForm ({ setUser }) {
                 <input type="password" name="password" value={profile.password} onChange={handleChange} placeholder='Choose a password (i.e. P@ssword1!)' required />
                 <label>Confirm</label>
                 <input type="password" name="confirm" value={profile.confirm} onChange={handleChange} placeholder='Type your password again' required />
-                <button type="submit" disabled={disable}>SIGN UP</button>
+                <button type="submit" disabled={disable} className="log-in-button">SIGN UP</button>
               </form>
             </div>
             <p className="error-message">&nbsp;{profile.error}</p>
           </div>
-        );
-      
+        );     
 }
