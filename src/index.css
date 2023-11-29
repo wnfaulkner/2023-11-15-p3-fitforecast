@@ -1,6 +1,7 @@
-CSS Custom Properties
+/* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
+  --light-grey: rgb(236, 236, 236);
   --ochre: #F2B722;
   --gold: #EAE933;
   --light-green: #90EB52;
@@ -20,7 +21,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--white);
   /* padding: 2vmin; */
   height: 100vh;
 }
@@ -119,8 +120,8 @@ input:focus {
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: #FFFFFF;
-  background-color: var(--dark-green);
+  color: black;
+  background-color: var(--ochre);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;

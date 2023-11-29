@@ -1,3 +1,27 @@
+/* HOME PAGE CSS */
+
+*{
+  /* border: 1px grey solid; */
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90vw;
+}
+
+#today-avg-forecast, #today-recommended-activity {
+  width: 50vw;
+  background: rgb(236, 236, 236);
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#today-avg-forecast {
+  /* align-self: flex-start; */
+}
 
 #today-recommended-activity {
   /* background: black; */
