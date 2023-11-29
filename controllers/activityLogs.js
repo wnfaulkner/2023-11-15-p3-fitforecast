@@ -29,7 +29,7 @@ async function create(req, res) {
         const newActivity = {
             name: req.body.name,
             activityType: req.body.activityType,
-            inOut: req.body.inOut,
+            indoorOutdoor: req.body.indoorOutdoor,
             rating: req.body.rating,
             details: req.body.details,
             duration: req.body.duration,

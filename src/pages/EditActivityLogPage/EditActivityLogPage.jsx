@@ -1,3 +1,5 @@
+// EDIT ACTIVITY LOG PAGE
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -5,7 +7,7 @@ import { getAct, getActs, updateAct, deleteAct } from '../../utilities/activity-
 import { updateUserState } from '../../utilities/users-service';
 import moment from 'moment';
 
-export default function EditActivityPage() {
+export default function EditActivityLogPage() {
     const navigate = useNavigate();
     const { activityId } = useParams();
     const [currentActivity, setCurrentActivity] = useState(null);
@@ -21,9 +23,6 @@ export default function EditActivityPage() {
     }
     settingAct();
     }, [activityId]);
-    // function handleInputChange (evt) {
-    //     setCurrentActivity((oldActivity) => ({...oldActivity,[evt.target.name]:evt.target.value}));
-    // }
     function handleInputChange(evt) {
         setCurrentActivity((oldActivity) => ({
             ...oldActivity,

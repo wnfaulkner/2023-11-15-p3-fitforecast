@@ -1,0 +1,40 @@
+.page-content * {
+  /* border: 1px solid grey; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#new-activity-log-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  background: #B2D2A4;
+  border-radius: 5px;
+  padding: 20px;
+  margin: auto; 
+}
+
+#log-title-input, #log-date-input {
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+#log-title-input {
+  width: 35vw
+}
+
+.label-input-pair {
+  display: grid;
+  grid-template-columns: 20vw 20vw;
+  /* justify-content: end; */
+  /* width: 40vw; */
+}
+
+#description-textarea {
+  border-radius: 3px;
+  width: 35vw
+}

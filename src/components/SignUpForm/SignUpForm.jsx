@@ -1,72 +1,72 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { signUp } from '../../utilities/users-service';
+import { useNavigate } from 'react-router-dom';
 
-export default class SignUpForm extends Component {
-    
-    state = {
-        profilePic: '',
-        name: '',
-        email: '',
-        location: '',
-        password: '',
-        confirm: '',
-        error: ''
-    }
+export default function SignUpForm ({ setUser }) {
+    const navigate = useNavigate();
+    const [profile, setProfile] = useState({
+      profilePic: '',
+      name: '',
+      email: '',
+      location: '',
+      password: '',
+      confirm: '',
+      error: ''
+  })
     
     // setState comes from above state class component
     // The object passed to setState is merged with the current state object
-    handleChange = (e) => {
-        this.setState({
+    const handleChange = (e) => {
+        setProfile({
+            ...profile,
             [e.target.name]: e.target.value,
             error: ''
         });
     };  
-
-    handleSubmit = async (e) => {
-        e.preventDefault();
-      
-        try {
-          // We don't want to send the 'error' or 'confirm' property,
-          //  so let's make a copy of the state object, then delete them
-          const formData = {...this.state};
-          delete formData.error;
-          // The promise returned by the signUp service method 
-          // will resolve to the user object included in the
-          // payload of the JSON Web Token (JWT)
-          delete formData.confirm;
-
-          const user = await signUp(formData);
-
-          this.props.setUser(user);
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        // We don't want to send the 'error' or 'confirm' property,
+        //  so let's make a copy of the state object, then delete them
+        const formData = profile;
+        delete formData.error;
+        // The promise returned by the signUp service method 
+        // will resolve to the user object included in the
+        // payload of the JSON Web Token (JWT)
+        delete formData.confirm;
+        console.log('formData:', formData)
+        const user = await signUp(formData);
+        await setUser(user);
+        navigate('/home');
         } catch {
           // An error occurred 
-          this.setState({ error: 'Sign Up Failed - Try Again' });
+          setProfile({ error: 'Sign Up Failed - Try Again' });
         }
     };
 
-    render() {
-        const disable = this.state.password !== this.state.confirm;
+        const disable = profile.password !== profile.confirm;
         return (
           <div>
             <div className="form-container">
-              <form autoComplete="off" onSubmit={this.handleSubmit}>
+              <form autoComplete="off" onSubmit={handleSubmit}>
                 <label>Profile Picture</label>
-                <input type="text" name="profilePic" value={this.state.profilePic} onChange={this.handleChange} placeholder='Paste your image URL here' />
+                <input type="text" name="profilePic" value={profile.profilePic} onChange={handleChange} placeholder='Paste your image URL here' />
                 <label>Username</label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder='Choose a username (i.e. johndoe)' required />
+                <input type="text" name="name" value={profile.name} onChange={handleChange} placeholder='Choose a username (i.e. johndoe)' required />
                 <label>Email</label>
-                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder='Write your email (i.e. johndoe@email.com)' required />
+                <input type="email" name="email" value={profile.email} onChange={handleChange} placeholder='Write your email (i.e. johndoe@email.com)' required />
                 <label>Zip Code</label>
-                <input type="number" name="location" value={this.state.location} onChange={this.handleChange} placeholder='Type your zip code (i.e. 12345)' required />
+                <input type="number" name="location" value={profile.location} onChange={handleChange} placeholder='Type your zip code (i.e. 12345)' required />
                 <label>Password</label>
-                <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder='Choose a password (i.e. P@ssword1!)' required />
+                <input type="password" name="password" value={profile.password} onChange={handleChange} placeholder='Choose a password (i.e. P@ssword1!)' required />
                 <label>Confirm</label>
-                <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} placeholder='Type your password again' required />
+                <input type="password" name="confirm" value={profile.confirm} onChange={handleChange} placeholder='Type your password again' required />
                 <button type="submit" disabled={disable}>SIGN UP</button>
               </form>
             </div>
-            <p className="error-message">&nbsp;{this.state.error}</p>
+            <p className="error-message">&nbsp;{profile.error}</p>
           </div>
         );
-      }
+      
 }
