@@ -13,7 +13,7 @@ const activityLogSchema = new Schema({
         enum: ['Run', 'Hike', 'Yoga', 'Walk', 'Weights', 'Meditation'],
         default: 'Run'
     },
-    inOut: {
+    indoorOutdoor: {
         type: String,
         enum:['Indoor', 'Outdoor'],
         default: 'Indoor'
