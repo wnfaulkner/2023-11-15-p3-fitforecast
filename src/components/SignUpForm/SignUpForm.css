@@ -5,12 +5,16 @@
     justify-content: center;
     height: 100vh; /* Adjust the height as needed */
     background-color: #F2F1F0    ; /* Grey background color */
+    background-image: url('https://images.unsplash.com/photo-1551992315-907fbf183932?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+     background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
   }
 
 .signup-form {
     width: 75vw; /* Adjust the width as needed */
     padding: 50px;
-    background-color: #289c27;
+    background-color: rgb(40, 156, 39, 0.6);
+
     color: black;
     border-radius: 7px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
