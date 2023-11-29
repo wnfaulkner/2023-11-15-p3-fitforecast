@@ -8,7 +8,9 @@ import './TopNavBarDesktop.css';
 export default function TopNavBarDesktop({ user, setUser }) {
   return (
     <nav className="background">
-        <img src={Logo} alt="Logo" className="icon-style" />
+        <Link to="/home">
+            <img src={Logo} alt="Logo" className="icon-style" />
+        </Link>
         <div>
             <Link to="/home" className="desktop">
                 HOME
