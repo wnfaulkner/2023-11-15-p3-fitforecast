@@ -28,6 +28,7 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
 
   async function handleSubmit (evt) {
     evt.preventDefault();
+    // console.log(newLog)
     try {
       await fetch('/create-activity-log', {
         method: 'POST',
