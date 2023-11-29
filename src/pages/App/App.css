@@ -82,6 +82,8 @@
 
 .weather-icon {
   width: 10%;
+  display: block;
+  margin: 0 auto; 
 }
 
 .today-avg-forecast {
