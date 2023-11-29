@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { logIn } from '../../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
-import './LoginForm.css''
+import './LoginForm.css'
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -32,7 +32,7 @@ export default function LoginForm({ setUser }) {
           <input type="text" name="email" value={credentials.email} onChange={handleChange} placeholder='Write your email (i.e. johndoe@email.com)' required />
           <label>Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder='Type your password' required />
-          <button type="submit">LOG IN</button>
+          <button type="submit" className="log-in-button">LOG IN</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>

@@ -1,6 +1,6 @@
 .activity {
     list-style-type: none; 
-    background-color: #FACC2E;
+    background-color: #B2D2A4;
     text-decoration: none;
     color: white;
     border-radius: 10px; 
@@ -12,8 +12,8 @@
     list-style-type: none; 
     background-color:white;
     text-decoration: none;
-    border: 2px solid #FACC2E;
-    color: #FACC2E;
+    border: 2px solid #B2D2A4;
+    color: #B2D2A4;
 }
 
 .activity-link {
@@ -23,7 +23,7 @@
 
 .activity-link:hover {
     background-color: white;
-    color: #FACC2E;
+    color: #B2D2A4;
     font-weight: bold;
 }
 

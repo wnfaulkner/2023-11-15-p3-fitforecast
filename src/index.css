@@ -5,7 +5,7 @@ CSS Custom Properties
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #D3C1AE;
-  --orange: #F67F00;
+  --orange: #f2b722;
   --text-light: #968c84;
   --text-dark: #615954;
 }
@@ -121,7 +121,7 @@ button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: #FFFFFF;
-  background-color: #FFA659;
+  background-color: #f2b722;
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;

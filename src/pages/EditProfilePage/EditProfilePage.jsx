@@ -40,7 +40,7 @@ export default function EditProfilePage({ user, setUser }) {
             // const updatedUser = await updateUserState(updateProfile);
             // console.log('After updateUserState', updatedUser);
             // console.log('user after fetch:', user);
-    // fetch refreshtoken -> set in local storage -> navigate
+            // fetch refreshtoken -> set in local storage -> navigate
             setUser(updateProfile)
             // console.log('user after setUser', user);
     

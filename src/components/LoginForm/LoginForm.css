@@ -11,22 +11,23 @@
 .form {
     width: 600px; /* Adjust the width as needed */
     padding: 50px;
-    background-color: #32CD30; /* Green box color */
+    background-color: #289c27;
+    color: black;
     border-radius: 7px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
   }
 
 
-  .button {
-    position: absolute;
+  .log-in-button {
+    
+    /* position: absolute;
     top:50%;
-    background-color: #04AA6D; /* Green */
-    border: none;
+    background-color: #04AA6D; Green
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 176px;
+    font-size: 176px; */
   }
   

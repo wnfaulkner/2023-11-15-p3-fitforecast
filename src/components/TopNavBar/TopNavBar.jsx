@@ -8,8 +8,9 @@ export default function TopNavBar({ user, setUser }) {
     
     return (
         <nav className="top-nav">
-            {/* console.log('Rendering TopNavBar component') */}
-            <img src={Logo} alt="Logo" className="icon-style"/>
+            <Link to="/home">
+                <img src={Logo} alt="Logo" className="icon-style" />
+            </Link>
             <Link to="/profile"><img src={IconProfile} alt="Profile" className="icon-style"/></Link>
         </nav>
     );
