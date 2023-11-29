@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import './SignUpForm.css';
 
 export default class SignUpForm extends Component {
     
@@ -49,7 +50,7 @@ export default class SignUpForm extends Component {
         return (
           <div>
             <div className="form-container">
-              <form autoComplete="off" onSubmit={this.handleSubmit}>
+              <form clasName="signup-form" autoComplete="off" onSubmit={this.handleSubmit}>
                 <label>Profile Picture</label>
                 <input type="text" name="profilePic" value={this.state.profilePic} onChange={this.handleChange} placeholder='Paste your image URL here' />
                 <label>Username</label>
