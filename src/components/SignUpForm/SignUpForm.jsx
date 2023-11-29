@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { signUp } from '../../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
+import './SignUpForm.css';
 
 export default function SignUpForm ({ setUser }) {
     const navigate = useNavigate();
@@ -49,7 +50,7 @@ export default function SignUpForm ({ setUser }) {
         return (
           <div>
             <div className="form-container">
-              <form autoComplete="off" onSubmit={handleSubmit}>
+              <form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>
                 <label>Profile Picture</label>
                 <input type="text" name="profilePic" value={profile.profilePic} onChange={handleChange} placeholder='Paste your image URL here' />
                 <label>Username</label>
