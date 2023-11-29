@@ -3,7 +3,7 @@ const router = express.Router();
 const activityCtrlr = require('../controllers/activityLogs')
 
 // Clicking the 'Save Activity' button on LogActivityPage
-router.post('/logactivity', activityCtrlr.create)
+router.post('/create-activity-log', activityCtrlr.create)
 
 // Clicking on activity to go to editactivity page
 router.get('/myactivity/:activityId', activityCtrlr.show)

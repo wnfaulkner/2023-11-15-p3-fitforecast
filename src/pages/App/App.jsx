@@ -17,7 +17,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import HomePage from '../HomePage/HomePage';
 import CommunityDashboardPage from '../CommunityDashboardPage/CommunityDashboardPage';
-import LogActivityPage from '../AddActivityLogPage/AddActivityLogPage';
+import AddActivityLogPage from '../AddActivityLogPage/AddActivityLogPage';
 import MyActivityLogsPage from '../MyActivityLogsPage/MyActivityLogsPage';
 import EditActivityLogPage from '../EditActivityLogPage/EditActivityLogPage';
 
@@ -68,7 +68,11 @@ export default function App() {
       if (filteredActivities.length > 0) {
         const randomIndex = Math.floor(Math.random() * filteredActivities.length);
         //console.log(randomIndex, filteredActivities)
-        return {name: filteredActivities[randomIndex].name, recommendation: filteredActivities[randomIndex].recommendation};
+        return {
+          name: filteredActivities[randomIndex].name, 
+          indoorOutdoor: filteredActivities[randomIndex].indoorOutdoor,
+          recommendation: filteredActivities[randomIndex].recommendation
+        };
       } else {
         return {name: "No suitable activities found.", recommendation: 'Pack your bindle and catch the next freight train outta Dodge. Nothin\' doin\' here.'};
       };
@@ -116,7 +120,7 @@ export default function App() {
           <Routes >
             <Route path="/home" element={ <HomePage user={ user } weatherData={ weatherData } recommendedActivity={ recommendedActivity } /> } />
             <Route path="/communitydashboard" element={ <CommunityDashboardPage user={user} weatherData={ weatherData } /> } />
-            <Route path="/addactivitylog" element={ <LogActivityPage user={ user } setUser={ setUser } /> } />
+            <Route path="/addactivitylog" element={ <AddActivityLogPage user={ user } setUser={ setUser } activityList={ activityList } recommendedActivity={ recommendedActivity } /> } />
             <Route path="/myactivitylogs" element={ <MyActivityLogsPage user={ user } setUser={ setUser } /> } />
             <Route path="/myactivitylogs/edit/:activityId" element={ <EditActivityLogPage user={ user } setUser={ setUser } /> } />
             <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
