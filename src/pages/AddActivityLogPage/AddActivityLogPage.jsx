@@ -13,8 +13,8 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
   const navigate = useNavigate();
   const [newLog, setNewLog] = useState({
     name: '',
-    activityType: '',
-    indoorOutdoor: '',
+    activityType: recommendedActivity.name,
+    indoorOutdoor: recommendedActivity.indoorOutdoor,
     rating: '',
     details: '',
     duration: '',
@@ -29,8 +29,6 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
   async function handleSubmit (evt) {
     evt.preventDefault();
     try {
-      // const formattedDate = moment(newLog.date).format('YYYY-MM-DD');
-      // setNewLog({...newLog,date: formattedDate});
       await fetch('/create-activity-log', {
         method: 'POST',
         headers: {
@@ -38,7 +36,6 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
         }, body: JSON.stringify(newLog)
       });
       await updateUserState();
-      // console.log(`newactivity after submit: ${newLog.date}`)
       navigate('/myactivitylogs')
     }catch (error) {
       console.error('Form Submission Error', error)
@@ -60,7 +57,6 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
           id="log-date-input"
           type="date"
           placeholder="Date"
-          // value={new Date(newLog.date).toLocaleDateString().split('T')[0]}
           value={newLog.date}
           onChange={handleInputChange}
           name="date"
@@ -70,7 +66,7 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
             <select 
               name="activityType"
               onChange={handleInputChange}
-              value={recommendedActivity.name}
+              value={newLog.activityType}
             >
             {activityList.map((activity) => (
               <option key={activity.name} value={activity.name}>
@@ -82,9 +78,8 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
           <label htmlFor="" className="label-input-pair">Indoor/Outdoor:
             <select 
               name="indoorOutdoor"
-              // value={newLog.indoorOutdoor}
               onChange={handleInputChange}
-              value={recommendedActivity.indoorOutdoor}
+              value={newLog.indoorOutdoor}
             >
               <option value="Indoor">Indoor</option>
               <option value="Outdoor">Outdoor</option>
@@ -93,7 +88,6 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
           <label htmlFor="" className="label-input-pair">Duration:
             <select 
               name="duration"
-              // value={newLog.duration}
               onChange={handleInputChange}
             >
               <option value="0-30mins">0-30mins</option>
@@ -105,7 +99,6 @@ export default function AddActivityLogPage({ user, activityList, recommendedActi
           <label htmlFor="" className="label-input-pair">Rating:
             <select 
               name="rating"
-              // value={newLog.rating}
               onChange={handleInputChange}
             >
               <option value="1">★</option>
