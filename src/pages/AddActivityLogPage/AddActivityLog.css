@@ -1,8 +1,8 @@
 .page-content * {
   /* border: 1px solid grey; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
 }
 
 #new-activity-log-form {

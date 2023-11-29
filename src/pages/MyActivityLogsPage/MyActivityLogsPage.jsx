@@ -14,7 +14,7 @@ export default function MyActivityLogsPage({ user, setUser }) {
       const updatedUser = getUser();
       // Update the state with the latest user data
       setUser(updatedUser);
-      console.log('Updated user in MyActivityPage:', updatedUser);
+      // console.log('Updated user in MyActivityPage:', updatedUser);
     };
     fetchUser();
   }, [navigate]);
