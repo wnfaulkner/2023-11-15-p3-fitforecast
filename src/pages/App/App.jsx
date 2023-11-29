@@ -39,6 +39,7 @@ export default function App() {
     async function fetchWeatherData() {
       try {
         const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
+        console.log(response)
         setWeatherData(response.data);
         return response.data; // Return the weather data
       } catch (error) {

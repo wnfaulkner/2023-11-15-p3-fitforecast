@@ -12,9 +12,11 @@ export default function ProfilePage({ user, setUser }) {
     const email = user.email;
     const location = user.location;
 
-    useEffect(() => {
-        setUser(getUser());
-      }, [navigate]);
+    // once we make the JWT change then uncomment this useEffect
+    // useEffect(() => {
+    //     console.log(getUser())
+    //     setUser(getUser());
+    //   }, [navigate]);
     
     function handleLogOut() {
         userService.logOut();

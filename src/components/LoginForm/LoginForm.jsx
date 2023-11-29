@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { logIn } from '../../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
+import './LoginForm.css'
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
@@ -26,7 +27,7 @@ export default function LoginForm({ setUser }) {
   return (
     <div>
       <div className="form-container" onSubmit={handleSubmit}>
-        <form autoComplete="off" >
+        <form className="form" autoComplete="off" >
           <label>Email</label>
           <input type="text" name="email" value={credentials.email} onChange={handleChange} placeholder='Write your email (i.e. johndoe@email.com)' required />
           <label>Password</label>
