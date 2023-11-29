@@ -2,9 +2,10 @@
 
 import { Link } from 'react-router-dom';
 
+import '../../index.css'
+import './HomePage.css'
+
 export default function HomePage({  weatherData, recommendedActivity }) {
-  
-	//console.log(weatherData)
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
@@ -18,9 +19,9 @@ export default function HomePage({  weatherData, recommendedActivity }) {
 		<div className="page-content">
 			<div id="today-avg-forecast">
 				<h1>Today's Weather</h1>
-				<p>{locationName}, {regionName}</p>
+				<h3>{locationName}, {regionName}</h3>
 				<p>Today's Average Temp: {todayAvgTemp}&deg;F</p>
-				<img src={todayAvgConditionIcon} className="weather-icon"/>
+				<img src={todayAvgConditionIcon} className="weather-icon" alt="weather icon"/>
 				<p>{todayAvgConditionText}</p>
 			</div>
 			<div id="today-recommended-activity">
