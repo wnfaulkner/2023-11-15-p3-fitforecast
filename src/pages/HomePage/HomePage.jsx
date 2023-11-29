@@ -2,9 +2,10 @@
 
 import { Link } from 'react-router-dom';
 
+import '../../index.css'
+import './HomePage.css'
+
 export default function HomePage({  weatherData, recommendedActivity }) {
-  
-	//console.log(weatherData)
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
