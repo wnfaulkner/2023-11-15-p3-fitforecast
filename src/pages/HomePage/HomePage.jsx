@@ -1,10 +1,23 @@
 // HOME PAGE
 
+import React, { useEffect } from 'react';
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 
 export default function HomePage({  weatherData, recommendedActivity }) {
   
 	//console.log(weatherData)
+
+	const [currentWeatherData, setCurrentWeatherData] = useState(weatherData);
+
+	// useEffect to update weather data when it changes
+	useEffect(() => {
+	  setCurrentWeatherData(weatherData);
+	}, [weatherData]);
+  
+	if (!currentWeatherData) {
+	  return <h1>Loading...</h1>;
+	}
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
