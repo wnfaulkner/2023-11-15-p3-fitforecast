@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { updateUserState } from "../../utilities/users-service";
+import { getUser, updateUserState } from "../../utilities/users-service";
 
 export default function EditProfilePage({ user, setUser }) {
+    console.log('user at start', user);
     const { userId } = useParams();
     const profilePic = user.profilePic;
     const username = user.name;
@@ -18,40 +19,68 @@ export default function EditProfilePage({ user, setUser }) {
         location: user.location,
         user: user
     });
+    console.log('updateProfile before inputChange', updateProfile);
     
-    const handleLocationChange = (evt) => {
+    const handleInputChange = (evt) => {
         setUpdateProfile({...updateProfile, [evt.target.name]: evt.target.value})
     };
     async function handleSubmit(evt) {
         evt.preventDefault();
+        console.log('updateProfile Before fetch', updateProfile);
+        // console.log('User Before fetch', user);
         try {
             await fetch('http://localhost:3001/api/users/profile/edit', {
-                method: 'PUT',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 }, body: JSON.stringify(updateProfile)
             });
-            await updateUserState();
-            navigate('/profile')
-        }catch (error) {
-            console.error('Location Update Error', error)
+    
+            console.log('updateProfile after fetch', updateProfile);
+            // const updatedUser = await updateUserState(updateProfile);
+            // console.log('After updateUserState', updatedUser);
+            // console.log('user after fetch:', user);
+    // fetch refreshtoken -> set in local storage -> navigate
+            setUser(updateProfile)
+            // console.log('user after setUser', user);
+    
+            navigate('/profile');
+        } catch (error) {
+            console.error('Location Update Error', error);
         }
     }
+    
 
     return (
         <div className="page-content">
             <form onSubmit={handleSubmit}>
                 <h1>Edit Profile Page</h1>
                 <p>{profilePic}</p>
-                <p>Username: {username}</p>
-                <p>Email: {email}</p>
-                <p>Current location: {location}</p>
+                <label htmlFor="">Username:
                 <input 
-                    type="Number"
-                    placeholder="Type new zipcode here"
+                    type="text"
+                    name="name"
+                    placeholder={username}
+                    value={updateProfile.name}
+                    onChange={handleInputChange}
+                    />
+                </label>
+                <label htmlFor="">Email:
+                <input 
+                    type="text"
+                    name="email"
+                    value={updateProfile.email}
+                    onChange={handleInputChange}
+                    />
+                </label>
+                <label htmlFor="">ZIP:
+                <input 
+                    type="number"
                     name="location"
-                    onChange={handleLocationChange}
-                /><br/>
+                    value={updateProfile.location}
+                    onChange={handleInputChange}
+                    />
+                </label>
                 <button type="submit">Update Profile</button>
             </form>
         </div>

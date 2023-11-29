@@ -1,0 +1,17 @@
+.background {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh;
+    background-color: #FACC2E; 
+  }
+
+.desktop {
+    /* font-weight: bold; */
+    text-decoration: none;
+    color: white;
+}
+
+.desktop:hover {
+    font-weight: bold;
+}

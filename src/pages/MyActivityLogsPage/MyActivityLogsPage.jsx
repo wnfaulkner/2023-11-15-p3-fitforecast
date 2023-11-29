@@ -1,9 +1,11 @@
+// MY ACTIVITY LOGS PAGE
+
 import React, { useEffect } from 'react';
-import MyLoggedItems from '../MyLoggedItems/MyLoggedItems';
+import MyLoggedItems from '../../components/MyActivityLogs/MyActivityLogs';
 import { getUser } from '../../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
 
-export default function MyActivityPage({ user, setUser }) {
+export default function MyActivityLogsPage({ user, setUser }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,19 +16,20 @@ export default function MyActivityPage({ user, setUser }) {
       setUser(updatedUser);
       console.log('Updated user in MyActivityPage:', updatedUser);
     };
-
     fetchUser();
-  }, [navigate]); // This effect will run whenever the navigation changes
+  }, [navigate]);
 
-  const activitiesLogged = user.activitiesLogged;
+  const activitiesLogged = user.activitiesLogged ?? [];
+  
   const loggedActivity = activitiesLogged.map((activity, idx) => (
     <MyLoggedItems activity={activity} key={idx} />
   ));
-
+  //console.log(`loggedactivity: ${loggedActivity}`)
+  
   return (
     <div className="page-content">
       <h1>My Activity Page</h1>
-      {loggedActivity && <ul>{loggedActivity}</ul>}
+      {loggedActivity.length ? <ul>{loggedActivity}</ul> : <h4>No Activities Yet. Stop being a bum!</h4>}
     </div>
   );
 }

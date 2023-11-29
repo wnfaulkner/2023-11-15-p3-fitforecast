@@ -7,9 +7,51 @@ module.exports = {
     login,
     checkToken,
     updateToken,
-    updateLocation,
+    updateProfile,
     index
 };
+
+
+async function updateProfile(req, res) {
+  try {
+    const userId = req.body.user._id;
+    const updatedFields = {
+      'location': req.body.location,
+      'name': req.body.name,
+      'email': req.body.email
+    };
+
+    const foundUser = await User.findByIdAndUpdate(
+      userId, { $set: updatedFields }, { new: true });
+
+    console.log('updated user in controller:', foundUser);
+    res.status(200).json(foundUser);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
+
+// async function updateProfile(req, res) {
+//   try {
+//     // const updatedField = req.body;
+//     const updatedZip = req.body.location;
+//     const updatedName = req.body.name;
+//     const updatedEmail = req.body.email;
+//     const foundUser = await User.findOneAndUpdate(
+//       // req.body.user._id,
+//       { $set:{ 'location.$': updatedZip }},
+//       { $set:{ 'name.$': updatedName }},
+//       { $set:{ 'email.$': updatedEmail }},
+//       {new: true}
+//       );
+//       console.log('updated user in controller:', foundUser)
+//     res.status(200).json(foundUser);
+//   } catch (err) {
+//       console.error(err);
+//       res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// }
 
 async function index (req, res) {
   // console.log('Index function is being hit')
@@ -66,22 +108,23 @@ function checkToken(req, res) {
 // Helper functions
 function createJWT(user) {
   return jwt.sign(
+    
     { user }, 
     process.env.SECRET,
     { expiresIn: '24h' }
   );
 }
 
-async function updateLocation(req, res) {
-  try {
-      const updateProfile = req.body.location;
-      const foundUser = await User.findByIdAndUpdate(
-        req.body.user._id,
-        { location: updateProfile },
-        );
-      res.status(200).json(foundUser);
-  } catch (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Internal Server Error' });
-  }
-}
+// async function updateLocation(req, res) {
+//   try {
+//       const updateProfile = req.body.location;
+//       const foundUser = await User.findByIdAndUpdate(
+//         req.body.user._id,
+//         { location: updateProfile },
+//         );
+//       res.status(200).json(foundUser);
+//   } catch (err) {
+//       console.error(err);
+//       res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// }
