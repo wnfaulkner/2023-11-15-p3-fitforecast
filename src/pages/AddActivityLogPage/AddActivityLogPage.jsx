@@ -9,7 +9,6 @@ import moment from "moment";
 import './AddActivityLog.css'
 
 export default function AddActivityLogPage({ user, activityList, recommendedActivity }) {
-  // console.log(recommendedActivity)
   const navigate = useNavigate();
   const [newLog, setNewLog] = useState({
     name: '',
