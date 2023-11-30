@@ -31,7 +31,18 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 
 ---
 ### **Restful Routing Chart**
-![Restful Routing Chart](./public/images/pitch/restfulRoutingChart.png)
+
+| HTTP METHOD | URL | CRUD | Response | Notes |
+| -------------------- | ------------- | ---- | -------- | ----- |
+| `full index of items`  |   |   |   |   |
+| GET | `/check-token` | Read (index) | Check token | retrieves the JWT token |
+| POST | `/` | Create | Creates user | creates a user in the database |
+| POST | `/login` | Read | Login user | logs a user into the application |
+| GET | `/update-token` | Update | Update token | updates JWT token of user |
+| GET | `/refresh-token` | Update | Refresh token | refreshes JWT token of user |
+| PATCH | `/profile/edit` | Update | Edit profile | updates user profile  |
+| GET | `/` | Read | View Dashboard | retrieves community dashboard information  |
+| GET | `/fetch-weather-data` | Read | View Weather | retrieves weather information  |
 
 
 ---
