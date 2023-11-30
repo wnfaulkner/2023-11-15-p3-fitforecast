@@ -5,7 +5,8 @@
 }
 
 #community-leader-dashboard {
-  background: var(--light-grey)
+  background: var(--light-grey);
+  border-radius: 5px;
 }
 
 #community-leader-dashboard-headers {
