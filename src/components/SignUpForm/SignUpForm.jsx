@@ -53,15 +53,15 @@ export default function SignUpForm ({ setUser }) {
               <form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>
                 {/* <label>Profile Picture</label>
                 <input type="text" name="profilePic" value={profile.profilePic} onChange={handleChange} placeholder='Paste your image URL here' /> */}
-                <label>Username</label>
+                <label className="label">Username</label>
                 <input type="text" name="name" value={profile.name} onChange={handleChange} placeholder='Choose a username (i.e. johndoe)' required />
-                <label>Email</label>
+                <label className="label">Email</label>
                 <input type="email" name="email" value={profile.email} onChange={handleChange} placeholder='Write your email (i.e. johndoe@email.com)' required />
-                <label>Zip Code</label>
+                <label className="label">Zip Code</label>
                 <input type="number" name="location" value={profile.location} onChange={handleChange} placeholder='Type your zip code (i.e. 12345)' required />
-                <label>Password</label>
+                <label className="label">Password</label>
                 <input type="password" name="password" value={profile.password} onChange={handleChange} placeholder='Choose a password (i.e. P@ssword1!)' required />
-                <label>Confirm</label>
+                <label className="label">Confirm</label>
                 <input type="password" name="confirm" value={profile.confirm} onChange={handleChange} placeholder='Type your password again' required />
                 <button type="submit" disabled={disable} className="log-in-button">SIGN UP</button>
               </form>
