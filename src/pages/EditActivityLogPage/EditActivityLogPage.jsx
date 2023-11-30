@@ -129,9 +129,9 @@ export default function EditActivityLogPage() {
                 value={currentActivity.description}
                 onChange={handleInputChange}
                 /><br/>
-                <button type="submit" >Update Activity</button>
+                    <button type="submit" className="button">Update Activity</button>
+                <button type="button" onClick={handleDelete} className="log-out-button">Delete Activity</button>
             </form>
-                <button type="button" onClick={handleDelete}>Delete Activity</button>
         </div>
     );
 }

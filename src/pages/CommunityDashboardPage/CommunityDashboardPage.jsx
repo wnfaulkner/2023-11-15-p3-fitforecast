@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CommunityDashboard from '../../components/CommunityDashboard/CommunityDashboard';
 
+import './CommunityDashboardPage.css'
+
 export default function CommunityDashboardPage({ user, weatherData }) {
   const [allUsers, setAllUsers] = useState([]);
   useEffect(() => {
@@ -35,26 +37,27 @@ export default function CommunityDashboardPage({ user, weatherData }) {
   const sunset = weatherData.forecast.forecastday[0].astro.sunset;
 
   return (
-    <div className="page-content dashboard-layout">
-      <h1>Today's Forecast for {locationName}</h1>
-      <img src={todayAvgConditionIcon} className="weather-icon" alt=''/>
-      <div className="weather-text">{todayAvgConditionText}</div>
-      <div className="weather-details">
-        <p>Temperature (Avg.): {todayAvgTemp}°F</p>
-        <p>UV Index: Level {todayUv}</p>
-        <p>Chance of Rain: {chanceOfRain}%</p>
-        <p>Humidity: {humidity}%</p>
-        <p>Wind (Max): {wind}mph</p>
-        <br/>
-        <p>Sunrise: {sunrise}</p>
-        <p>Sunset: {sunset}</p>
-        <p>Moon Phase: {moonPhase}</p>
-        <br/>
-      </div>
-      <Link to="/home" className="button">See my FITforecast</Link>
+    <div className="page-content">
       <div>
         <CommunityDashboard weatherData={weatherData} allUsers={allUsers} />
       </div>
+      <h3>Today's Forecast for {locationName}</h3>
+      {/* <div className='today-average-condition-summary'> */}
+        <img src={todayAvgConditionIcon} className="today-avg-condition-icon" alt='today average condition icon'/>
+        <h3 className="today-avg-condition-text">{todayAvgConditionText}</h3>
+      {/* </div> */}
+      <div className="today-avg-condition-details">
+        <div className="grid-item">Temperature (Avg.): {todayAvgTemp}°F</div>
+        <div className="grid-item">Chance of Rain: {chanceOfRain}%</div>
+        <div className="grid-item">Wind (Max): {wind}mph</div>
+        <div className="grid-item">Humidity: {humidity}%</div>
+        <div className="grid-item">UV Index: Level {todayUv}</div>
+        <div className="grid-item">Sunrise: {sunrise}</div>
+        <div className="grid-item">Sunset: {sunset}</div>
+        <div className="grid-item">Moon Phase: {moonPhase}</div>
+        <br/>
+      </div>
+      <Link to="/home" className="button">See my FITforecast</Link>
     </div>
   );
 }
