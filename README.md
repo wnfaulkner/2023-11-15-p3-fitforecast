@@ -1,4 +1,4 @@
-# ![Title Banner](INSERT RELATIVE LINK TO IMAGE HERE)
+# ![Title Banner](./public/images/banner.png)
 A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), [Nathan Holliday](https://github.com/nholliday314), & [Leah Livingston](https://github.com/lvlivingston).
 
 
