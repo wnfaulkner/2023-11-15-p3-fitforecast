@@ -1,4 +1,4 @@
-# ![Banner Photo](./src/images/final/banner.png)
+# ![Banner Photo](./src/images/final/readmeBanner.jpg)
 A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), [Nathan Holliday](https://github.com/nholliday314), & [Leah Livingston](https://github.com/lvlivingston).
 
 
