@@ -38,7 +38,7 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 ### **Screenshots of the App**
 
 ###### Landing Page
-![Final Wireframe](./public/images/FINALwireframes.png)
+![Final Wireframe](./public/images/final/FINALwireframes.png)
 
 
 
