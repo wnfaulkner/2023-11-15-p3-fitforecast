@@ -21,4 +21,6 @@ router.patch('/profile/edit', usersCtrl.updateProfile)
 // get all users for community dashboard
 router.get('/', usersCtrl.index)
 
+
+
 module.exports = router;

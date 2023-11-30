@@ -2,24 +2,24 @@
 A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), [Nathan Holliday](https://github.com/nholliday314), & [Leah Livingston](https://github.com/lvlivingston).
 
 
-[Click Here to Check out the App Now](INSERT APP LINK HERE)
+[Click Here to Check out the App Now](https://fitforecast-dc33e66f392f.herokuapp.com/)
 
 ---
 ### **Project Idea and Description**
 
-FITforecast is a web application designed to enhance your well-being by providing personalized workout suggestions based on your local weather conditions. Whether it's a sunny day perfect for a run, a rainy day calling for indoor exercises, or a peaceful evening ideal for meditation, FITforecast tailors your workout recommendations for you.
+FITforecast is a web application designed to enhance your well-being through personalized workout suggestions based on your local weather conditions. Whether it's a sunny day and perfect for a run, a rainy afternoon calling for an indoor activity, or a peaceful evening to recharge with meditation, FITforecast tailors a daily workout recommendation for you.
 
 
-[Click Here to Check out the App Now](INSERT APP LINK HERE)
+[Click Here to Check out the App Now](https://fitforecast-dc33e66f392f.herokuapp.com/)
 
 
 
 ---
 ### **Tech Stack**
-It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, React and Node.js. Employed with HTML, CSS, and JavaScript, a weather API is also included.
+It's a MERN-Stack web application hosted on Heroku utilizing MongoDB, Express, React, and Node.js. Also employed with HTML, CSS, and JavaScript, the WeatherAPI is included to provide personalized recommendations.
 
 ##### **API Details**
-The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com/docs/) (allowing one million calls per month for free). The API's 'forecast' endpoint provides weather forecasts up to three days ahead of the current date, returning much data including: daily average temperature and total expected precipitation.
+The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com/docs/) (allowing one million calls per month for free). The API's 'forecast' endpoint provides weather forecasts up to three days ahead of the current date, returning useful data like daily average temperature and total expected precipitation.
 
 ![API Details](./public/images/pitch/apiDetails.png)
 
@@ -38,7 +38,7 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 ### **Screenshots of the App**
 
 ###### Landing Page
-![Wireframe](./public/images/pitch/wireframes.png)
+![Wireframe](./public/images/FINALwireframes.png)
 
 
 
@@ -51,17 +51,20 @@ A big thank you to the team, including our instructors Weston Bailey, Rondell Ch
 ### **Next Steps**
 
 ###### Style
-- [ ] Include CSS styling following a 'Brand Kit'
-- [ ] Include a 'Brand Kit' for future development use
-- [ ] Include visual optimization for desktop and tablet
-- [ ] Include a carousel view on FITforecast view to see 7-day forecast
+- [ ] Polish CSS styling following the 'Brand Kit'
+- [ ] Increase size of font on 'Log-in' and 'Sign-In' pages
+- [ ] Clean up CSS on 'Edit Activity' and 'Edit Profile' screens
+- [ ] Include visual optimization for desktop and tablet views
+- [ ] Include a carousel view on FITforecast view to see 3-day forecast
+- [ ] Include ability for user to include a personalized profile photo
 
 
 ###### Functionality
+- [ ] Fix "details" box for 'Edit Activity' page to save update
 - [ ] Include ability to log-in via oAuth
 - [ ] Include ability for user to upload a photo and bio on their profile page
-- [ ] Include ability for user to view previous activity by week / month / activity type
-- [ ] Include ability for user to delete their profile
+- [ ] Include ability for user to view analytics like week / month / activity type
+- [ ] Include ability for user to delete or archive their profile
 - [ ] Include suggestion functionality that takes into account the time of day
 - [ ] Include future recommendations based on weather forecast (i.e. out to 'x' number of days)
 - [ ] Include current weather via shared location services from user's GPS on their device
@@ -139,6 +142,7 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [X] Include top header including the FITforecast logo and a profile icon that links to a profile page
 - [X] Include 8 individual page views, including:  'Home' screen, 'FITforecast' screen, 'Add Activity' screen, 'Edit Activity' screen, 'My Activity' screen, 'Edit Activity' screen, 'Profile' screen, and 'Edit Profile' screen
 - [X] Include visual optimization for mobile view
+- [X] Include a 'Brand Kit' for future development use
 
 ###### Functionality
 - [X] Include ability to create a new user profile including: username, email, password, and location
@@ -163,7 +167,7 @@ The minimum viable product (MVP) goal is a functional OKR tool with basic CSS st
 - [ ] Include CSS styling following a 'Brand Kit'
 - [ ] Include a 'Brand Kit' for future development use
 - [ ] Include visual optimization for desktop and tablet
-- [ ] Include a carousel view on FITforecast view to see 7-day forecast
+- [ ] Include a carousel view on FITforecast view to see 3-day forecast
 
 ###### Functionality
 - [X] Include a "leaderboard" of all users ranked in descending order by total activity

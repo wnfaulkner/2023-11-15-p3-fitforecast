@@ -1,8 +1,8 @@
 .activity {
     list-style-type: none; 
-    background-color: #289C27;
+    background-color: lightgray;
     text-decoration: none;
-    color: white;
+    color: black;
     border-radius: 10px; 
     /* margin-right: 20px; */
     margin-top: 40px;
@@ -13,18 +13,18 @@
     list-style-type: none; 
     background-color:#F2B722;
     text-decoration: none;
-    border: 2px solid #FFFFFF;
-    color: #FFFFFF;
+    border: 2px solid black;
+    color: black;
 }
 
 .activity-link {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .activity-link:hover {
-    background-color: white;
-    color: #FFFFFF;
+    background-color: black;
+    color: black;
     /* font-weight: bold; */
 }
 
