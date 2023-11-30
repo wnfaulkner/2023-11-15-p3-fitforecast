@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getUser, updateUserState } from "../../utilities/users-service";
-
 export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
     console.log('user at start', user);
     const { userId } = useParams();
@@ -10,7 +9,6 @@ export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
     const username = user.name;
     const email = user.email;
     const location = user.location;
-    
     const navigate = useNavigate();
     const [updateProfile, setUpdateProfile] = useState({
         profilePic: user.profilePic,
@@ -35,7 +33,6 @@ export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
                     'Content-Type': 'application/json',
                 }, body: JSON.stringify(updateProfile)
             });
-    
             console.log('updateProfile after fetch', updateProfile);
             // console.log('updatedprofile location', updateProfile.location)
             // console.log('user location', user.location)
@@ -57,15 +54,13 @@ export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
             console.error('Location Update Error', error);
         }
     }
-    
-
     return (
         <div className="page-content">
             <form onSubmit={handleSubmit}>
                 <h1>Edit Profile Page</h1>
                 {/* <p>{profilePic}</p> */}
                 <label htmlFor="">Username:
-                <input 
+                <input
                     type="text"
                     name="name"
                     placeholder={username}
@@ -74,7 +69,7 @@ export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
                     />
                 </label>
                 <label htmlFor="">Email:
-                <input 
+                <input
                     type="text"
                     name="email"
                     value={updateProfile.email}
@@ -82,7 +77,7 @@ export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
                     />
                 </label>
                 <label htmlFor="">ZIP:
-                <input 
+                <input
                     type="number"
                     name="location"
                     value={updateProfile.location}
@@ -94,3 +89,5 @@ export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
         </div>
     );
 }
+
+

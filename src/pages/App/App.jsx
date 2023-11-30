@@ -22,6 +22,7 @@ import MyActivityLogsPage from '../MyActivityLogsPage/MyActivityLogsPage';
 import EditActivityLogPage from '../EditActivityLogPage/EditActivityLogPage';
 
 import './App.css';
+import { useReducer } from 'react';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -45,6 +46,7 @@ export default function App() {
   }
 
   useEffect(() => {
+    console.log('is the useEffect running')
     // console.log(sessionToken)
     // console.log('The TopNavBar component was rendered from the useEffect');
 
@@ -107,6 +109,7 @@ export default function App() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
+    // console.log('users location is:',user.location)
   }, [sessionToken]);
 
   return (
