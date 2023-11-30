@@ -16,7 +16,7 @@ export default function MyActivityLogs({ activity }) {
 
     return (
         <div className="activity">
-            <Link to={`/myactivity/edit/${activityId}`} className="activity-link">
+            <Link to={`/myactivitylogs/edit/${activityId}`} className="activity-link">
             <div className="activity-row">
                 {date && <li>{date}</li>}
                 {activityType && <li>{activityType}</li>}

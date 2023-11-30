@@ -1,11 +1,24 @@
 // HOME PAGE
 
+import React, { useEffect } from 'react';
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 
 import '../../index.css'
 import './HomePage.css'
 
 export default function HomePage({  weatherData, recommendedActivity }) {
+
+	const [currentWeatherData, setCurrentWeatherData] = useState(weatherData);
+
+	// useEffect to update weather data when it changes
+	useEffect(() => {
+	  setCurrentWeatherData(weatherData);
+	}, [weatherData]);
+  
+	if (!currentWeatherData) {
+	  return <h1>Loading...</h1>;
+	}
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
@@ -29,7 +42,9 @@ export default function HomePage({  weatherData, recommendedActivity }) {
 				<h3>{recommendedActivity.name}</h3>
 				<p>{recommendedActivity.recommendation}</p>
 			</div>
-				<Link to="/addactivitylog" className="button">Log this Work-Out</Link>
+			<div id="log-activity-button">
+				<Link to="/addactivitylog" className="button">Log this Activity</Link>
+			</div>	
 		</div>
 	);
 }

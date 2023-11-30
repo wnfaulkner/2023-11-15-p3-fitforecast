@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getUser, updateUserState } from "../../utilities/users-service";
 
-export default function EditProfilePage({ user, setUser }) {
+export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
     console.log('user at start', user);
     const { userId } = useParams();
     const profilePic = user.profilePic;
@@ -17,10 +17,10 @@ export default function EditProfilePage({ user, setUser }) {
         name: user.name,
         email: user.email,
         location: user.location,
-        user: user
+        user: user._id
     });
     console.log('updateProfile before inputChange', updateProfile);
-    
+    console.log('users id', updateProfile.user)
     const handleInputChange = (evt) => {
         setUpdateProfile({...updateProfile, [evt.target.name]: evt.target.value})
     };
@@ -37,13 +37,21 @@ export default function EditProfilePage({ user, setUser }) {
             });
     
             console.log('updateProfile after fetch', updateProfile);
+            // console.log('updatedprofile location', updateProfile.location)
+            // console.log('user location', user.location)
             // const updatedUser = await updateUserState(updateProfile);
             // console.log('After updateUserState', updatedUser);
             // console.log('user after fetch:', user);
             // fetch refreshtoken -> set in local storage -> navigate
-            setUser(updateProfile)
+            // if (updateProfile.location !== user.location) {
+            //     const response = await fetch(`http://localhost:3001/api/users/refresh-token?userId=${updateProfile.user}`)
+            //     const { newToken } = await response.json();
+            //     localStorage.setItem('token', newToken);
+            // }
+            setUser(updateProfile);
+            await updateUserState();
             // console.log('user after setUser', user);
-    
+            fetchWeatherData()
             navigate('/profile');
         } catch (error) {
             console.error('Location Update Error', error);
