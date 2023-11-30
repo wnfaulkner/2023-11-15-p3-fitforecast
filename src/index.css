@@ -118,16 +118,15 @@ input:focus {
 }
 
 button, a.button {
-  margin: 1vmin;
-  padding: 1vmin;
+  padding: 5vmin;
   color: black;
   background-color: var(--ochre);
-  font-size: 2vmin;
+  font-size: 20px;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
   border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
+  border-radius: 2vmin;
   outline: none;
   cursor: pointer;
 }
