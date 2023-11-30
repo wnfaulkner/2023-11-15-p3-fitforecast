@@ -1,9 +1,5 @@
 /* COMMUNITY DASHBOARD CSS */
 
-*{
-  /* border: 1px solid grey; */
-}
-
 #community-leader-dashboard {
   background: var(--light-grey);
   border-radius: 5px;
@@ -16,11 +12,6 @@
   /* border: 1px solid grey; */
   background: var(--ochre);
 }
-
-/* #community-leader-dashboard-contents {
-  display: flex;
-  border: 1px solid blue;
-} */
 
 
 

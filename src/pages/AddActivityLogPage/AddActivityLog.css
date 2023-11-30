@@ -1,9 +1,4 @@
-.page-content * {
-  /* border: 1px solid grey; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
-}
+/* ADD ACTIVITY LOG CSS */
 
 #new-activity-log-form {
   display: flex;
@@ -11,7 +6,7 @@
   justify-content: center;
   align-items: center;
   width: 75vw;
-  min-width: 400px;
+  min-width: 300px;
   background: var(--light-grey);
   border-radius: 10px;
   padding: 20px;
@@ -22,6 +17,7 @@
   text-align: center;
   border: 1px solid lightgray;
   border-radius: 5px;
+  font-size: clamp(14px, 2.8vmin, 20px);
 }
 
 #log-title-input {
@@ -33,14 +29,10 @@
   grid-template-columns: 20vw 20vw;
   font-size: clamp(14px, 2.8vmin, 20px);
   padding: 0.5vh;
-  /* min-width: 350px; */
-  /* justify-content: end; */
-  /* width: 40vw; */
 }
 
 .label-input-pair select {
   font-size: clamp(14px, 2.5vmin, 20px);
-  /* margin-bottom: 10px; */
   margin-left: 10px;
   border: 1px solid lightgray;
   border-radius: 5px;
