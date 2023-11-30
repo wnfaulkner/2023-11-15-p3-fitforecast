@@ -9,7 +9,7 @@ import './ProfilePage.css'
 export default function ProfilePage({ user, setUser }) {
     const navigate = useNavigate();
     
-    const profilePic = user.profilePic;
+    // const profilePic = user.profilePic;
     const username = user.name;
     const email = user.email;
     const location = user.location;
