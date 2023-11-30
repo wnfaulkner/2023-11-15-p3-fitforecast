@@ -7,7 +7,7 @@ import { getAct, getActs, updateAct, deleteAct } from '../../utilities/activity-
 import { updateUserState } from '../../utilities/users-service';
 import moment from 'moment';
 
-export default function EditActivityLogPage() {
+export default function EditActivityLogPage({ activityList }) {
     const navigate = useNavigate();
     const { activityId } = useParams();
     const [currentActivity, setCurrentActivity] = useState(null);
@@ -59,45 +59,47 @@ export default function EditActivityLogPage() {
     return (
         <div className="page-content">
             <h1>Edit Activity Page</h1>
-            <form onSubmit={handleSubmit}>
+            <form id="new-activity-log-form" onSubmit={handleSubmit}>
             <input 
+                    id="log-title-input"
                     type="text" 
                     placeholder={currentActivity.name}
                     name="name"
                     value={currentActivity.name}
                     onChange={handleInputChange}
                     /><br/>
-                <label htmlFor="">currentActivity Type
-                    <select 
-                        name="currentActivityType"
-                        value={currentActivity.activityType}
-                        onChange={handleInputChange}
-                        >
-                        <option value="Run">Run</option>
-                        <option value="Hike">Hike</option>
-                        <option value="Yoga">Yoga</option>
-                        <option value="Walk">Walk</option>
-                        <option value="Weights">Weights</option>
-                        <option value="Meditation">Meditation</option>
-                    </select>
-                </label>
-                <input
+                            <input
+                    id="log-date-input"
                     type="date"
                     // value={new Date(currentActivity.date).toLocaleDateString().split('T')[0]}
                     value={moment.utc(currentActivity.date).format('YYYY-MM-DD')}
                     onChange={handleInputChange}
                     name="date"
                 /><br/>
-                <label htmlFor="">Indoor/Outdoor
+            <div className="label-input-pairs">
+                <label htmlFor="" className="label-input-pair">Activity Type
                     <select 
-                        name="inOut"
-                        value={currentActivity.inOut}
+                        name="currentActivityType"
+                        value={currentActivity.activityType}
+                        onChange={handleInputChange}
+                        >
+                                    {activityList.map((activity) => (
+              <option key={activity.name} value={activity.name}>
+                {activity.name}
+              </option>
+            ))}
+                    </select>
+                </label>
+                <label htmlFor="" className="label-input-pair">Indoor/Outdoor
+                    <select 
+                        name="indoorOutdoor"
+                        value={currentActivity.indoorOutdoor}
                         onChange={handleInputChange}>
                         <option value="Indoor">Indoor</option>
                         <option value="Outdoor">Outdoor</option>
                     </select>
                 </label>
-                <label htmlFor="">Duration
+                <label htmlFor="" className="label-input-pair" >Duration
                     <select 
                     name="duration"
                     value={currentActivity.duration}
@@ -109,7 +111,7 @@ export default function EditActivityLogPage() {
                         <option value="2hr+">2hr+</option>
                     </select>
                 </label>
-                <label htmlFor="">Rating
+                <label htmlFor="" className="label-input-pair">Rating
                     <select 
                     name="rating"
                     value={currentActivity.rating}
@@ -122,13 +124,17 @@ export default function EditActivityLogPage() {
                         <option value="5">★★★★★</option>
                     </select>
                 </label>
-                <input 
-                type="text"
-                name="details"
-                placeholder="Description"
-                value={currentActivity.description}
-                onChange={handleInputChange}
-                /><br/>
+            </div>
+
+                <textarea
+                    id="description-textarea" 
+                    rows="10"
+                    cols="50"
+                    name="details"
+                    placeholder="Description"
+                    value={currentActivity.description}
+                    onChange={handleInputChange}
+        />
                     <button type="submit" className="button">Update Activity</button>
                 <button type="button" onClick={handleDelete} className="log-out-button">Delete Activity</button>
             </form>
