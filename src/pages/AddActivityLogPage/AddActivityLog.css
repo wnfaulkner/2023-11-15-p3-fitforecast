@@ -3,6 +3,8 @@
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
+  
+
 }
 
 #new-activity-log-form {
@@ -10,31 +12,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vw;
-  background: #B2D2A4;
-  border-radius: 5px;
+  width: 75vw;
+  background: var(--light-grey);
+  border-radius: 10px;
   padding: 20px;
   margin: auto; 
 }
 
 #log-title-input, #log-date-input {
   text-align: center;
-  border: 1px solid grey;
-  border-radius: 3px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 
 #log-title-input {
-  width: 35vw
+  width: 50vw
 }
 
 .label-input-pair {
   display: grid;
   grid-template-columns: 20vw 20vw;
+  font-size: 16px;
   /* justify-content: end; */
   /* width: 40vw; */
 }
 
+.label-input-pair select {
+  font-size: 16px; /* Adjust the font size as needed */
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 100%;
+  height: 2vw;
+}
+
 #description-textarea {
-  border-radius: 3px;
-  width: 35vw
+  border-radius: 5px;
+  width: 50vw;
+  font-size: 16px;
+  border: 1px solid lightgray;
 }
