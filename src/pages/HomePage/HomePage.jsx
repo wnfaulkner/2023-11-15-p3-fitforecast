@@ -42,7 +42,9 @@ export default function HomePage({  weatherData, recommendedActivity }) {
 				<h3>{recommendedActivity.name}</h3>
 				<p>{recommendedActivity.recommendation}</p>
 			</div>
-				<Link to="/addactivitylog" className="button">Log this Work-Out</Link>
+			<div id="log-activity-button">
+				<Link to="/addactivitylog" className="button">Log this Activity</Link>
+			</div>	
 		</div>
 	);
 }

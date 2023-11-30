@@ -86,12 +86,6 @@
   margin: 0 auto; 
 }
 
-.today-avg-forecast {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .weather-text {
   padding: 2vh;
   font-weight: bold;
