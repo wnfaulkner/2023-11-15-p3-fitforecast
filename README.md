@@ -1,4 +1,4 @@
-# ![Title Banner](./public/images/banner.png)
+# ![Banner Photo](./public/images/banner.png)
 A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), [Nathan Holliday](https://github.com/nholliday314), & [Leah Livingston](https://github.com/lvlivingston).
 
 
@@ -38,7 +38,7 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 ### **Screenshots of the App**
 
 ###### Landing Page
-![Wireframe](./public/images/FINALwireframes.png)
+![Final Wireframe](./public/images/FINALwireframes.png)
 
 
 
