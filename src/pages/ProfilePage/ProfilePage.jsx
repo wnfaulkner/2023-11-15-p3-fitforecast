@@ -28,7 +28,7 @@ export default function ProfilePage({ user, setUser }) {
         <div className="page-content">
             <div className="user-profile">
                 <h2>Your Profile</h2>
-                <p>{profilePic}</p>
+                {/* <p>{profilePic}</p> */}
                 <p>{username}</p>
                 <p>{email}</p>
                 <p>{location}</p>

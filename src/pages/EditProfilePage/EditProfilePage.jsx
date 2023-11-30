@@ -63,7 +63,7 @@ export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
         <div className="page-content">
             <form onSubmit={handleSubmit}>
                 <h1>Edit Profile Page</h1>
-                <p>{profilePic}</p>
+                {/* <p>{profilePic}</p> */}
                 <label htmlFor="">Username:
                 <input 
                     type="text"
