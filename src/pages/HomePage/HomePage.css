@@ -18,6 +18,12 @@
   justify-content: center;
 }
 
+.weather-icon {
+  width: 20%;
+  display: block;
+  margin: 0 auto; 
+}
+
 #today-avg-forecast, #today-recommended-activity {
   background: rgb(236, 236, 236);
   padding: 10px;
@@ -32,4 +38,3 @@
 #today-recommended-activity, #log-activity-button {
   margin-top: 30px;
 }
-
