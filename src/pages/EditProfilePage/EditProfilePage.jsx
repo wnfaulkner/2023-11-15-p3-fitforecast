@@ -43,12 +43,13 @@ export default function EditProfilePage({ user, setUser }) {
             // console.log('After updateUserState', updatedUser);
             // console.log('user after fetch:', user);
             // fetch refreshtoken -> set in local storage -> navigate
-            if (updateProfile.location !== user.location) {
-                const response = await fetch('http://localhost:3001/api/users/refresh-token')
-                const { newToken } = await response.json();
-                localStorage.setItem('token', newToken);
-            }
-            setUser(updateProfile)
+            // if (updateProfile.location !== user.location) {
+            //     const response = await fetch(`http://localhost:3001/api/users/refresh-token?userId=${updateProfile.user}`)
+            //     const { newToken } = await response.json();
+            //     localStorage.setItem('token', newToken);
+            // }
+            setUser(updateProfile);
+            await updateUserState();
             // console.log('user after setUser', user);
             navigate('/profile');
         } catch (error) {

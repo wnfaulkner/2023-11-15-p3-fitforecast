@@ -14,8 +14,9 @@ module.exports = {
 
 
 async function updateProfile(req, res) {
+  console.log(req.body.user)
   try {
-    const userId = req.body.user._id;
+    const userId = req.body.user;
     const updatedFields = {
       'location': req.body.location,
       'name': req.body.name,
