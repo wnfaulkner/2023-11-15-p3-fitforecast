@@ -8,7 +8,8 @@ module.exports = {
     checkToken,
     updateToken,
     updateProfile,
-    index
+    index,
+    refreshToken
 };
 
 
@@ -72,6 +73,24 @@ async function updateToken(req, res) {
     console.log(err)
   }
 }
+
+async function refreshToken(req, res) {
+  try {
+    const userId = req.query.userId;
+    console.log('userID from controller', userId);
+
+    // Revoke the current token (e.g., update the user's record in the database)
+
+    // Generate a new token for the user
+    const user = await User.findById(userId);
+    const newToken = createJWT(user);
+
+    res.json({ newToken });
+  } catch (err) {
+    console.error('Error refreshing token:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
   
 async function create(req, res) {
   try {
@@ -108,7 +127,6 @@ function checkToken(req, res) {
 // Helper functions
 function createJWT(user) {
   return jwt.sign(
-    
     { user }, 
     process.env.SECRET,
     { expiresIn: '24h' }
