@@ -33,9 +33,8 @@ export default function HomePage({  weatherData, recommendedActivity }) {
 			<div id="today-avg-forecast">
 				<h1>Today's Weather</h1>
 				<h3>{locationName}, {regionName}</h3>
-				<p>Today's Average Temp: {todayAvgTemp}&deg;F</p>
 				<img src={todayAvgConditionIcon} className="weather-icon" alt="weather icon"/>
-				<p>{todayAvgConditionText}</p>
+				<p>{todayAvgTemp}&deg;F and {todayAvgConditionText}</p>
 			</div>
 			<div id="today-recommended-activity">
 				<h1>Recommended Activity</h1>
