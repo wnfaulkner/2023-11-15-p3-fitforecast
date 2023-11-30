@@ -50,7 +50,7 @@ export default function SignUpForm ({ setUser }) {
         return (
           <div>
             <div className="form-container">
-              <form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>
+              <form className="form" autoComplete="off" onSubmit={handleSubmit}>
                 {/* <label>Profile Picture</label>
                 <input type="text" name="profilePic" value={profile.profilePic} onChange={handleChange} placeholder='Paste your image URL here' /> */}
                 <label className="label">Username</label>
