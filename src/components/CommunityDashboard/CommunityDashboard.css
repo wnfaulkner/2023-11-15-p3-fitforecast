@@ -14,7 +14,7 @@
   grid-template-columns: 30vw 30vw 30vw;
   padding: 5px;
   /* border: 1px solid grey; */
-  background: var(--light-blue);
+  background: var(--ochre);
 }
 
 /* #community-leader-dashboard-contents {
