@@ -131,8 +131,8 @@ export default function EditActivityLogPage({ activityList }) {
                     rows="10"
                     cols="50"
                     name="details"
-                    placeholder="Description"
-                    value={currentActivity.description}
+                    placeholder={currentActivity.details}
+                    value={currentActivity.details}
                     onChange={handleInputChange}
         />
                     <button type="submit" className="button">Update Activity</button>
