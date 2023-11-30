@@ -17,10 +17,10 @@ export default function EditProfilePage({ user, setUser }) {
         name: user.name,
         email: user.email,
         location: user.location,
-        user: user
+        user: user._id
     });
     console.log('updateProfile before inputChange', updateProfile);
-    
+    console.log('users id', updateProfile.user)
     const handleInputChange = (evt) => {
         setUpdateProfile({...updateProfile, [evt.target.name]: evt.target.value})
     };
@@ -37,13 +37,20 @@ export default function EditProfilePage({ user, setUser }) {
             });
     
             console.log('updateProfile after fetch', updateProfile);
+            // console.log('updatedprofile location', updateProfile.location)
+            // console.log('user location', user.location)
             // const updatedUser = await updateUserState(updateProfile);
             // console.log('After updateUserState', updatedUser);
             // console.log('user after fetch:', user);
             // fetch refreshtoken -> set in local storage -> navigate
+            if (updateProfile.location !== user.location) {
+                const response = await fetch(`http://localhost:3001/api/users/refresh-token?userId=${updateProfile.user}`);
+                console.log('Response from server:', response);
+                const { newToken } = await response.json();
+                localStorage.setItem('token', newToken);
+            }
             setUser(updateProfile)
             // console.log('user after setUser', user);
-    
             navigate('/profile');
         } catch (error) {
             console.error('Location Update Error', error);

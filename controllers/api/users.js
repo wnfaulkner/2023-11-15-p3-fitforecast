@@ -8,7 +8,8 @@ module.exports = {
     checkToken,
     updateToken,
     updateProfile,
-    index
+    index,
+    refreshToken
 };
 
 
@@ -68,6 +69,17 @@ async function updateToken(req, res) {
   try {
     const user = await User.findById(req.user._id);
     res.json(createJWT(user))
+  } catch (err) {
+    console.log(err)
+  }
+}
+async function refreshToken(req, res) {
+  try {
+    const userId = req.query.userId;
+    console.log('userID from controller', userId)
+    const user = await User.findById(userId);
+    const newToken = createJWT(user)
+    res.json(newToken)
   } catch (err) {
     console.log(err)
   }

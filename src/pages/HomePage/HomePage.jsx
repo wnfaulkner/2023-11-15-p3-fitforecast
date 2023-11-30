@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function HomePage({  weatherData, recommendedActivity }) {
   
-	//console.log(weatherData)
+	console.log('weather data on homepage:',weatherData)
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
