@@ -41,7 +41,7 @@ export default function EditActivityLogPage() {
             date: formattedDate,
         }));
             await updateAct(currentActivity);
-            navigate('/myactivity')
+            navigate('/myactivitylogs')
         } catch (err) {
             console.log('Error submitting new activity details', err);
         }
@@ -50,7 +50,7 @@ export default function EditActivityLogPage() {
         try {
             await deleteAct(currentActivity._id); // Assuming you have a deleteAct function
             await updateUserState(); // Assuming you have this function to update user state
-            navigate('/myactivity');
+            navigate('/myactivitylogs');
         } catch (err) {
             console.log('Error deleting activity:', err);
         }
