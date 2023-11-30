@@ -2,15 +2,13 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getUser, updateUserState } from "../../utilities/users-service";
-
-export default function EditProfilePage({ user, setUser }) {
+export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
     console.log('user at start', user);
     const { userId } = useParams();
     const profilePic = user.profilePic;
     const username = user.name;
     const email = user.email;
     const location = user.location;
-    
     const navigate = useNavigate();
     const [updateProfile, setUpdateProfile] = useState({
         profilePic: user.profilePic,
@@ -35,7 +33,6 @@ export default function EditProfilePage({ user, setUser }) {
                     'Content-Type': 'application/json',
                 }, body: JSON.stringify(updateProfile)
             });
-    
             console.log('updateProfile after fetch', updateProfile);
             // console.log('updatedprofile location', updateProfile.location)
             // console.log('user location', user.location)
@@ -43,28 +40,27 @@ export default function EditProfilePage({ user, setUser }) {
             // console.log('After updateUserState', updatedUser);
             // console.log('user after fetch:', user);
             // fetch refreshtoken -> set in local storage -> navigate
-            if (updateProfile.location !== user.location) {
-                const response = await fetch(`http://localhost:3001/api/users/refresh-token?userId=${updateProfile.user}`);
-                console.log('Response from server:', response);
-                const { newToken } = await response.json();
-                localStorage.setItem('token', newToken);
-            }
-            setUser(updateProfile)
+            // if (updateProfile.location !== user.location) {
+            //     const response = await fetch(`http://localhost:3001/api/users/refresh-token?userId=${updateProfile.user}`)
+            //     const { newToken } = await response.json();
+            //     localStorage.setItem('token', newToken);
+            // }
+            setUser(updateProfile);
+            await updateUserState();
             // console.log('user after setUser', user);
+            fetchWeatherData()
             navigate('/profile');
         } catch (error) {
             console.error('Location Update Error', error);
         }
     }
-    
-
     return (
         <div className="page-content">
             <form onSubmit={handleSubmit}>
                 <h1>Edit Profile Page</h1>
                 <p>{profilePic}</p>
                 <label htmlFor="">Username:
-                <input 
+                <input
                     type="text"
                     name="name"
                     placeholder={username}
@@ -73,7 +69,7 @@ export default function EditProfilePage({ user, setUser }) {
                     />
                 </label>
                 <label htmlFor="">Email:
-                <input 
+                <input
                     type="text"
                     name="email"
                     value={updateProfile.email}
@@ -81,7 +77,7 @@ export default function EditProfilePage({ user, setUser }) {
                     />
                 </label>
                 <label htmlFor="">ZIP:
-                <input 
+                <input
                     type="number"
                     name="location"
                     value={updateProfile.location}
@@ -93,3 +89,5 @@ export default function EditProfilePage({ user, setUser }) {
         </div>
     );
 }
+
+

@@ -6,7 +6,7 @@ import './SignUpForm.css';
 export default function SignUpForm ({ setUser }) {
     const navigate = useNavigate();
     const [profile, setProfile] = useState({
-      profilePic: '',
+      // profilePic: '',
       name: '',
       email: '',
       location: '',
@@ -51,8 +51,8 @@ export default function SignUpForm ({ setUser }) {
           <div>
             <div className="form-container">
               <form className="signup-form" autoComplete="off" onSubmit={handleSubmit}>
-                <label>Profile Picture</label>
-                <input type="text" name="profilePic" value={profile.profilePic} onChange={handleChange} placeholder='Paste your image URL here' />
+                {/* <label>Profile Picture</label>
+                <input type="text" name="profilePic" value={profile.profilePic} onChange={handleChange} placeholder='Paste your image URL here' /> */}
                 <label>Username</label>
                 <input type="text" name="name" value={profile.name} onChange={handleChange} placeholder='Choose a username (i.e. johndoe)' required />
                 <label>Email</label>

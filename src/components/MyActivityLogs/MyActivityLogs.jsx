@@ -13,11 +13,10 @@ export default function MyActivityLogs({ activity }) {
     const details = activity.details;
     const rating = activity.rating;
     const date = moment.utc(new Date(activity.date)).format('YYYY-MM-DD')
-    console.log(new Date(activity.date).toISOString())
-    // console.log('date:',date)
+
     return (
         <div className="activity">
-            <Link to={`/myactivity/edit/${activityId}`} className="activity-link">
+            <Link to={`/myactivitylogs/edit/${activityId}`} className="activity-link">
             <div className="activity-row">
                 {date && <li>{date}</li>}
                 {activityType && <li>{activityType}</li>}

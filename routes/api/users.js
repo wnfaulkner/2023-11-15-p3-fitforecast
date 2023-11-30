@@ -13,6 +13,7 @@ router.post('/', usersCtrl.create);
 router.post('/login', usersCtrl.login);
 
 router.get('/update-token', usersCtrl.updateToken)
+
 router.get('/refresh-token', usersCtrl.refreshToken)
 // PUT 'Update Profile' button on Edit Profile Page
 router.patch('/profile/edit', usersCtrl.updateProfile)

@@ -14,7 +14,7 @@ export default function MyActivityLogsPage({ user, setUser }) {
       const updatedUser = getUser();
       // Update the state with the latest user data
       setUser(updatedUser);
-      console.log('Updated user in MyActivityPage:', updatedUser);
+      // console.log('Updated user in MyActivityPage:', updatedUser);
     };
     fetchUser();
   }, [navigate]);
@@ -28,8 +28,8 @@ export default function MyActivityLogsPage({ user, setUser }) {
   
   return (
     <div className="page-content">
-      <h1>My Activity Page</h1>
-      {loggedActivity.length ? <ul>{loggedActivity}</ul> : <h4>No Activities Yet. Stop being a bum!</h4>}
+      <h1>My Activity Log</h1>
+      {loggedActivity.length ? <ul>{loggedActivity}</ul> : <h4>You haven't logged any activities yet...</h4>}
     </div>
   );
 }

@@ -34,21 +34,22 @@ export default function App() {
   const sessionToken = getToken()
   const activityList = getActivityList()
 
+  const fetchWeatherData = async function () {
+    try {
+      const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
+      setWeatherData(response.data);
+      return response.data; // Return the weather data
+    } catch (error) {
+      console.error('Error fetching data from the server:', error);
+      throw error; // Re-throw the error to be caught in the next .catch block
+    }
+  }
+
   useEffect(() => {
     console.log('is the useEffect running')
     // console.log(sessionToken)
     // console.log('The TopNavBar component was rendered from the useEffect');
-    async function fetchWeatherData() {
-      try {
-        const response = await axios.get(`/api/weather/fetch-weather-data?location=${user.location}`);
-        setWeatherData(response.data);
-        return response.data; // Return the weather data
-      } catch (error) {
-        console.error('Error fetching data from the server:', error);
-        throw error; // Re-throw the error to be caught in the next .catch block
-      }
-    }
-    
+
     function getRecommendedActivity(weatherData) {
       //console.log(weatherData.forecast)
       const todayForecast = weatherData.forecast.forecastday[0].day
@@ -127,7 +128,7 @@ export default function App() {
             <Route path="/myactivitylogs" element={ <MyActivityLogsPage user={ user } setUser={ setUser } /> } />
             <Route path="/myactivitylogs/edit/:activityId" element={ <EditActivityLogPage user={ user } setUser={ setUser } /> } />
             <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
-            <Route path="/profile/edit/" element={ <EditProfilePage user={ user } setUser={ setUser } /> } />
+            <Route path="/profile/edit/" element={ <EditProfilePage user={ user } setUser={ setUser } fetchWeatherData={ fetchWeatherData } /> } />
           </Routes>
           {window.innerWidth < 768 && <BottomNavBar user={ user } setUser={ setUser } />}
         </>

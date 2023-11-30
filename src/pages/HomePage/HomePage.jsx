@@ -1,10 +1,24 @@
 // HOME PAGE
 
+import React, { useEffect } from 'react';
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 
+import '../../index.css'
+import './HomePage.css'
+
 export default function HomePage({  weatherData, recommendedActivity }) {
+
+	const [currentWeatherData, setCurrentWeatherData] = useState(weatherData);
+
+	// useEffect to update weather data when it changes
+	useEffect(() => {
+	  setCurrentWeatherData(weatherData);
+	}, [weatherData]);
   
-	console.log('weather data on homepage:',weatherData)
+	if (!currentWeatherData) {
+	  return <h1>Loading...</h1>;
+	}
 
 	const locationName = weatherData.location.name
 	const regionName = weatherData.location.region
@@ -18,9 +32,9 @@ export default function HomePage({  weatherData, recommendedActivity }) {
 		<div className="page-content">
 			<div id="today-avg-forecast">
 				<h1>Today's Weather</h1>
-				<p>{locationName}, {regionName}</p>
+				<h3>{locationName}, {regionName}</h3>
 				<p>Today's Average Temp: {todayAvgTemp}&deg;F</p>
-				<img src={todayAvgConditionIcon} className="weather-icon"/>
+				<img src={todayAvgConditionIcon} className="weather-icon" alt="weather icon"/>
 				<p>{todayAvgConditionText}</p>
 			</div>
 			<div id="today-recommended-activity">

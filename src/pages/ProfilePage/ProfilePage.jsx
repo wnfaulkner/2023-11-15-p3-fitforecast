@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function ProfilePage({ user, setUser }) {
     const navigate = useNavigate();
     
-    const profilePic = user.profilePic;
+    // const profilePic = user.profilePic;
     const username = user.name;
     const email = user.email;
     const location = user.location;
@@ -25,7 +25,7 @@ export default function ProfilePage({ user, setUser }) {
     return (
         <div className="page-content">
             <h1> Profile Page</h1>
-            <p>{profilePic}</p>
+            {/* <p>{profilePic}</p> */}
             <p>{username}</p>
             <p>{email}</p>
             <p>{location}</p>
