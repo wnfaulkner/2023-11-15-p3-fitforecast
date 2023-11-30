@@ -26,7 +26,7 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 
 ---
 ## ERDs
-![ERD](./src/images/final/finalERD.jpg)
+![ERD](./src/images/final/finalERD.png)
 
 
 ---
@@ -49,7 +49,7 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 ### **Screenshots of the App**
 
 ###### Landing Page
-![Final Wireframe](./src/images/final/finalWireframes.png)
+![Final Wireframes](./src/images/final/finalWireframes.png)
 
 
 
