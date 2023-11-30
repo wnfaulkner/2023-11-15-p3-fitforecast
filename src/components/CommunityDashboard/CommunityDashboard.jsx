@@ -2,20 +2,22 @@
 
 import CommunityDashboardUserCard from "./CommunityDashboardUserCard"
 
-export default function CommunityDashboard ({ allUsers, weatherData }) {
-    //console.log(weatherData)
+import './CommunityDashboard.css'
+
+export default function CommunityDashboard ({ allUsers }) {
+
     return (
         <div id='community-leader-dashboard'>
-            <h1>Community Leaderboard</h1>
-            <div id='community-leader-dashboard-items'>
-                <div>User</div>
-                <div>Location</div>
-                <div>Number of Activities Logged</div>
+            <h2>Community Leaderboard</h2>
+            <div id='community-leader-dashboard-headers'>
+                <div className="grid-item">User</div>
+                <div className="grid-item">Location</div>
+                <div className="grid-item">Number of Activities Logged</div>
             </div>
-            <ul id='community-dashboard-contents'>
+            <ul id='community-leader-dashboard-contents'>
                 {allUsers.map(
                     (u, idx) => (
-                    <CommunityDashboardUserCard user={u} key={idx} weatherData={weatherData} />
+                    <CommunityDashboardUserCard user={u} key={idx} />
                     )
                 )}
             </ul>

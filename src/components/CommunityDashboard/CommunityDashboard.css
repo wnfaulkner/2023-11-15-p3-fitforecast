@@ -1,0 +1,25 @@
+/* COMMUNITY DASHBOARD CSS */
+
+*{
+  /* border: 1px solid grey; */
+}
+
+#community-leader-dashboard {
+  background: var(--light-grey)
+}
+
+#community-leader-dashboard-headers {
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+  padding: 5px;
+  /* border: 1px solid grey; */
+  background: var(--light-blue);
+}
+
+/* #community-leader-dashboard-contents {
+  display: flex;
+  border: 1px solid blue;
+} */
+
+
+

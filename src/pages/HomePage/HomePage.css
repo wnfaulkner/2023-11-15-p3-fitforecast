@@ -12,17 +12,17 @@
   width: 90vw;
 }
 
+.weather-icon {
+  width: 20%;
+  display: block;
+  margin: 0 auto; 
+}
+
+
 #today-avg-forecast, #today-recommended-activity {
   width: 50vw;
   background: rgb(236, 236, 236);
+  padding: 10px;
   margin: 10px;
   border-radius: 5px;
-}
-
-#today-avg-forecast {
-  /* align-self: flex-start; */
-}
-
-#today-recommended-activity {
-  /* background: black; */
 }

@@ -4,6 +4,8 @@ import * as userService from '../../utilities/users-service';
 import { getUser } from '../../utilities/users-service';
 import { useNavigate } from "react-router-dom";
 
+import './ProfilePage.css'
+
 export default function ProfilePage({ user, setUser }) {
     const navigate = useNavigate();
     
@@ -24,13 +26,15 @@ export default function ProfilePage({ user, setUser }) {
     }
     return (
         <div className="page-content">
-            <h1> Profile Page</h1>
-            <p>{profilePic}</p>
-            <p>{username}</p>
-            <p>{email}</p>
-            <p>{location}</p>
-            <Link to="/profile/edit">Edit Location</Link>
-            <Link to="" onClick={ handleLogOut } className="log-out-button">Log Out</Link>
+            <div className="user-profile">
+                <h2>Your Profile</h2>
+                <p>{profilePic}</p>
+                <p>{username}</p>
+                <p>{email}</p>
+                <p>{location}</p>
+                <Link to="/profile/edit" className="profile-button">Edit Profile</Link>
+            </div>
+            <Link to="" onClick={ handleLogOut } className="profile-button" id="logout-button">Log Out</Link>
         </div>
     );
 }

@@ -2,15 +2,17 @@
 
 import React from "react";
 
-export default function CommunityDashboardUserCard ({ user, weatherData }) {
-  // console.log(weatherData)
+import './CommunityDashboardUserCard.css'
+
+export default function CommunityDashboardUserCard ({ user }) {
+
   const numActivitiesLogged = user.activitiesLogged.length
   
   return(
-    <li className="community-dashboard-user-card">
-      <div>{user.name}</div>
-      <div>{user.location}</div>
-      <div>{numActivitiesLogged}</div>
+    <li className="community-leader-dashboard-user-card">
+      <div className="grid-item">{user.name}</div>
+      <div className="grid-item">{user.location}</div>
+      <div className="grid-item">{numActivitiesLogged}</div>
     </li>
   )
 }

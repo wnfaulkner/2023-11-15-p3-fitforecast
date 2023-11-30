@@ -1,0 +1,15 @@
+/* COMMUNITY DASHBOARD USER CARD CSS */
+
+.community-leader-dashboard-user-card {
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: -40px;
+  margin-right: auto;
+  /* border: 1px solid grey; */
+  background: rgb(220, 220, 220);
+}
+
+
+

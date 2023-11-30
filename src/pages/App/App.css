@@ -52,7 +52,7 @@
 }
 
 .page-content {
-  padding-top: 15vh;
+  padding-top: 12vh;
   padding-bottom: 15vh;
 }
 
@@ -72,47 +72,4 @@
 
 .icon-style {
   height: 5vh;
-}
-
-.dashboard-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.weather-icon {
-  width: 10%;
-  display: block;
-  margin: 0 auto; 
-}
-
-.today-avg-forecast {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.weather-text {
-  padding: 2vh;
-  font-weight: bold;
-}
-
-.weather-details {
-  color: darkgrey;
-  font-style: italic;
-}
-
-.log-out-button {
-  margin: 10vh;
-  padding: 1vmin;
-  color: #FFFFFF;
-  background-color: red;
-  font-size: 2vmin;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
-  outline: none;
-  cursor: pointer;
 }
