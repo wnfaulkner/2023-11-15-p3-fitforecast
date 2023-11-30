@@ -126,7 +126,7 @@ export default function App() {
             <Route path="/communitydashboard" element={ <CommunityDashboardPage user={user} weatherData={ weatherData } /> } />
             <Route path="/addactivitylog" element={ <AddActivityLogPage user={ user } setUser={ setUser } activityList={ activityList } recommendedActivity={ recommendedActivity } /> } />
             <Route path="/myactivitylogs" element={ <MyActivityLogsPage user={ user } setUser={ setUser } /> } />
-            <Route path="/myactivitylogs/edit/:activityId" element={ <EditActivityLogPage user={ user } setUser={ setUser } /> } />
+            <Route path="/myactivitylogs/edit/:activityId" element={ <EditActivityLogPage user={ user } setUser={ setUser } activityList={ activityList } /> } />
             <Route path="/profile" element={ <ProfilePage user={ user } setUser={ setUser } /> } />
             <Route path="/profile/edit/" element={ <EditProfilePage user={ user } setUser={ setUser } fetchWeatherData={ fetchWeatherData } /> } />
           </Routes>
