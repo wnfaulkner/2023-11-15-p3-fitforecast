@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getUser, updateUserState } from "../../utilities/users-service";
 
-export default function EditProfilePage({ user, setUser }) {
+export default function EditProfilePage({ user, setUser, fetchWeatherData }) {
     console.log('user at start', user);
     const { userId } = useParams();
     const profilePic = user.profilePic;
@@ -51,6 +51,7 @@ export default function EditProfilePage({ user, setUser }) {
             setUser(updateProfile);
             await updateUserState();
             // console.log('user after setUser', user);
+            fetchWeatherData()
             navigate('/profile');
         } catch (error) {
             console.error('Location Update Error', error);
