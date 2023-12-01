@@ -47,14 +47,14 @@ export default function CommunityDashboardPage({ user, weatherData }) {
         <h3 className="today-avg-condition-text">{todayAvgConditionText}</h3>
       {/* </div> */}
       <div className="today-avg-condition-details">
-        <div className="grid-item">Temperature (Avg.): {todayAvgTemp}°F</div>
+        <div className="grid-item">Avg. Temp: {todayAvgTemp}°F</div>
         <div className="grid-item">Chance of Rain: {chanceOfRain}%</div>
-        <div className="grid-item">Wind (Max): {wind}mph</div>
+        <div className="grid-item">Wind max: {wind}mph</div>
         <div className="grid-item">Humidity: {humidity}%</div>
         <div className="grid-item">UV Index: Level {todayUv}</div>
         <div className="grid-item">Sunrise: {sunrise}</div>
         <div className="grid-item">Sunset: {sunset}</div>
-        <div className="grid-item">Moon Phase: {moonPhase}</div>
+        <div className="grid-item">{moonPhase} moon</div>
         <br/>
       </div>
       <Link to="/home" className="button">See my FITforecast</Link>

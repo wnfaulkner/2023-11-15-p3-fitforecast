@@ -1,4 +1,4 @@
-# ![Banner Photo](./public/images/banner.png)
+# ![Banner Photo](./src/images/final/finalreadmeBanner.jpg)
 A MERN-Stack application created by [Selam Beyene](https://github.com/Slmbyn), [Will Faulkner](https://github.com/wnfaulkner), [Nathan Holliday](https://github.com/nholliday314), & [Leah Livingston](https://github.com/lvlivingston).
 
 
@@ -26,19 +26,30 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 
 ---
 ## ERDs
-![ERD](./public/images/pitch/erd.png)
+![ERD](./src/images/final/finalERD.png)
 
 
 ---
 ### **Restful Routing Chart**
-![Restful Routing Chart](./public/images/pitch/restfulRoutingChart.png)
+
+| HTTP METHOD | URL | CRUD | Response | Notes |
+| -------------------- | ------------- | ---- | -------- | ----- |
+| `full index of items`  |   |   |   |   |
+| GET | `/check-token` | Read (index) | Check token | retrieves the JWT token |
+| POST | `/` | Create | Creates user | creates a user in the database |
+| POST | `/login` | Read | Login user | logs a user into the application |
+| GET | `/update-token` | Update | Update token | updates JWT token of user |
+| GET | `/refresh-token` | Update | Refresh token | refreshes JWT token of user |
+| PATCH | `/profile/edit` | Update | Edit profile | updates user profile  |
+| GET | `/` | Read | View Dashboard | retrieves community dashboard information  |
+| GET | `/fetch-weather-data` | Read | View Weather | retrieves weather information  |
 
 
 ---
 ### **Screenshots of the App**
 
 ###### Landing Page
-![Final Wireframe](./public/images/final/FINALwireframes.png)
+![Current Wireframes](./src/images/final/currentWireframes.png)
 
 
 

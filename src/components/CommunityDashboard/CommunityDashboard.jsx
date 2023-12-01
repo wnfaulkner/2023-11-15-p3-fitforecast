@@ -12,7 +12,7 @@ export default function CommunityDashboard ({ allUsers }) {
             <div id='community-leader-dashboard-headers'>
                 <div className="grid-item">User</div>
                 <div className="grid-item">Location</div>
-                <div className="grid-item">Number of Activities Logged</div>
+                <div className="grid-item"># of Activities</div>
             </div>
             <ul id='community-leader-dashboard-contents'>
                 {allUsers.map(

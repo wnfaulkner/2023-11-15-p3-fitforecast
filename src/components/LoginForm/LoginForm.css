@@ -5,15 +5,19 @@
     align-items: center;
     justify-content: center;
     height: 100vh; /* Adjust the height as needed */
-    background-color: #F2F1F0    ; /* Grey background color */
+    background-color: #F2F1F0; 
+    /* background-color: rgb(40, 156, 39, 0.6); */
   }
   
 .form {
     width: 75vw; /* Adjust the width as needed */
     padding: 50px;
-    background-color: rgb(40, 156, 39, 0.6);
+    background-color: rgb(40, 156, 39, 0.8);
     color: black;
     border-radius: 7px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Optional: Add a subtle box shadow */
   }
   
+.label {
+  font-size: 16px;
+}
