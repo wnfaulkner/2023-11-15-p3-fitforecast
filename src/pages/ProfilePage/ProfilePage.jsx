@@ -25,17 +25,17 @@ export default function ProfilePage({ user, setUser }) {
         setUser(null);
     }
     return (
-        <div className="user-profile big-margin">
-            <div>
-                <h2>Your Profile</h2>
+        <div >
+            <div className="user-profile big-margin">
+            <h2 className="header">Your Profile</h2>
                 {/* <p>{profilePic}</p> */}
                 <p>{username}</p>
                 <p>{email}</p>
                 <p>{location}</p>
                 <Link to="/profile/edit" className="profile-button">Edit Profile</Link>
+                <Link to="" onClick={ handleLogOut } className="profile-button" id="logout-button">Log Out</Link>
             </div>
             <div className="margin">
-                <Link to="" onClick={ handleLogOut } className="profile-button" id="logout-button">Log Out</Link>
             </div>
         </div>
     );
