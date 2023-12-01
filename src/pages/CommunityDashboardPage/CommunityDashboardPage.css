@@ -19,14 +19,25 @@
   display: grid;
   grid-template-columns: 20vw 20vw 20vw 20vw;
   color: var(--text-dark);
+  width: 80vw;
+  justify-self: stretch;
 }
 
 .today-avg-condition-details > .grid-item {
-  padding: 5px;
-  margin: 10px;
-  border-radius: 5px;
+  padding: 10px;
+  margin: 2vw;
+  border-radius: 7px;
   background: var(--light-grey);
   border: 1px solid rgb(194, 194, 194);
+}
+
+#community-leader-dashboard {
+  padding: 2px;
+  border-radius: 7px;
+}
+
+#community-leader-dashboard-headers {
+  border-radius: 7px;
 }
 
 
