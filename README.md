@@ -49,7 +49,7 @@ The application utilizes the third-party [WeatherAPI](https://www.weatherapi.com
 ### **Screenshots of the App**
 
 ###### Landing Page
-![Final Wireframes](./src/images/final/readmeWireframes.png)
+![Current Wireframes](./src/images/final/currentWireframes.png)
 
 
 
