@@ -1,10 +1,13 @@
 /* PROFILE PAGE CSS */
 
 .user-profile {
-  width: 50vw;
+  width: 80vw;
+  margin-top: 3vh;
+  padding: 30px;
   margin: auto;
   background: var(--light-grey);
   font-size: 1.2em;
+  border-radius: 7px;
 }
 
 .profile-button {
@@ -25,4 +28,13 @@
 
 #logout-button {
   background: var(--dark-green);
+  margin-top: 30px;
+}
+
+.margin {
+  margin-top: 30px;
+}
+
+.big-margin {
+  margin-top: 150px;
 }
